@@ -1,0 +1,31 @@
+{
+  "name": "cihaeuser/formbuilder",
+  "description": "Module bereinigen",
+  "type": "oxideshop-module",
+  "keywords": [
+    "oxid",
+    "modules"
+  ],
+  "version": "0.9.2",
+  "homepage": "https://www.seipp.com",
+  "license": [
+    "GPL-3.0-only"
+  ],
+  "extra": {
+    "oxideshop": {
+      "blacklist-filter": [
+        "documentation/**/*.*"
+      ],
+      "target-directory": "ci-haeuser/FormBuilder"
+    }
+  },
+  "require": {
+    "php": ">=7.0",
+    "sioweb/formgenerator": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ci\\Oxid\\FormBuilder\\": "../../../source/modules/ci-haeuser/FormBuilder/"
+    }
+  }
+}

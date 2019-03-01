@@ -1,0 +1,178 @@
+form.formbuilder {
+    font-size: 0;
+}
+
+form.formbuilder > .w50 {
+    width: 49%;
+    vertical-align: top;
+    display: inline-block
+}
+form.formbuilder > .w50 + * {
+    margin-left: 2%;
+}
+
+.formbuilder-fieldset,
+.formbuilder-fieldset * {
+    box-sizing: border-box;
+}
+
+[data-fieldconfig-sort] {
+    left: 50%;
+    width: 50px;
+    height: 15px;
+    bottom: -8px;
+    cursor: grabbing;
+    margin-top: -20px;
+    position: absolute;
+    border-radius: 2px;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+}
+
+.formbuilder-unapplied-elements {
+    padding: 10px;
+    display: none;
+    margin-bottom: 20px;
+    border: 1px solid #f5f5f5;
+}
+.formbuilder-unapplied-elements.visible {
+    display: block;
+}
+.formbuilder-unapplied-elements .formbuilder-fieldconfig-element {
+    padding: 10px;
+    min-height: 35px;
+    margin-bottom: 0px;
+    margin-bottom: 1px;
+    background: #f5f5f5;
+}
+
+.formbuilder-unapplied-elements .formbuilder-fieldconfig-field-controlls {
+    display: none;
+}
+
+.formbuilder-fieldset {
+    margin: 0;
+    width: 100%;
+    font-size: 0;
+    padding: 10px;
+    vertical-align: top;
+    display: inline-block
+}
+.formbuilder-fieldset.w50 {
+    width: 50%;
+}
+.formbuilder-fieldconfig-elements {
+    padding: 10px;
+    min-height: 50px;
+    background: #f5f5f5;
+}
+.formbuilder-element,
+.formbuilder-element-raw {
+    width: 100%;
+    font-size: 13px;
+    margin-bottom: 5px;
+    vertical-align: top;
+    display: inline-block;
+}
+.formbuilder-element {
+    font-size: 0;
+}
+.formbuilder-element.w50 {
+    width: 50%;
+}
+.formbuilder-element + .formbuilder-element {
+    margin-top: 20px;
+}
+
+.formbuilder-element > * {
+    font-size: 13px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.formbuilder-element .formbuilder-element-help {
+    color: #999;
+    display: block;
+    margin: 3px 0 0;
+    font-size: 11px;
+}
+.formbuilder-element label {
+    width: 150px;
+    width: 100%;
+    margin-left: 8px;
+    margin-bottom: 5px;
+}
+.formbuilder-element input:not([type="checkbox"]):not([type="radio"]),
+.formbuilder-element select,
+.formbuilder-element textarea {
+    margin: 0;
+    width: calc(100% - 150px);
+    width: 100%;
+}
+
+.formbuilder-element sup {
+    color: red;
+    line-height: 1;
+}
+.form-element-button {
+    margin-bottom: 20px;
+}
+
+.formbuilder-fieldconfig,
+.formbuilder-fieldconfig * {
+    user-select: none;
+}
+.formbuilder-fieldconfig {
+    padding: 10px;
+    position: relative;
+}
+.formbuilder-fieldconfig + .formbuilder-fieldconfig {
+    margin-top: 10px;
+}
+.formbuilder-fieldconfig-controlls {
+    right: 5px;
+    bottom: 5px;
+    position: absolute;
+    list-style-type: none;
+}
+.formbuilder-fieldconfig-field-controlls {
+    display: inline-block;
+}
+.formbuilder-fieldconfig-controlls li,
+.formbuilder-fieldconfig-field-controlls li {
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    display: inline-block;
+}
+.formbuilder-fieldconfig-controlls li + li {
+    margin-left: 10px;
+}
+.formbuilder-fieldconfig-field-controlls li + li {
+    margin-left: 2px;
+}
+
+.formbuilder-fieldconfig [data-fieldconfig-remove] {
+    display: none;
+}
+.formbuilder-fieldconfig + .formbuilder-fieldconfig [data-fieldconfig-remove] {
+    display: inline-block;
+}
+
+form.formbuilder textarea {
+    color: #555;
+    padding: 3px;
+    font-size: 12px;
+    min-height: 15px;
+    min-height: 100px;
+    background: #fff;
+    border-radius: 4px;
+    line-height: 1.42857;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+form.formbuilder [type="checkbox"] + label {
+    width: auto;
+    margin-bottom: 0;
+}

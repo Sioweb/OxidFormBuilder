@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+        <MAINMENU id="mxshopsett">
+            <SUBMENU id="ciadminform" cl="ciadminforms" list="ciadminformlist">
+                <TAB id="tbclciadminformmain" cl="ciadminformmain" />
+                <BTN id="ci_form_new"/>
+            </SUBMENU>
+            <SUBMENU id="ciadminformelements" cl="ciadminformelement" list="ciadminformelementlist">
+                <TAB id="tbclciadminformelementmain" cl="ciadminformelementmain" />
+                <BTN id="ci_form_element_new"/>
+            </SUBMENU>
+		</MAINMENU>
+    </OXMENU>
+</OX>

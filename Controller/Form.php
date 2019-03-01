@@ -2,43 +2,63 @@
 
 namespace Ci\Oxid\FormBuilder\Controller;
 
-use OxidEsales\Eshop\Application\Controller\FrontendController;
-use OxidEsales\Eshop\Core\Registry;
 use Ci\Oxid\FormBuilder\Model\Form as FormModel;
 use Ci\Oxid\FormBuilder\Model\FormElements as ElementsModel;
+use OxidEsales\Eshop\Application\Controller\FrontendController;
 use OxidEsales\Eshop\Core\Email;
+use OxidEsales\Eshop\Core\Registry;
+use OxidEsales\Eshop\Application\Model\SmartyRenderer;
 
 class Form extends FrontendController
 {
+
+    private $RenderedForm = '';
+    private $FormData = [];
+    private $FieldConfig = [];
+
     // protected $_sThisTemplate = 'hotspot.tpl';
+
+    public function render()
+    {
+        if(!empty($_POST)) {
+            return '';
+        }
+    
+        $this->_aViewData['oxid'] = Registry::getConfig()->getRequestParameter('fid');
+        $this->_aViewData['form'] = $this->RenderedForm;
+        
+        return 'ci_formbuilder_form.tpl';
+    }
 
     public function init()
     {
         $config = $this->getConfig();
         $Form = oxNew(FormModel::class);
-        $Form->loadWithFields(Registry::getConfig()->getRequestParameter('fid'));
-        $FormData = $this->loadFormData($Form);
-        
-        $FieldConfig = oxNew(ElementsModel::class);
-        $FieldConfig = $FieldConfig->findByParent($Form->getId());
+        $this->RenderedForm = $Form->loadWithFields(Registry::getConfig()->getRequestParameter('fid'));
+        $this->FormData = $this->loadFormData($Form);
+
+        $this->FieldConfig = oxNew(ElementsModel::class);
+        $this->FieldConfig = $this->FieldConfig->findByParent($Form->getId());
 
         $_fc = [];
-        foreach($FieldConfig as $field) {
+        foreach ($this->FieldConfig as $field) {
             $_fc[$field['OXTITLE']] = $field;
-            if(!empty($_POST['formbuilder'][$field['OXTITLE']])) {
+            if (!empty($_POST['formbuilder'][$field['OXTITLE']])) {
                 $_fc[$field['OXTITLE']]['value'] = $_POST['formbuilder'][$field['OXTITLE']];
             }
         }
-        $FieldConfig = $_fc;
+        $this->FieldConfig = $_fc;
         unset($_fc);
-        
-        $url = rtrim($config->getCurrentShopUrl($this->isAdmin()), '/');
-        $url .= '/' . ltrim($FormData['action'], '/');
-        
-        $Email = oxNew(Email::class);
-        $Email->sendFormbuilderMail($FormData, $FieldConfig);
-        
-        Registry::getUtils()->redirect($url, (bool) $config->getRequestParameter('redirected'), 302);
+
+        if (!empty($_POST)) {
+            $url = rtrim($config->getCurrentShopUrl($this->isAdmin()), '/');
+            $url .= '/' . ltrim($this->FormData['action'], '/');
+
+            $Email = oxNew(Email::class);
+            $Email->sendFormbuilderMail($this->FormData, $this->FieldConfig);
+
+            Registry::getUtils()->redirect($url, (bool) $config->getRequestParameter('redirected'), 302);
+        }
     }
 
     protected function loadFormData($Form = null)

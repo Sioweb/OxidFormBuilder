@@ -11,10 +11,17 @@ class Form extends MultiLanguageModel
 {
     public $aList = [];
 
+    private $smartyParameters = [];
+
     public function __construct()
     {
         parent::__construct();
         $this->init("ci_form");
+    }
+
+    public function setParams($params)
+    {
+        $this->smartyParameters = $params;
     }
 
     public function loadWithFields($oxid)
@@ -52,6 +59,17 @@ class Form extends MultiLanguageModel
                 $FormData['palettes']['default'][$fieldset['legend']?:$fieldKey]['fields'][] = $FieldConfig[$fieldId]['OXTITLE'];
                 $FormData['fields'][$FieldConfig[$fieldId]['OXTITLE']] = $this->format($FieldConfig[$fieldId]);
             }
+        }
+
+        foreach($this->smartyParameters as $parameter => $parameterValue) {
+            $FirstPalette = current(array_keys($FormData['palettes']['default']));
+            array_unshift($FormData['palettes']['default'][$FirstPalette]['fields'], $parameter);
+            $FormData['fields'][$parameter] = [
+                'type' => 'hidden',
+                'template' => 'hidden',
+                'value' => $parameterValue,
+                'name' => 'smarty[' . $parameter . ']'
+            ];
         }
         
         $FormGenerator = new FormGenerator(new FormRender);

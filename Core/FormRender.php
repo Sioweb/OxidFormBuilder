@@ -100,7 +100,7 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
         };
 
         // echo "<pre>" . print_r($FieldData, true) . "</pre>";
-        if(empty($FieldData->label) && $FieldData->template !== 'fieldset') {
+        if(empty($FieldData->label) && $FieldData->template !== 'fieldset' && $FieldData->template !== 'hidden') {
             $Language = oxNew(Language::class);
             $FieldData->label = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId));
             $FieldData->help = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId) . '_HELP');

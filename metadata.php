@@ -55,6 +55,7 @@ $aModule = [
         'ci_forumbuilder_element_fieldset.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_fieldset.tpl',
         'ci_forumbuilder_element_button.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_button.tpl',
         'ci_forumbuilder_element_submit.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_submit.tpl',
+        'ci_forumbuilder_element_hidden.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_hidden.tpl',
         'ci_forumbuilder_element_textarea.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_textarea.tpl',
     ],
     'blocks' => [

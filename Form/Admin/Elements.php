@@ -106,7 +106,6 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                     'onclick="Javascript:document.myedit.fnc.value=\'save\'"',
                 ],
                 'editable' => true,
-                'hideOnEdit' => true,
             ],
         ];
     }

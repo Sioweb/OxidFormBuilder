@@ -33,6 +33,7 @@ class Element extends AdminDetailsController
                 $Data = array_filter($Data, function ($var) {
                     return !empty($var['editable']);
                 });
+                $Data['submit']['hideOnEdit'] = true;
                 return $Data;
             }
         };

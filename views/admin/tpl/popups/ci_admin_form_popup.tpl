@@ -110,7 +110,7 @@
               <input id="attr_oxid" type="hidden">
               <b>[{oxmultilang ident="FORMBUILDER_LABEL_OXLABEL"}]</b><br><input id="form_element_1" class="editinput" type="text"><br><br>
               <b>[{oxmultilang ident="FORMBUILDER_LABEL_OXVALUE"}]</b><br><input id="form_element_2" class="editinput" type="text"><br><br>
-              <b>[{oxmultilang ident="FORMBUILDER_LABEL_OXREQUIRE"}]</b><br><input id="form_element_3" class="editinput" type="text"><br><br>
+              <b>[{oxmultilang ident="FORMBUILDER_LABEL_OXREQUIRED"}]</b><br><input id="form_element_3" class="editinput" type="text"><br><br>
               <b>[{oxmultilang ident="FORMBUILDER_LABEL_OXVALIDATION"}]</b><br><select id="form_element_4" class="editinput"><option>E-Main</option><option>Numeric</option></select><br><br>
               <b>[{oxmultilang ident="FORMBUILDER_LABEL_OXPLACEHOLDER"}]</b><br><input id="form_element_5" class="editinput" type="text"><br><br>
               <b>[{oxmultilang ident="FORMBUILDER_LABEL_OXCSSCLASS"}]</b><br><input id="form_element_6" class="editinput" type="text"><br><br>

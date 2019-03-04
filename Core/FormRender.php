@@ -99,13 +99,13 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
             }
         };
 
-        // echo "<pre>" . print_r($FieldData, true) . "</pre>";
-        if(empty($FieldData->label) && $FieldData->template !== 'fieldset' && $FieldData->template !== 'hidden') {
+        // set field config.forceLabel === true to load label 
+        if($FieldData->label !== false && empty($FieldData->label)) {
             $Language = oxNew(Language::class);
             $FieldData->label = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId));
             $FieldData->help = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId) . '_HELP');
         }
-
+        
         $view->setViewData((array)$FieldData);
 
         // get Smarty is important here as it sets template directory correct

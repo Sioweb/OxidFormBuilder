@@ -130,7 +130,7 @@ jQuery.noConflict();
     var $formBuilder = $('.formbuilder-fieldconfig').formbuilder({
       removeField: function($el, $formbuilderObj) {
         var $element = $el.closest($formbuilderObj.handler.element).insertBefore('.formbuilder-unapplied-elements p');
-        
+        $('.formbuilder-unapplied-elements').addClass('visible');
       }
     })[0].formbuilder;
 
@@ -138,15 +138,19 @@ jQuery.noConflict();
       items: '.formbuilder-fieldconfig-element',
       connectWith: '.formbuilder-fieldconfig .formbuilder-fieldconfig-elements',
       update: function() {
-        $('.formbuilder-unapplied-elements').each(function (key, item) {
-          var $item = $(item).find('input');
-          $item.each(function (index, input) {
-            var $input = $(input);
-            $input.attr('name', $input.attr('name').replace(/fieldset\[[0-9x]+\](.*)/, function (match, p1) {
-              return 'fieldset[x]' + p1;
-            }));
+        if(!$('.formbuilder-unapplied-elements .formbuilder-fieldconfig-element').length) {
+          $('.formbuilder-unapplied-elements').removeClass('visible');
+        } else {
+          $('.formbuilder-unapplied-elements').each(function (key, item) {
+            var $item = $(item).find('input');
+            $item.each(function (index, input) {
+              var $input = $(input);
+              $input.attr('name', $input.attr('name').replace(/fieldset\[[0-9x]+\](.*)/, function (match, p1) {
+                return 'fieldset[x]' + p1;
+              }));
+            });
           });
-        });
+        }
         $formBuilder.resetForm();
       }
     });

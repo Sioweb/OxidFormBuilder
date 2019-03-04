@@ -9,13 +9,14 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
         return [
             'form' => [
                 'formname' => 'myform',
-                'fieldname' => 'editval[ci_form_element__[{ $FIELDNAME }]]',
+                'table' => 'ci_form_element',
+                'fieldname' => 'editval[[{ $TABLE }]__[{ $FIELDNAME }]]',
                 'palettes' => $this->loadPalettes(),
-                'fields' => $this->loadFieldConfig()
-            ]
+                'fields' => $this->loadFieldConfig(),
+            ],
         ];
     }
-    
+
     public function loadPalettes()
     {
         return [
@@ -26,11 +27,11 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 ],
                 'config' => [
                     'class' => 'w50',
-                    'fields' => ['oxrequire', 'oxvalidation', 'oxplaceholder'],
+                    'fields' => ['oxrequired', 'oxvalidation', 'oxplaceholder'],
                 ],
                 'submit' => [
-                    'fields' => ['submit']
-                ]
+                    'fields' => ['submit'],
+                ],
             ],
             'textarea' => [
                 'default' => [
@@ -39,19 +40,19 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 ],
                 'config' => [
                     'class' => 'w50',
-                    'fields' => ['oxrequire', 'oxplaceholder'],
+                    'fields' => ['oxrequired', 'oxplaceholder'],
                 ],
                 'submit' => [
-                    'fields' => ['submit']
-                ]
+                    'fields' => ['submit'],
+                ],
             ],
             'submit' => [
                 'default' => [
                     'fields' => ['oxtype', 'oxtitle', 'oxvalue'],
                 ],
                 'submit' => [
-                    'fields' => ['submit']
-                ]
+                    'fields' => ['submit'],
+                ],
             ],
         ];
     }
@@ -65,41 +66,48 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'submitOnChange' => true,
                 'value' => 'textarea',
                 'options' => ['default', 'textarea', 'submit'],
-                'required' => true
+                'required' => true,
             ],
             'oxtitle' => [
                 'type' => 'text',
-                'required' => true
+                'required' => true,
             ],
             'oxlabel' => [
                 'type' => 'text',
-                'required' => true
+                'required' => true,
+                'editable' => true,
             ],
             'oxvalue' => [
-                'type' => 'text'
+                'type' => 'text',
+                'editable' => true,
             ],
-            'oxrequire' => [
+            'oxrequired' => [
                 'type' => 'checkbox',
+                'editable' => true,
             ],
             'oxvalidation' => [
                 'type' => 'select',
                 'blank' => true,
-                'options' => [ 
+                'options' => [
                     'number',
                     'email',
-                ]
+                ],
+                'editable' => true,
             ],
             'oxplaceholder' => [
-                'type' => 'text'
+                'type' => 'text',
+                'editable' => true,
             ],
             'submit' => [
                 'name' => 'save',
                 'type' => 'submit',
                 'value' => 'Senden',
                 'attributes' => [
-                    'onclick="Javascript:document.myedit.fnc.value=\'save\'"'
-                ]
-            ]
+                    'onclick="Javascript:document.myedit.fnc.value=\'save\'"',
+                ],
+                'editable' => true,
+                'hideOnEdit' => true,
+            ],
         ];
     }
 }

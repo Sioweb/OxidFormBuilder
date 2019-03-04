@@ -45,6 +45,7 @@
             <input type="hidden" name="fieldset[x][fields][]" value="[{$field.OXID}]">
             <ul class="formbuilder-fieldconfig-field-controlls">
               <li data-fieldconfig-field-remove>[ - ]</li>
+              <li data-fieldconfig-field-edit='{"oxformid":"[{$oxid}]","oxid":"[{$field.OXID}]","palette":"[{$field.OXTYPE}]"}'>[ e ]</li>
             </ul>
             [{assign var="inputTypeString" value=$field.OXTYPE}]
             [{if $field.OXLABEL == ''}]
@@ -74,6 +75,7 @@
               <input type="hidden" name="fieldset[[{$fieldsetIndex}]][fields][]" value="[{$field.OXID}]">
               <ul class="formbuilder-fieldconfig-field-controlls">
                 <li data-fieldconfig-field-remove>[ - ]</li>
+                <li data-fieldconfig-field-edit='{"oxformid":"[{$oxid}]","oxid":"[{$field.OXID}]","palette":"[{$field.OXTYPE}]"}'>[ e ]</li>
               </ul>
               [{assign var="inputTypeString" value=$field.OXTYPE}]
               [{if $field.OXLABEL == ''}]
@@ -84,6 +86,9 @@
             </div>
             [{/foreach}]
             [{/if}]
+          </div>
+          <div class="formbuilder-fieldconfig-form">
+            <h4>Feld konfigurieren</h4>
           </div>
           [{if $formelement.fields|@count gt 0}]
           <ul class="formbuilder-fieldconfig-controlls">
@@ -128,6 +133,9 @@ jQuery.noConflict();
 
   if($('.formbuilder-fieldconfig').length) {
     var $formBuilder = $('.formbuilder-fieldconfig').formbuilder({
+      formid: '[{$oxid}]',
+      editFieldController: 'index.php?cl=ciadminformelementmain&fnc=elementEdit&force_admin_sid=' + $('[name="force_admin_sid"]').val() + '&stoken=' + $('[name="stoken"]').val(),
+      saveFieldController: 'index.php?cl=ciadminformelementmain&fnc=elementSave&oxformid=[{$oxid}]&force_admin_sid=' + $('[name="force_admin_sid"]').val() + '&stoken=' + $('[name="stoken"]').val(),
       removeField: function($el, $formbuilderObj) {
         var $element = $el.closest($formbuilderObj.handler.element).insertBefore('.formbuilder-unapplied-elements p');
         $('.formbuilder-unapplied-elements').addClass('visible');

@@ -27,7 +27,7 @@ class FormAjax extends ListComponentAjax
             ['oxlabel', 'ci_form_element', 1, 1, 0],
             ['oxtitle', 'ci_form_element', 1, 1, 0],
             ['oxvalue', 'ci_form_element', 0, 0, 1],
-            ['oxrequire', 'ci_form_element', 0, 0, 1],
+            ['oxrequired', 'ci_form_element', 0, 0, 1],
             ['oxvalidation', 'ci_form_element', 0, 0, 1],
             ['oxplaceholder', 'ci_form_element', 0, 0, 1],
             ['oxcssclass', 'ci_form_element', 0, 0, 1],

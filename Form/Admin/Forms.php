@@ -9,7 +9,8 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface
         return [
             'form' => [
                 'formname' => 'myform',
-                'fieldname' => 'editval[ci_form__[{ $FIELDNAME }]]',
+                'table' => 'ci_form',
+                'fieldname' => 'editval[[{ $TABLE }]__[{ $FIELDNAME }]]',
                 'palettes' => $this->loadPalettes(),
                 'fields' => $this->loadFieldConfig(),
             ],
@@ -26,9 +27,9 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 ],
                 'action' => [
                     'fields' => [
-                        'oxsendForm', 'oxreceiver', 'oxsubject', 'oxcontent'
-                    ]
-                ] ,
+                        'oxsendForm', 'oxreceiver', 'oxsubject', 'oxcontent',
+                    ],
+                ],
                 'config' => [
                     'class' => 'long',
                     'fields' => ['oxcssclass'],

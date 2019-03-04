@@ -2,13 +2,9 @@
 
 namespace Ci\Oxid\FormBuilder\Model;
 
-use OxidEsales\Eshop\Core\Model\MultiLanguageModel;
-use OxidEsales\Eshop\Core\DatabaseProvider;
-use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Application\Model\Category;
-use OxidEsales\Eshop\Core\UtilsDate;
-use OxidEsales\Eshop\Core\TableViewNameGenerator;
 use Ci\Oxid\FormBuilder\Model\FormElement;
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\Model\MultiLanguageModel;
 
 class FormElements extends MultiLanguageModel
 {
@@ -18,11 +14,11 @@ class FormElements extends MultiLanguageModel
     {
         parent::__construct();
         $this->init("ci_form_element");
-        
+
         $Database = DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC);
         $aData = $Database->select("SELECT * FROM ci_form_element");
         $aData = $aData->fetchAll();
-        
+
         $this->aList = [];
         if ($aData) {
             foreach ($aData as $data) {
@@ -36,8 +32,9 @@ class FormElements extends MultiLanguageModel
     public function findByParent($ParentId)
     {
         $Database = DatabaseProvider::getDb(DatabaseProvider::FETCH_MODE_ASSOC);
-        
+
         $sSelect = "SELECT
+            ci_form_element2form.*,
             ci_form_element.*
             FROM ci_form_element2form
                 LEFT JOIN ci_form_element ON (ci_form_element.OXID = ci_form_element2form.OXELEMENTID)
@@ -45,6 +42,23 @@ class FormElements extends MultiLanguageModel
             GROUP BY ci_form_element.OXID
         ";
 
-        return $Database->select($sSelect, [$ParentId])->fetchAll();
+        $Database->select($sSelect, [$ParentId]);
+        $Fields = $Database->select($sSelect, [$ParentId])->fetchAll();
+        foreach ($this->aList as $elementIndex => $Element) {
+            foreach ($Fields[$elementIndex] as $key => $value) {
+                if (substr($key, 0, 1) === '_') {
+                    continue;
+                }
+                if (!empty($Fields[$elementIndex]['_' . $key])) {
+                    $Element->assign([$key => $Fields[$elementIndex]['_' . $key]]);
+                    $Fields[$elementIndex][$key] = $Fields[$elementIndex]['_' . $key];
+                }
+                if (array_key_exists('_' . $key, $Fields[$elementIndex])) {
+                    unset($Fields[$elementIndex]['_' . $key]);
+                }
+            }
+        }
+
+        return $Fields;
     }
 }

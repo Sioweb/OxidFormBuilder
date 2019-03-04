@@ -1,13 +1,13 @@
-form.formbuilder {
+.formbuilder {
     font-size: 0;
 }
 
-form.formbuilder > .w50 {
+.formbuilder > .w50 {
     width: 49%;
     vertical-align: top;
     display: inline-block
 }
-form.formbuilder > .w50 + * {
+.formbuilder > .w50 + * {
     margin-left: 2%;
 }
 
@@ -158,7 +158,7 @@ form.formbuilder > .w50 + * {
     display: inline-block;
 }
 
-form.formbuilder textarea {
+.formbuilder textarea {
     color: #555;
     padding: 3px;
     font-size: 12px;
@@ -172,7 +172,124 @@ form.formbuilder textarea {
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
 
-form.formbuilder [type="checkbox"] + label {
+.formbuilder [type="checkbox"] + label {
     width: auto;
     margin-bottom: 0;
 }
+
+.formbuilder-fieldconfig-form {
+    display: none;
+    margin: 30px 0 20px;
+}
+.formbuilder-fieldconfig-.visible {
+    display: block;
+}
+.formbuilder-fieldconfig-form .formbuilder-fieldset {
+    padding: 0;
+    width: 100%;
+    border: 0 none;
+    border-radius: 0;
+}
+.formbuilder-fieldconfig-form .formbuilder-fieldset + .formbuilder-fieldset {
+    margin-top: 20px;
+}
+
+/* @group dialog */
+
+.manager-dialog, .manager-dialog * {
+    margin: 0;
+    padding: 0;
+    outline: 0 !important;
+    box-sizing: border-box;
+}
+.manager-dialog-backend {
+    z-index: 9999;
+}
+.manager-dialog-backend .ui-dialog-titlebar-close::before {
+    line-height: 20px;
+}
+
+.manager-dialog {
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc
+}
+.ui-dialog-title {
+    font-size: 18px;
+}
+.manager-dialog .formbuilder-fieldconfig-form {
+    margin-top: 20px;
+}
+
+.manager-dialog fieldset {
+    border: 0 none;
+}
+
+.manager-dialog .ui-dialog-titlebar {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.manager-dialog .ui-dialog-titlebar-close {
+    border: 0;
+    width: 20px;
+    height: 20px;
+    float: right;
+    cursor: pointer;
+    background: #eee;
+    border-radius: 50%;
+}
+
+.manager-dialog-inner {
+    padding: 5px 10px;
+}
+
+.manager-dialog-row input,
+.manager-dialog-row select,
+.manager-dialog-row textarea {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+}
+.manager-dialog-row textarea {
+    height: 60px;
+}
+
+.manager-dialog-row label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.manager-dialog-inner-textarea .manager-dialog-row input {
+    width: 47.5%;
+    display: inline-block;
+}
+.manager-dialog-inner-textarea .manager-dialog-row input + input {
+    margin-left: 5%;
+}
+
+.manager-dialog-inner-textarea .manager-dialog-row label {
+    display: inline-block;
+}
+
+
+.manager-dialog-row+.manager-dialog-row {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.manager-dialog .ui-dialog-buttonpane {
+    width: 100%;
+    display: block;
+    margin-top: 20px;
+}
+
+.manager-dialog .ui-dialog-buttonpane button {
+    width: 100%;
+    height: 25px;
+    border: 0 none;
+    background: #ccc;
+}
+/* @end dialog */

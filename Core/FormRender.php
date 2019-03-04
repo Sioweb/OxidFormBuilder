@@ -2,8 +2,8 @@
 
 namespace Ci\Oxid\FormBuilder\Core;
 
-use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Language;
+use OxidEsales\Eshop\Core\Registry;
 
 class FormRender extends \OxidEsales\Eshop\Core\Base
 {
@@ -46,23 +46,25 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
 
     public function render($FieldData, $FormObj = null)
     {
-        $view = new class() {
+        $view = new class()
+        {
 
             public function setViewData($Data)
             {
                 $this->data = $Data;
                 $Template = $this->data['type'];
-                if(!empty($this->data['template'])) {
+                if (!empty($this->data['template'])) {
                     $Template = $this->data['template'];
                 }
-                if(!empty($this->data['options'])) {
+                if (!empty($this->data['options'])) {
                     $this->translateOptions();
                 }
-                
+
                 $this->template = 'ci_forumbuilder_element_' . $Template . '.tpl';
             }
 
-            public function render() {
+            public function render()
+            {
                 return $this->template;
             }
 
@@ -85,10 +87,10 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
             {
                 $Language = oxNew(Language::class);
                 $options = [];
-                foreach($this->data['options'] as $option) {
-                    $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']).'_'.$option;
+                foreach ($this->data['options'] as $option) {
+                    $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']) . '_' . $option;
                     $_translation = $Language->translateString($translationString);
-                    if(!empty($_translation) && $_translation !== $translationString) {
+                    if (!empty($_translation) && $_translation !== $translationString) {
                         $options[$option] = $_translation;
                     } else {
                         $options[$option] = $option;
@@ -99,14 +101,14 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
             }
         };
 
-        // set field config.forceLabel === true to load label 
-        if($FieldData->label !== false && empty($FieldData->label)) {
+        // set field config.forceLabel === true to load label
+        if ($FieldData->label !== false && empty($FieldData->label)) {
             $Language = oxNew(Language::class);
             $FieldData->label = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId));
             $FieldData->help = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId) . '_HELP');
         }
-        
-        $view->setViewData((array)$FieldData);
+
+        $view->setViewData((array) $FieldData);
 
         // get Smarty is important here as it sets template directory correct
         $smarty = Registry::getUtilsView()->getSmarty();
@@ -125,7 +127,7 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
             $templateName = "message/exception.tpl";
 
             // if ($this->_isDebugMode()) {
-                Registry::getUtilsView()->addErrorToDisplay($ex);
+            Registry::getUtilsView()->addErrorToDisplay($ex);
             // }
             $ex->debugOut();
         }

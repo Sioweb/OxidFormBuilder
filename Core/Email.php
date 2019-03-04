@@ -5,7 +5,8 @@ namespace Ci\Oxid\FormBuilder\Core;
 class Email extends Email_parent
 {
 
-    public function onFormbuilderMailSend($FormData) {
+    public function onFormbuilderMailSend($FormData)
+    {
 
     }
 
@@ -13,11 +14,10 @@ class Email extends Email_parent
     {
         $config = $this->getConfig();
 
-
         // create messages
         $evalSmartyContent = $this->_getSmarty();
         $evalSmartyContent->assign('template', $FormData['content']);
-        foreach($FieldData as $field => $fieldData) {
+        foreach ($FieldData as $field => $fieldData) {
             $evalSmartyContent->assign($field, $fieldData['value']);
         }
 
@@ -31,7 +31,7 @@ class Email extends Email_parent
 
         $language = \OxidEsales\Eshop\Core\Registry::getLang();
         $orderLanguage = $language->getObjectTplLanguage();
-        
+
         // if running shop language is different from admin lang. set in config
         // we have to load shop in config language
         if ($shop->getLanguage() != $orderLanguage) {
@@ -43,16 +43,15 @@ class Email extends Email_parent
         // create messages
         $smarty = $this->_getSmarty();
 
-        foreach($FormData as $key => $value) {
+        foreach ($FormData as $key => $value) {
             $this->setViewData($key, $value);
         }
-        foreach($FieldData as $field => $element) {
+        foreach ($FieldData as $field => $element) {
             $this->setViewData($field, $element['value']);
         }
 
         // Process view data array through oxoutput processor
         $this->_processViewArray();
-        
 
         $this->setBody($smarty->fetch($config->getTemplatePath('email/formbuilder/' . $FormData['htmltemplate'] . '.tpl', false)));
         $this->setAltBody($evalSmartyContent);

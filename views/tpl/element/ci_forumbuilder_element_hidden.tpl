@@ -1,1 +1,1 @@
-<input type="hidden" name="[{$name}]" value="[{$value}]" [{$field->getAttributes()}]>
+<input [{$field->getAttributes()}]>

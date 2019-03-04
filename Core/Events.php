@@ -43,7 +43,7 @@ class Events
                 `OXTITLE` varchar(255) NOT NULL default '',
                 `OXLABEL` varchar(255) NULL default '',
                 `OXVALUE` varchar(255) NULL default '',
-                `OXREQUIRE` varchar(255) NULL default '',
+                `OXREQUIRED` varchar(255) NULL default '',
                 `OXVALIDATION` varchar(255) NULL default '',
                 `OXPLACEHOLDER` varchar(255) NULL default '',
                 `OXCSSCLASS` varchar(255) NULL default '' COMMENT 'Frontend CSS Class',
@@ -79,11 +79,11 @@ class Events
             ['ci_form_element', 'OXID', "char(32) character set utf8 collate utf8_general_ci NOT NULL COMMENT 'Element id'"],
             ['ci_form_element', 'OXSHOPID', "int(11) NOT NULL default '1' COMMENT 'Shop id (oxshops)'"],
 
-            ['ci_form_element', 'OXTYPE', "varchar(255) NOT NULL default ''"],
-            ['ci_form_element', 'OXTITLE', "varchar(255) NOT NULL default ''"],
+            ['ci_form_element', 'OXTYPE', "varchar(255) NULL default ''"],
+            ['ci_form_element', 'OXTITLE', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXLABEL', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXVALUE', "varchar(255) NULL default ''"],
-            ['ci_form_element', 'OXREQUIRE', "varchar(255) NULL default ''"],
+            ['ci_form_element', 'OXREQUIRED', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXVALIDATION', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXPLACEHOLDER', "varchar(255) NULL default ''"],
 
@@ -93,6 +93,14 @@ class Events
             ['ci_form_element', 'OXACTIVETO', "datetime NOT NULL default '0000-00-00 00:00:00' COMMENT 'Active to specified date'"],
             ['ci_form_element', 'OXSORT', "int( 5 ) NOT NULL DEFAULT '0' COMMENT 'Sorting'"],
             ['ci_form_element', 'OXTIMESTAMP', "timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP COMMENT 'Timestamp'"],
+
+            ['ci_form_element2form', '_OXTYPE', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXTITLE', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXLABEL', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXVALUE', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXREQUIRED', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXVALIDATION', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXPLACEHOLDER', "varchar(255) NULL default ''"],
         ];
 
         $dbMetaDataHandler = oxNew(DbMetaDataHandler::class);
@@ -105,5 +113,6 @@ class Events
         }
     }
 
-    public static function onDeactivate() {}
+    public static function onDeactivate()
+    {}
 }

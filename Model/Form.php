@@ -2,9 +2,9 @@
 
 namespace Ci\Oxid\FormBuilder\Model;
 
-use OxidEsales\Eshop\Core\Model\MultiLanguageModel;
-use Ci\Oxid\FormBuilder\Model\FormElements as ElementsModel;
 use Ci\Oxid\FormBuilder\Core\FormRender;
+use Ci\Oxid\FormBuilder\Model\FormElements as ElementsModel;
+use OxidEsales\Eshop\Core\Model\MultiLanguageModel;
 use Sioweb\Lib\Formgenerator\Core\Form as FormGenerator;
 
 class Form extends MultiLanguageModel
@@ -33,10 +33,8 @@ class Form extends MultiLanguageModel
         $FieldConfig = oxNew(ElementsModel::class);
         $FieldConfig = $FieldConfig->findByParent($oxid);
 
-        $FormRender = new FormRender;
-
         $_fc = [];
-        foreach($FieldConfig as $field) {
+        foreach ($FieldConfig as $field) {
             $_fc[$field['OXID']] = $field;
         }
         $FieldConfig = $_fc;
@@ -46,35 +44,35 @@ class Form extends MultiLanguageModel
             'formname' => 'myform',
             'fieldname' => 'formbuilder[[{ $FIELDNAME }]]',
             'palettes' => [
-                'default' => []
+                'default' => [],
             ],
             'fields' => [
 
-            ]
+            ],
         ];
 
-        foreach($this->ci_form__oxfieldconfig->rawValue as $fieldKey => $fieldset) {
-            $FormData['palettes']['default'][$fieldset['legend']?:$fieldKey]['fields'] = [];
-            foreach($fieldset['fields'] as $fieldId) {
-                $FormData['palettes']['default'][$fieldset['legend']?:$fieldKey]['fields'][] = $FieldConfig[$fieldId]['OXTITLE'];
+        foreach ($this->ci_form__oxfieldconfig->rawValue as $fieldKey => $fieldset) {
+            $FormData['palettes']['default'][$fieldset['legend'] ?: $fieldKey]['fields'] = [];
+            foreach ($fieldset['fields'] as $fieldId) {
+                $FormData['palettes']['default'][$fieldset['legend'] ?: $fieldKey]['fields'][] = $FieldConfig[$fieldId]['OXTITLE'];
                 $FormData['fields'][$FieldConfig[$fieldId]['OXTITLE']] = $this->format($FieldConfig[$fieldId]);
             }
         }
 
-        foreach($this->smartyParameters as $parameter => $parameterValue) {
+        foreach ($this->smartyParameters as $parameter => $parameterValue) {
             $FirstPalette = current(array_keys($FormData['palettes']['default']));
             array_unshift($FormData['palettes']['default'][$FirstPalette]['fields'], $parameter);
             $FormData['fields'][$parameter] = [
                 'type' => 'hidden',
                 'template' => 'hidden',
                 'value' => $parameterValue,
-                'name' => 'smarty[' . $parameter . ']'
+                'name' => 'smarty[' . $parameter . ']',
             ];
         }
-        
+
         $FormGenerator = new FormGenerator(new FormRender);
         $FormGenerator->setFormData(['form' => $FormData]);
-        
+
         return implode("\n", $FormGenerator->generate());
     }
 
@@ -86,7 +84,7 @@ class Form extends MultiLanguageModel
             'template' => $Data['OXTYPE'],
             'value' => $Data['OXVALUE'],
             'class' => $Data['OXCSSCLASS'],
-            'require' => $Data['OXREQUIRE'],
+            'required' => $Data['OXREQUIRED'],
             'validation' => $Data['OXVALIDATION'],
             'placeholder' => $Data['OXPLACEHOLDER'],
         ];

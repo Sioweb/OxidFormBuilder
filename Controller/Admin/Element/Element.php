@@ -3,19 +3,87 @@
 namespace Ci\Oxid\FormBuilder\Controller\Admin\Element;
 
 use Ci\Oxid\FormBuilder\Core\FormRender;
+use Ci\Oxid\FormBuilder\Model\Elements2Form as Elements2FormModel;
 use Ci\Oxid\FormBuilder\Model\FormElement as ElementModel;
 use OxidEsales\Eshop\Application\Controller\Admin\AdminDetailsController;
 use OxidEsales\Eshop\Core\Registry;
-use OxidEsales\Eshop\Core\ViewConfig;
 use Sioweb\Lib\Formgenerator\Core\Form;
 use stdClass;
 
 class Element extends AdminDetailsController
 {
+
+    public function elementEdit()
+    {
+
+        $ElementConfig = new class() extends \Ci\Oxid\FormBuilder\Form\Admin\Elements
+        {
+            public function loadData()
+            {
+                $Data = parent::loadData();
+                $Data['form']['noFieldsets'] = true;
+                $Data['form']['updateValues'] = true;
+                $Data['form']['defaultPalette'] = $_GET['palette'];
+                return $Data;
+            }
+
+            public function loadFieldConfig()
+            {
+                $Data = parent::loadFieldConfig();
+                $Data = array_filter($Data, function ($var) {
+                    return !empty($var['editable']);
+                });
+                return $Data;
+            }
+        };
+
+        $Form = new Form(
+            new FormRender,
+            $ElementConfig
+        );
+
+        $ElementModel = oxNew(ElementModel::class);
+        $ElementModel->findByOverwritable($this->getEditObjectId(), $this->getConfig()->getRequestParameter("oxformid"));
+
+        $FormData = ['editval' => []];
+        $FormTable = $ElementConfig->loadData()['form']['table'];
+        foreach ($ElementModel->getFieldNames() as $name) {
+            if (!empty($ElementModel->{$FormTable . '__' . $name}->value)) {
+                $FormData['editval'][$FormTable . '__' . $name] = $ElementModel->{$FormTable . '__' . $name}->value;
+            }
+        }
+
+        $Form->setFieldValues($FormData);
+        $Form->setFormData();
+
+        die(implode("\n", $Form->generate()));
+    }
+
+    public function elementSave()
+    {
+        $soxId = $this->getEditObjectId();
+
+        if ($soxId === -1) {
+            return;
+        }
+
+        $ElementModel = oxNew(Elements2FormModel::class);
+        $ElementModel->loadByElementInForm($soxId, $this->getConfig()->getRequestParameter("oxformid"));
+
+        $_Editval = $this->getConfig()->getRequestEscapedParameter("editval");
+
+        $Editval = [];
+        foreach ($_Editval as $name => $value) {
+            $name = end((explode('__', $name)));
+            $Editval['_' . $name] = $value;
+        }
+        unset($_Editval);
+        $ElementModel->assign($Editval);
+        $ElementModel->save();
+    }
+
     public function render()
     {
-        $ModulePath = Registry::get(ViewConfig::class)->getModulePath('CiFormBuilder');
-
         $Form = new Form(
             new FormRender,
             new \Ci\Oxid\FormBuilder\Form\Admin\Elements

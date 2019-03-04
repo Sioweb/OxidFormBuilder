@@ -16,7 +16,9 @@
 			addFieldConfig: '.formbuilder-fieldconfig-controlls [data-fieldconfig-add]',
 			removeFieldConfig: '.formbuilder-fieldconfig-controlls [data-fieldconfig-remove]',
 			fieldsetSort: '[data-fieldconfig-sort]',
-			fieldRemove: '[data-fieldconfig-field-remove]'
+			fieldRemove: '[data-fieldconfig-field-remove]',
+			fieldEdit: '[data-fieldconfig-field-edit]',
+			fieldConfigForm: '.formbuilder-fieldconfig-form'
 		},
 		removeField: function ($el, formbuilderObj) { }
 	};
@@ -151,6 +153,92 @@
 				.unbind('click').click(function () {
 					selfObj.removeField($(this), selfObj);
 					selfObj.resetForm();
+				});
+
+			selfObj.getHandler('fieldConfigForm').dialog({
+				autoOpen: false,
+				minWidth: 500,
+				draggable: false,
+				resizable: false,
+				title: 'Element konfigurieren',
+				classes: {
+					"ui-dialog": 'manager-dialog formbuilder-fieldconfig manager-dialog-backend'
+				},
+				dialogClass: 'manager-dialog formbuilder formbuilder-fieldconfig manager-dialog-backend',
+				buttons: {
+					'Element speichern':  function(event) {
+						var $form = $(this).closest(".formbuilder-fieldconfig").find('.formbuilder-modal-form'),
+							formDataArray = $form.serializeArray(),
+							formData = {};
+
+						
+						for(var i in formDataArray) {
+							if (
+								$form[0].formDataConfig[formDataArray[i].name] === undefined &&
+								$form[0].formDataArray[formDataArray[i].name] === formDataArray[i].value
+							) {continue;}
+
+							formData[formDataArray[i].name] = formDataArray[i].value;
+						}
+
+						if (!Object.keys(formData).length) {
+							jQuery(this).dialog('close');
+							return;
+						}
+
+						$.ajax({
+							method: "POST",
+							type: "POST",
+							url: selfObj.saveFieldController,
+							data: formData,
+							success: function(form) {
+								
+							}
+						});
+						
+						jQuery(this).dialog('close');
+					}
+				}
+			});
+
+			selfObj.getHandler('fieldEdit', true)
+				.unbind('click').click(function () {
+					var $el = $(this),
+						fieldConfig = $el.data('fieldconfig-field-edit'),
+						hiddenTemplate = '';
+
+					if($el._dialog !== undefined && $el._dialog.data('ui-dialog')) {
+						$el._dialog.dialog('destroy');
+					}
+
+					for(var i in fieldConfig) {
+						hiddenTemplate += '<input type="hidden" name="' + i +'" value="' + fieldConfig[i] + '">';
+						hiddenTemplate += "\n";
+					}
+
+					$.ajax({
+						url: selfObj.editFieldController,
+						data: fieldConfig,
+						success: function(form) {
+							var $form,
+								formDataArray = {},
+								formData = {},
+								$fieldConfigForm = selfObj.getHandler('fieldConfigForm');
+
+							$fieldConfigForm.html('<form class="formbuilder-modal-form" action="#" method="post">' + hiddenTemplate + form + '</form>');
+
+							$form = $fieldConfigForm.find('.formbuilder-modal-form');
+							formDataArray = $form.serializeArray();
+							for (var i in formDataArray) {
+								formData[formDataArray[i].name] = formDataArray[i].value;
+							}
+
+							$form[0].formDataArray = formData;
+							$form[0].formDataConfig = fieldConfig;
+
+							selfObj.getHandler('fieldConfigForm').dialog('open');
+						}
+					});
 				});
 		};
 	};

@@ -48,7 +48,7 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
             ],
             'submit' => [
                 'default' => [
-                    'fields' => ['oxtype', 'oxtitle', 'oxvalue'],
+                    'fields' => ['oxtype', 'oxtitle', 'oxvalue', 'oxcssclass'],
                 ],
                 'submit' => [
                     'fields' => ['submit'],
@@ -95,6 +95,10 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'editable' => true,
             ],
             'oxplaceholder' => [
+                'type' => 'text',
+                'editable' => true,
+            ],
+            'oxcssclass' => [
                 'type' => 'text',
                 'editable' => true,
             ],

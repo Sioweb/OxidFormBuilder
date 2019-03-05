@@ -1,3 +1,3 @@
-<div class="form-element form-element-button[{if isset($class)}] class="[{$class}]"[{/if}]">
+<div class="formbuilder-element formbuilder-element-button[{if isset($outerclass)}] [{$outerclass}][{/if}]">
     <input [{$field->getAttributes()}]>
 </div>

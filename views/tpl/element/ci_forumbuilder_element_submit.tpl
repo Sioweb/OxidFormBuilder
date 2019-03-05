@@ -1,3 +1,3 @@
-<div class="form-element form-element-submit[{if isset($class)}] [{$class}][{/if}]">
+<div class="formbuilder-element formbuilder-element-submit[{if isset($outerclass)}] [{$outerclass}][{/if}]">
     <input [{$field->getAttributes()}]>
 </div>

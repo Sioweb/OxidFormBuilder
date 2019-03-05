@@ -57,6 +57,9 @@ $aModule = [
         'ci_forumbuilder_element_submit.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_submit.tpl',
         'ci_forumbuilder_element_hidden.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_hidden.tpl',
         'ci_forumbuilder_element_textarea.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_textarea.tpl',
+
+        'formbuilder_jquery_ui.tpl' => 'ci-haeuser/FormBuilder/views/tpl/jqueryui/formbuilder_jquery_ui.tpl',
+        'formbuilder_jquery_ui_datepicker.js.tpl' => 'ci-haeuser/FormBuilder/views/tpl/jqueryui/formbuilder_jquery_ui_datepicker.js.tpl',
     ],
     'blocks' => [
         [

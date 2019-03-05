@@ -27,13 +27,15 @@ window.onload = function ()
             <colgroup>
                 [{block name="admin_ci_form_element_list_colgroup"}]
                 <col width="3%">
-                <col width="87%">
+                <col width="10%">
+                <col width="77%">
                 <col width="10%">
                 [{/block}]
             </colgroup>
             <tr>
                 [{block name="admin_ci_form_element_list_sorting"}]
                 <td class="listheader first" height="15" width="30" align="center"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxactions', 'oxactive', 'asc');document.search.submit();" class="listheader">[{ oxmultilang ident="GENERAL_ACTIVTITLE" }]</a></td>
+                <td class="listheader"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'ci_form_element', 'oxlabel', 'asc');document.search.submit();" class="listheader">[{ oxmultilang ident="GENERAL_LABEL" }]</a></td>
                 <td class="listheader"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'ci_form_element', 'oxtitle', 'asc');document.search.submit();" class="listheader">[{ oxmultilang ident="GENERAL_NAME" }]</a></td>
                 <td class="listheader"></td>
                 [{/block}]
@@ -56,6 +58,7 @@ window.onload = function ()
 
                 [{block name="admin_ci_form_element_list_item"}]
                 <td valign="top" class="[{ $listclass}][{ if $listitem->ci_form_element__oxactive->value == 1}] active[{/if}]" height="15"><div class="listitemfloating">&nbsp</a></div></td>
+                <td valign="top" class="[{ $listclass}]" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{ $listitem->ci_form_element__oxid->value}]');" class="[{ $listclass}]">[{ if $listitem->ci_form_element__oxlabel->value != ''}][{ $listitem->ci_form_element__oxlabel->value }][{else}][{$listitem->ci_form_element__oxvalue->value}][{/if}]</a></div></td>
                 <td valign="top" class="[{ $listclass}]" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{ $listitem->ci_form_element__oxid->value}]');" class="[{ $listclass}]">[{ $listitem->ci_form_element__oxtitle->value }]</a></div></td>
                 <td class="[{ $listclass}]">[{ if !$listitem->isOx() && !$readonly}]<a href="Javascript:top.oxid.admin.deleteThis('[{ $listitem->ci_form_element__oxid->value }]');" class="delete" id="del.[{$_cnt}]" [{include file="help.tpl" helpid=item_delete}]></a>[{/if}]</td>
                 [{/block}]

@@ -85,11 +85,19 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'type' => 'text',
                 'class' => 'w50',
                 'validation' => 'datetime',
+                'autocomplete' => 'off',
+                'attributes' => [
+                    'data-datepicker'
+                ],
             ],
             'oxactiveto' => [
                 'type' => 'text',
                 'class' => 'w50',
                 'validation' => 'datetime',
+                'autocomplete' => 'off',
+                'attributes' => [
+                    'data-datepicker'
+                ],
             ],
             'applyFields' => [
                 'type' => 'button',

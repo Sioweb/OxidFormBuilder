@@ -105,6 +105,8 @@
 .formbuilder-element select,
 .formbuilder-element textarea {
     margin: 0;
+    min-height: 33px;
+    padding: 7px 10px;
     width: calc(100% - 150px);
     width: 100%;
 }
@@ -160,7 +162,6 @@
 
 .formbuilder textarea {
     color: #555;
-    padding: 3px;
     font-size: 12px;
     min-height: 15px;
     min-height: 100px;
@@ -288,8 +289,9 @@
 
 .manager-dialog .ui-dialog-buttonpane button {
     width: 100%;
-    height: 25px;
+    height: 34px;
     border: 0 none;
+    font-size: 15px;
     background: #ccc;
 }
 /* @end dialog */

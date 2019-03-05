@@ -46,6 +46,57 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                     'fields' => ['submit'],
                 ],
             ],
+            'select' => [
+                'default' => [
+                    'class' => 'w50',
+                    'fields' => ['oxtype', 'oxtitle', 'oxlabel'],
+                ],
+                'values' => [
+                    'class' => 'w50',
+                    'fields' => ['options'],
+                ],
+                'config' => [
+                    'class' => 'w50',
+                    'fields' => ['oxrequired', 'oxvalidation', 'oxplaceholder'],
+                ],
+                'submit' => [
+                    'fields' => ['submit'],
+                ],
+            ],
+            'checkbox' => [
+                'default' => [
+                    'class' => 'w50',
+                    'fields' => ['oxtype', 'oxtitle', 'oxlabel'],
+                ],
+                'values' => [
+                    'class' => 'w50',
+                    'fields' => ['options'],
+                ],
+                'config' => [
+                    'class' => 'w50',
+                    'fields' => ['oxrequired', 'oxvalidation', 'oxplaceholder'],
+                ],
+                'submit' => [
+                    'fields' => ['submit'],
+                ],
+            ],
+            'radio' => [
+                'default' => [
+                    'class' => 'w50',
+                    'fields' => ['oxtype', 'oxtitle', 'oxlabel'],
+                ],
+                'values' => [
+                    'class' => 'w50',
+                    'fields' => ['options'],
+                ],
+                'config' => [
+                    'class' => 'w50',
+                    'fields' => ['oxrequired', 'oxvalidation', 'oxplaceholder'],
+                ],
+                'submit' => [
+                    'fields' => ['submit'],
+                ],
+            ],
             'submit' => [
                 'default' => [
                     'fields' => ['oxtype', 'oxtitle', 'oxvalue', 'oxcssclass'],
@@ -64,8 +115,8 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'palette' => 1,
                 'type' => 'select',
                 'submitOnChange' => true,
-                'value' => 'textarea',
-                'options' => ['default', 'textarea', 'submit'],
+                'value' => 'default',
+                'options' => ['default', 'textarea', 'select', 'checkbox', 'radio', 'submit'],
                 'required' => true,
             ],
             'oxtitle' => [
@@ -101,6 +152,9 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
             'oxcssclass' => [
                 'type' => 'text',
                 'editable' => true,
+            ],
+            'options' => [
+                'type' => 'optionsWidget'
             ],
             'submit' => [
                 'name' => 'save',

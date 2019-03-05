@@ -47,6 +47,7 @@ class Events
                 `OXVALIDATION` varchar(255) NULL default '',
                 `OXPLACEHOLDER` varchar(255) NULL default '',
                 `OXCSSCLASS` varchar(255) NULL default '' COMMENT 'Frontend CSS Class',
+                `OXOPTIONS` text NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons',
                 `OXACTIVE` tinyint(1) NOT NULL default '1' COMMENT 'Active',
                 `OXACTIVEFROM` datetime NOT NULL default '0000-00-00 00:00:00' COMMENT 'Active from specified date',
                 `OXACTIVETO` datetime NOT NULL default '0000-00-00 00:00:00' COMMENT 'Active to specified date',
@@ -86,8 +87,9 @@ class Events
             ['ci_form_element', 'OXREQUIRED', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXVALIDATION', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXPLACEHOLDER', "varchar(255) NULL default ''"],
-
             ['ci_form_element', 'OXCSSCLASS', "varchar(255) NULL default '' COMMENT 'Frontend CSS Class'"],
+            ['ci_form_element', 'OXOPTIONS', "text NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons'"],
+
             ['ci_form_element', 'OXACTIVE', "tinyint(1) NOT NULL default '1' COMMENT 'Active'"],
             ['ci_form_element', 'OXACTIVEFROM', "datetime NOT NULL default '0000-00-00 00:00:00' COMMENT 'Active from specified date'"],
             ['ci_form_element', 'OXACTIVETO', "datetime NOT NULL default '0000-00-00 00:00:00' COMMENT 'Active to specified date'"],
@@ -101,6 +103,7 @@ class Events
             ['ci_form_element2form', '_OXREQUIRED', "varchar(255) NULL default ''"],
             ['ci_form_element2form', '_OXVALIDATION', "varchar(255) NULL default ''"],
             ['ci_form_element2form', '_OXPLACEHOLDER', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXOPTIONS', "text NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons'"],
         ];
 
         $dbMetaDataHandler = oxNew(DbMetaDataHandler::class);

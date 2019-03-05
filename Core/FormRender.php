@@ -72,7 +72,7 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
                     $this->translateOptions();
                 }
 
-                $this->template = 'ci_forumbuilder_element_' . $Template . '.tpl';
+                $this->template = 'ci_forumbuilder_element_' . strtolower($Template) . '.tpl';
             }
 
             public function render()

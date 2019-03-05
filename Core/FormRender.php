@@ -5,7 +5,9 @@ namespace Ci\Oxid\FormBuilder\Core;
 use OxidEsales\Eshop\Core\Language;
 use OxidEsales\Eshop\Core\Registry;
 
-class FormRender extends \OxidEsales\Eshop\Core\Base
+use Sioweb\Lib\Formgenerator\Core\Form;
+
+class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Formgenerator\Core\TemplateInterface
 {
 
     /**
@@ -44,10 +46,20 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
      */
     protected $_aControllerErrors = null;
 
-    public function render($FieldData, $FormObj = null)
+    public function newInstance() {
+        return new self();
+    }
+
+    public function render($FieldData, Form $FormObj = null)
     {
         $view = new class()
         {
+            private $data = null;
+
+            public function __destruct()
+            {
+                $this->data = null;
+            }
 
             public function setViewData($Data)
             {
@@ -100,7 +112,6 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
                 $this->data['options'] = $options;
             }
         };
-
         // set field config.forceLabel === true to load label
         if ($FieldData->label !== false && empty($FieldData->label)) {
             $Language = oxNew(Language::class);
@@ -111,7 +122,7 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
         $view->setViewData((array) $FieldData);
 
         // get Smarty is important here as it sets template directory correct
-        $smarty = Registry::getUtilsView()->getSmarty();
+        $smarty = Registry::getUtilsView()->getSmarty(1);
 
         // render it
         $templateName = $view->render();
@@ -137,12 +148,13 @@ class FormRender extends \OxidEsales\Eshop\Core\Base
         $viewData = $outputManager->processViewArray($view->getViewData(), $view->getClassName());
         $view->setViewData($viewData);
 
+
         //add all exceptions to display
         $errors = $this->_getErrors($view->getClassName());
         if (is_array($errors) && count($errors)) {
             Registry::getUtilsView()->passAllErrorsToView($viewData, $errors);
         }
-
+        
         foreach (array_keys($viewData) as $viewName) {
             $smarty->assign_by_ref($viewName, $viewData[$viewName]);
         }

@@ -78,7 +78,7 @@ class Form extends MultiLanguageModel
 
     private function format($Data)
     {
-        return [
+        $FieldData = [
             'label' => $Data['OXLABEL'],
             'type' => $Data['OXTYPE'],
             'template' => $Data['OXTYPE'],
@@ -87,6 +87,21 @@ class Form extends MultiLanguageModel
             'required' => $Data['OXREQUIRED'],
             'validation' => $Data['OXVALIDATION'],
             'placeholder' => $Data['OXPLACEHOLDER'],
+            'options' => $Data['OXOPTIONS'],
         ];
+
+        if(!empty($FieldData['options'])) {
+            if(empty($FieldData['value'])) {
+                $FieldData['value'] = $FieldData['options'];
+            } else {
+                foreach($FieldData['options'] as $key => $option) {
+                    if($FieldData['value'] === $option['key']) {
+                        $FieldData['options'][$key]['active'] = '1';
+                    }
+                }
+            }
+        }
+
+        return $FieldData;
     }
 }

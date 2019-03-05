@@ -45,6 +45,13 @@ class Form extends FrontendController
             $_fc[$field['OXTITLE']] = $field;
             if (!empty($_POST['formbuilder'][$field['OXTITLE']])) {
                 $_fc[$field['OXTITLE']]['value'] = $_POST['formbuilder'][$field['OXTITLE']];
+                if(!empty($field['OXOPTIONS'])) {
+                    foreach($field['OXOPTIONS'] as $optionSet) {
+                        if($optionSet['key'] === $_fc[$field['OXTITLE']]['value']) {
+                            $_fc[$field['OXTITLE']]['value'] = $optionSet['value'];
+                        }
+                    }
+                }
             }
         }
         $this->FieldConfig = $_fc;

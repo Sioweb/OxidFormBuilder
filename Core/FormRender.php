@@ -97,19 +97,23 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
 
             private function translateOptions()
             {
+                if(empty($this->data['options'])) {
+                    return;
+                }
+                
                 $Language = oxNew(Language::class);
                 $options = [];
-                foreach ($this->data['options'] as $option) {
-                    $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']) . '_' . $option;
+                foreach ($this->data['value'] as $key => $optionSet) {
+                    $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']) . '_' . $optionSet['value'];
                     $_translation = $Language->translateString($translationString);
                     if (!empty($_translation) && $_translation !== $translationString) {
-                        $options[$option] = $_translation;
-                    } else {
-                        $options[$option] = $option;
+                        $optionSet['value'] = $_translation;
                     }
+
+                    array_push($options, $optionSet);
                 }
 
-                $this->data['options'] = $options;
+                $this->data['value'] = $options;
             }
         };
         // set field config.forceLabel === true to load label

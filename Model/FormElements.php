@@ -45,10 +45,17 @@ class FormElements extends MultiLanguageModel
         $Database->select($sSelect, [$ParentId]);
         $Fields = $Database->select($sSelect, [$ParentId])->fetchAll();
         foreach ($this->aList as $elementIndex => $Element) {
+            if(!empty($Fields[$elementIndex]['OXOPTIONS'])) {
+                $Fields[$elementIndex]['OXOPTIONS'] = json_decode($Fields[$elementIndex]['OXOPTIONS'], 1);
+            }
+            if(!empty($Fields[$elementIndex]['_OXOPTIONS'])) {
+                $Fields[$elementIndex]['_OXOPTIONS'] = json_decode($Fields[$elementIndex]['_OXOPTIONS'], 1);
+            }
             foreach ($Fields[$elementIndex] as $key => $value) {
                 if (substr($key, 0, 1) === '_') {
                     continue;
                 }
+                
                 if (!empty($Fields[$elementIndex]['_' . $key])) {
                     $Element->assign([$key => $Fields[$elementIndex]['_' . $key]]);
                     $Fields[$elementIndex][$key] = $Fields[$elementIndex]['_' . $key];

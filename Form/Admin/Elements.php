@@ -116,6 +116,7 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'type' => 'select',
                 'submitOnChange' => true,
                 'value' => 'default',
+                'valueColumn' => 'type',
                 'options' => ['default', 'textarea', 'select', 'checkbox', 'radio', 'submit'],
                 'required' => true,
             ],

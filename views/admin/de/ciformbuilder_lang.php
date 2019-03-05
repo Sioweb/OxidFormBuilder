@@ -66,8 +66,8 @@ $aLang = [
     'FORMBUILDER_LABEL_OXVALIDATION_HELP'               => 'Die Eingaben anhand eines regulären Ausdrucks prüfen.',
     'FORMBUILDER_LABEL_OXPLACEHOLDER'                   => 'Platzhalter',
     'FORMBUILDER_LABEL_OXPLACEHOLDER_HELP'              => 'Dieser Text wird angezeigt solange das Feld noch nicht ausgefüllt wurde (benötigt HTML5).',
-    'FORMBUILDER_LABEL_OPTIONS'                         => 'Optionenliste',
-    'FORMBUILDER_LABEL_OPTIONS_HELP'                    => 'Geben Sie hier Daten nach dem Muster key => value ein.',
+    'FORMBUILDER_LABEL_OXOPTIONS'                       => 'Optionenliste',
+    'FORMBUILDER_LABEL_OXOPTIONS_HELP'                  => 'Geben Sie hier Daten nach dem Muster key => value ein.',
 
     'FORMBUILDER_VALUE_OXTYPE_text'                     => 'Textfeld',
     'FORMBUILDER_VALUE_OXTYPE_default'                  => 'Textfeld',

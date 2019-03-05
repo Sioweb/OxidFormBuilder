@@ -18,7 +18,7 @@
 			fieldsetSort: '[data-fieldconfig-sort]',
 			fieldRemove: '[data-fieldconfig-field-remove]',
 			fieldEdit: '[data-fieldconfig-field-edit]',
-			fieldConfigForm: '.formbuilder-fieldconfig-form'
+			fieldConfigForm: '.formbuilder-fieldconfig-form',
 		},
 		removeField: function ($el, formbuilderObj) { }
 	};

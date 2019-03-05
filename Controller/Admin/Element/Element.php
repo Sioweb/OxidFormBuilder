@@ -106,7 +106,7 @@ class Element extends AdminDetailsController
                 $ElementModel->loadInLang(key($oOtherLang), $soxId);
             }
 
-            // $ElementModel->ci_form__oxroutes->rawValue = json_decode($ElementModel->ci_form__oxroutes->rawValue, true);
+            $ElementModel->ci_form_element__oxoptions->rawValue = json_decode($ElementModel->ci_form_element__oxoptions->rawValue, true);
 
             $this->_aViewData["edit"] = $ElementModel;
 
@@ -164,9 +164,7 @@ class Element extends AdminDetailsController
             $aParams['ci_form_element__oxid'] = null;
         }
 
-        // if (!$aParams['ci_form_element__oxactive']) {
-        //     $aParams['ci_form_element__oxactive'] = 0;
-        // }
+        $aParams['ci_form_element__oxoptions'] = json_encode($aParams['ci_form_element__oxoptions']);
 
         $oFormElement->setLanguage(0);
         $oFormElement->assign($aParams);

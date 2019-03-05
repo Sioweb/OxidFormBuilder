@@ -30,6 +30,10 @@
 </form>
 </div>
 
+[{oxscript include="js/libs/jquery.min.js"}]
+[{oxscript include="js/libs/jquery-ui.min.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_options.js"}]
+
 <!-- START new promotion button -->
 <div class="actions">
 [{strip}]
@@ -49,3 +53,19 @@
 <!-- END new promotion button -->
 
 [{include file="bottomitem.tpl"}]
+
+<script>
+jQuery.noConflict();
+(function($) {$(function() {
+
+	if($('.formbuilder-element-optionswidget').length) {
+		var $formbuilderOptions = $('.formbuilder-element-optionswidget').formbuilder_options({
+			elementid: '[{$oxid}]',
+			removeField: function($el, $formbuilderObj) {
+			}
+		})[0].formbuilder_options;
+
+		[{include file="formbuilder_jquery_ui.tpl"}]
+	}
+});})(jQuery);
+</script>

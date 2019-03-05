@@ -53,7 +53,7 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 ],
                 'values' => [
                     'class' => 'w50',
-                    'fields' => ['options'],
+                    'fields' => ['oxoptions'],
                 ],
                 'config' => [
                     'class' => 'w50',
@@ -70,7 +70,7 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 ],
                 'values' => [
                     'class' => 'w50',
-                    'fields' => ['options'],
+                    'fields' => ['oxoptions'],
                 ],
                 'config' => [
                     'class' => 'w50',
@@ -87,7 +87,7 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 ],
                 'values' => [
                     'class' => 'w50',
-                    'fields' => ['options'],
+                    'fields' => ['oxoptions'],
                 ],
                 'config' => [
                     'class' => 'w50',
@@ -153,7 +153,7 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'type' => 'text',
                 'editable' => true,
             ],
-            'options' => [
+            'oxoptions' => [
                 'type' => 'optionsWidget'
             ],
             'submit' => [

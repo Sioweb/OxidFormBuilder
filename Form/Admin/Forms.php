@@ -2,7 +2,7 @@
 
 namespace Ci\Oxid\FormBuilder\Form\Admin;
 
-class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface
+class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib\Formgenerator\Core\SubpaletteInterface
 {
     public function loadData()
     {
@@ -17,18 +17,25 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface
         ];
     }
 
+    public function loadSubpalettes()
+    {
+        return [
+            'oxsendform' => ['oxreceiver', 'oxsubject', 'oxcontent'],
+        ];
+    }
+
     public function loadPalettes()
     {
         return [
             'default' => [
+                'action' => [
+                    'fields' => [
+                        'oxsendform',
+                    ],
+                ],
                 'default' => [
                     'class' => 'long',
                     'fields' => ['applyFields', 'oxtitle', 'oxhtmltemplate', 'oxaction'],
-                ],
-                'action' => [
-                    'fields' => [
-                        'oxsendForm', 'oxreceiver', 'oxsubject', 'oxcontent',
-                    ],
                 ],
                 'config' => [
                     'class' => 'long',
@@ -68,7 +75,7 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface
             'oxactive' => [
                 'type' => 'checkbox',
             ],
-            'oxsendForm' => [
+            'oxsendform' => [
                 'type' => 'checkbox',
             ],
             'oxreceiver' => [

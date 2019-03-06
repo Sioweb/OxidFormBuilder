@@ -139,6 +139,22 @@
 jQuery.noConflict();
 (function($) {$(function() {
 
+	$('[data-subpalette]').each(function() {
+		var $el = $(this),
+			isVisible = function($el) {
+				if($el.is(':checked')) {
+					$('[data-subpalette-container="' + $el.data('subpalette') + '"]').addClass('visible');
+				} else {
+					$('[data-subpalette-container="' + $el.data('subpalette') + '"]').removeClass('visible');
+				}
+			};
+
+		$el.change(function() {
+			isVisible($el);
+		});
+		isVisible($el);
+	});
+
 	if($('.formbuilder-fieldconfig').length) {
 		var $formBuilder = $('.formbuilder-fieldconfig').formbuilder({
 			formid: '[{$oxid}]',

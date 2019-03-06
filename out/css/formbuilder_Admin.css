@@ -69,6 +69,13 @@
 .formbuilder-fieldset.w50:nth-child(2n) {
     margin-left: 1%;
 }
+.formbuilder-subpalette {
+    display: none;
+    margin-top: 20px;
+}
+.formbuilder-subpalette.visible {
+    display: block;
+}
 .formbuilder-fieldconfig-elements {
     padding: 10px;
     min-height: 50px;
@@ -107,11 +114,24 @@
     width: 150px;
     width: 100%;
     margin-left: 8px;
+    user-select: none;
     margin-bottom: 5px;
 }
 .formbuilder-element input:not([type="checkbox"]):not([type="radio"]),
 .formbuilder-element select,
 .formbuilder-element textarea {
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset;
+    color: #555;
+    min-height: 15px;
+    line-height: 1.42857;
+    padding: 3px;
+    font-size: 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    background: #fff;
+
     margin: 0;
     font-size: 13px;
     min-height: 33px;

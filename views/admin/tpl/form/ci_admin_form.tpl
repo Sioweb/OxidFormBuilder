@@ -7,9 +7,9 @@
 [{/if}]
 
 <form name="transfer" id="transfer" action="[{ $oViewConf->getSelfLink() }]" method="post">
-		[{$oViewConf->getHiddenSid()}]
-		<input type="hidden" name="oxid" value="[{ $oxid }]">
-		<input type="hidden" name="cl" value="ciadminformmain">
+	[{$oViewConf->getHiddenSid()}]
+	<input type="hidden" name="oxid" value="[{ $oxid }]">
+	<input type="hidden" name="cl" value="ciadminformmain">
 </form>
 
 <form class="formbuilder" name="myedit" enctype="multipart/form-data" id="myedit" action="[{ $oViewConf->getSelfLink() }]" method="post">
@@ -37,6 +37,14 @@
 		<div class="formbuilder-fieldset">
 			<div class="formbuilder-element-raw">
 				<h3>[{oxmultilang ident="FORMBUILDER_FIELDCONFIG_HEADLINE"}]</h3>
+
+				[{ if $removedFields|@count }]
+				<div class="formbuilder-removed-elements">
+					<div class="formbuilder-fieldconfig-element">
+						<p class="warning">[{oxmultilang ident="FORMBUILDER_FIELDS_NOT_FOUND" args=$removedFields|@count}]</p>
+					</div>
+				</div>
+				[{/if}]
 
 				<div class="formbuilder-unapplied-elements[{if $unapplied|@count gt 0}] visible[{/if}]">
 					<h4>[{oxmultilang ident="FORMBUILDER_HELP_NOT_APPLIED_ITEMS"}]</h4>

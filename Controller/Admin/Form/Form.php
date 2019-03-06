@@ -11,7 +11,6 @@ use OxidEsales\Eshop\Application\Model\Shop;
 use OxidEsales\Eshop\Core\Model\ListModel;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\Request;
-use OxidEsales\Eshop\Core\Field;
 use Sioweb\Lib\Formgenerator\Core\Form as FormGenerator;
 use stdClass;
 
@@ -43,12 +42,12 @@ class Form extends AdminDetailsController
             $FormModel->ci_form__oxroutes->rawValue = json_decode($FormModel->ci_form__oxroutes->rawValue, true);
             $FormModel->ci_form__oxfieldconfig->rawValue = json_decode($FormModel->ci_form__oxfieldconfig->rawValue, true);
 
-            if(empty($FormModel->ci_form__oxfieldconfig->rawValue)) {
+            if (empty($FormModel->ci_form__oxfieldconfig->rawValue)) {
                 $FormModel->ci_form__oxfieldconfig->rawValue = [
                     [
                         'legend' => '',
-                        'oxid' => []
-                    ]
+                        'oxid' => [],
+                    ],
                 ];
             }
 
@@ -64,26 +63,38 @@ class Form extends AdminDetailsController
             $ElementModels = oxNew(ElementModels::class);
             $FieldConfig = $ElementModels->findByParent($soxId);
             $_fc = [];
-            foreach($FieldConfig as $field) {
-                $_fc[$field['OXID']] = $field;
+            foreach ($FieldConfig as $field) {
+                if (!empty($field['OXID'])) {
+                    $_fc[$field['OXID']] = $field;
+                }
             }
             $FieldConfig = $_fc;
             unset($_fc);
 
-            $AppliedFields = [];
-            foreach($FormModel->ci_form__oxfieldconfig->rawValue as $fieldKey => &$fieldset) {
+            $RemovedFields = [];
+            $UnappliedFields = [];
+            foreach ($FormModel->ci_form__oxfieldconfig->rawValue as $fieldKey => &$fieldset) {
                 $_fs = [];
-                foreach($fieldset['fields'] as $fieldId) {
-                    $AppliedFields[$fieldId] = 1;
-                    $_fs[$fieldId] = $FieldConfig[$fieldId];
+                foreach ($fieldset['fields'] as $fieldId) {
+                    if (empty($FieldConfig[$fieldId])) {
+                        $RemovedFields[$fieldId] = 1;
+                    } else {
+                        $UnappliedFields[$fieldId] = 1;
+                        $_fs[$fieldId] = $FieldConfig[$fieldId];
+                    }
                 }
-                $fieldset['fields'] = $_fs;
+
+                if (!empty($_fs)) {
+                    $fieldset['fields'] = $_fs;
+                }
                 unset($_fs);
             }
+
             unset($fieldset);
             $this->_aViewData["fieldconfig"] = $FormModel->ci_form__oxfieldconfig->rawValue;
-            $this->_aViewData["unapplied"] = array_diff_key($FieldConfig, $AppliedFields);
-            
+            $this->_aViewData["unapplied"] = array_diff_key($FieldConfig, $UnappliedFields);
+            $this->_aViewData["removedFields"] = $RemovedFields;
+
             foreach ($oOtherLang as $id => $language) {
                 $oLang = new stdClass();
                 $oLang->sLangDesc = $language;
@@ -98,18 +109,18 @@ class Form extends AdminDetailsController
                 }
             }
 
-            if(empty($FormData['editval']['ci_form__oxhtmltemplate'])) {
+            if (empty($FormData['editval']['ci_form__oxhtmltemplate'])) {
                 $StringUtil = oxNew(StringUtil::class);
                 $FormData['editval']['ci_form__oxhtmltemplate'] = $StringUtil->standardize($FormData['editval']['ci_form__oxtitle']);
             }
 
             $FormGenerator->setFieldValues($FormData);
         }
-        
+
         $request = oxNew(Request::class);
         $FormGenerator->stringVariables([
             'oxid' => $soxId,
-            'controller' => $request->getRequestEscapedParameter("cl")
+            'controller' => $request->getRequestEscapedParameter("cl"),
         ]);
         $FormGenerator->setFormData();
 
@@ -194,7 +205,7 @@ class Form extends AdminDetailsController
         unset($Fieldset['x']);
         $formData['ci_form__oxfieldconfig'] = json_encode($Fieldset);
         $StringUtil = oxNew(StringUtil::class);
-        if(empty($formData['ci_form__oxhtmltemplate'])) {
+        if (empty($formData['ci_form__oxhtmltemplate'])) {
             $formData['ci_form__alias'] = $StringUtil->standardize($formData['ci_form__oxtitle']);
         }
 

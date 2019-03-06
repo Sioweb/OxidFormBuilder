@@ -45,16 +45,25 @@ class Form extends FrontendController
             $_fc[$field['OXTITLE']] = $field;
             if (!empty($_POST['formbuilder'][$field['OXTITLE']])) {
                 $_fc[$field['OXTITLE']]['value'] = $_POST['formbuilder'][$field['OXTITLE']];
+                
                 if(!empty($field['OXOPTIONS'])) {
-                    foreach($field['OXOPTIONS'] as $optionSet) {
-                        if($optionSet['key'] === $_fc[$field['OXTITLE']]['value']) {
-                            $_fc[$field['OXTITLE']]['value'] = $optionSet['value'];
+                    $OptionValue = null;
+                    foreach($field['OXOPTIONS'] as $optionSetIndex => $optionSet) {
+                        if(!is_array($_fc[$field['OXTITLE']]['value'])) {
+                            if($optionSet['key'] === $_fc[$field['OXTITLE']]['value']) {
+                                $OptionValue = $optionSet['value'];
+                            }
+                        } else {
+                            if(in_array($optionSet['key'], $_fc[$field['OXTITLE']]['value'])) {
+                                $OptionValue[$optionSet['key']] = $optionSet['value'];
+                            }
                         }
                     }
+                    $_fc[$field['OXTITLE']]['value'] = $OptionValue;
                 }
             }
         }
-
+        
         $AdditionalPostData = array_diff_key($_POST['formbuilder'], $_fc);
         if(!empty($AdditionalPostData)) {
             foreach($AdditionalPostData as $name => $value) {

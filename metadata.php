@@ -50,13 +50,14 @@ $aModule = [
         'ci_formbuilder_eval.tpl' => 'ci-haeuser/FormBuilder/views/tpl/smarty/ci_formbuilder_eval.tpl',
 
         'ci_forumbuilder_element_text.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_text.tpl',
-        'ci_forumbuilder_element_checkbox.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_checkbox.tpl',
+        'ci_forumbuilder_element_radio.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_radio.tpl',
         'ci_forumbuilder_element_select.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_select.tpl',
-        'ci_forumbuilder_element_fieldset.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_fieldset.tpl',
         'ci_forumbuilder_element_button.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_button.tpl',
         'ci_forumbuilder_element_submit.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_submit.tpl',
         'ci_forumbuilder_element_hidden.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_hidden.tpl',
+        'ci_forumbuilder_element_checkbox.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_checkbox.tpl',
         'ci_forumbuilder_element_textarea.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_textarea.tpl',
+        'ci_forumbuilder_element_fieldset.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_fieldset.tpl',
         'ci_forumbuilder_element_optionswidget.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_optionswidget.tpl',
 
         'formbuilder_jquery_ui.tpl' => 'ci-haeuser/FormBuilder/views/tpl/jqueryui/formbuilder_jquery_ui.tpl',

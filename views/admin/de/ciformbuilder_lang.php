@@ -88,4 +88,6 @@ $aLang = [
     'FORMBUILDER_HELP_NOT_APPLIED_ITEMS'                => 'Noch nicht zugewiesene Eingabefelder',
     'FORMBUILDER_HELP_DRAG_ITEMS_INTO_FIELDSETS'        => 'Ziehen Sie die Felder in die Fieldsets nach unten.',
 
+    'FORMBUILDER_FIELDS_NOT_FOUND'                      => '%s Felder konnten nicht gefunden werden, vermutlich wurden diese Felder gelöscht oder die Zuordnung wurde geändert.',
+
 ];

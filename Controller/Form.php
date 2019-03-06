@@ -54,6 +54,17 @@ class Form extends FrontendController
                 }
             }
         }
+
+        $AdditionalPostData = array_diff_key($_POST['formbuilder'], $_fc);
+        if(!empty($AdditionalPostData)) {
+            foreach($AdditionalPostData as $name => $value) {
+                $_fc[$name] = [
+                    'additional' => true,
+                    'value' => $value
+                ];
+            }
+        }
+        
         $this->FieldConfig = $_fc;
         unset($_fc);
 

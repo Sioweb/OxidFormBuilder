@@ -59,6 +59,8 @@ class Form extends MultiLanguageModel
             }
         }
 
+        $FormData = $this->formData($FormData);
+
         foreach ($this->smartyParameters as $parameter => $parameterValue) {
             $FirstPalette = current(array_keys($FormData['palettes']['default']));
             array_unshift($FormData['palettes']['default'][$FirstPalette]['fields'], $parameter);
@@ -76,7 +78,12 @@ class Form extends MultiLanguageModel
         return implode("\n", $FormGenerator->generate());
     }
 
-    private function format($Data)
+    protected function formData($FormData)
+    {
+        return $FormData;
+    }
+
+    protected function format($Data)
     {
         $FieldData = [
             'label' => $Data['OXLABEL'],

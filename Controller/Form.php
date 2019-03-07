@@ -77,17 +77,29 @@ class Form extends FrontendController
         $this->FieldConfig = $_fc;
         unset($_fc);
 
-        if (!empty($_POST)) {
+        if (!empty($_POST) && $this->FormData['sendform']) {
+            $Action = $this->beforeSendMail($this->FormData, $this->FieldConfig);
+            if($Action === null || $Action == true) {
+                $Email = oxNew(Email::class);
+                $Email->sendFormbuilderMail($this->FormData, $this->FieldConfig);
+            }
+        }
+        
+        if (!empty($_POST) && $this->FormData['action']) {
             $url = rtrim($config->getCurrentShopUrl($this->isAdmin()), '/');
             $url .= '/' . ltrim($this->FormData['action'], '/');
-
-            $Email = oxNew(Email::class);
-            $Email->sendFormbuilderMail($this->FormData, $this->FieldConfig);
-
-            Registry::getUtils()->redirect($url, (bool) $config->getRequestParameter('redirected'), 302);
+            $Action = $this->beforeRedirect($this->FormData, $this->FieldConfig, $url);
+            if($Action === null || $Action == true) {
+                Registry::getUtils()->redirect($url, (bool) $config->getRequestParameter('redirected'), 302);
+            }
         }
     }
 
+    protected function beforeSendMail($FormData, $FieldConfig) {}
+    
+
+    protected function beforeRedirect($FormData, $FieldConfig, $url) {}
+    
     protected function loadFormData($Form = null)
     {
         return [

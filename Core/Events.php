@@ -4,6 +4,7 @@ namespace Ci\Oxid\FormBuilder\Core;
 
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\DbMetaDataHandler;
+use OxidEsales\Eshop\Core\Registry;
 
 class Events
 {

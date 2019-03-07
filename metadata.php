@@ -21,6 +21,14 @@ $aModule = [
             \Ci\Oxid\FormBuilder\Core\Utilsview::class,
         \OxidEsales\Eshop\Core\Email::class =>
             \Ci\Oxid\FormBuilder\Core\Email::class,
+        \OxidEsales\Eshop\Core\Module\Module::class =>
+            \Ci\Oxid\FormBuilder\Core\Module\Module::class,
+        \OxidEsales\Eshop\Core\Module\ModuleInstaller::class =>
+            \Ci\Oxid\FormBuilder\Core\Module\ModuleInstaller::class,
+        \OxidEsales\Eshop\Application\Controller\Admin\ModuleMain::class =>
+            \Ci\Oxid\FormBuilder\Controller\Admin\ModuleMain::class,
+        \OxidEsales\Eshop\Core\Registry::class =>
+            \Ci\Oxid\FormBuilder\Core\Registry::class,
     ],
     'controllers' => [
         'formbuilder' => \Ci\Oxid\FormBuilder\Controller\Form::class,
@@ -31,6 +39,10 @@ $aModule = [
         'ciadminformelement' => \Ci\Oxid\FormBuilder\Controller\Admin\Element\Frame::class,
         'ciadminformelementlist' => \Ci\Oxid\FormBuilder\Controller\Admin\Element\Elements::class,
         'ciadminformelementmain' => \Ci\Oxid\FormBuilder\Controller\Admin\Element\Element::class,
+    ],
+    'formbuilder' => [
+        'formbuilder_backend_form' => \Ci\Oxid\FormBuilder\Form\Admin\Forms::class,
+        'formbuilder_backend_form_elements' => \Ci\Oxid\FormBuilder\Form\Admin\Elements::class,
     ],
     'events'       => [
         'onActivate'   => 'Ci\Oxid\FormBuilder\Core\Events::onActivate',

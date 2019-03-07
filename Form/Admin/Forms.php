@@ -20,7 +20,8 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
     public function loadSubpalettes()
     {
         return [
-            'oxsendform' => ['oxreceiver', 'oxsubject', 'oxcontent'],
+            'oxsendform' => ['oxreceiver', 'oxsubject', 'oxcontent', 'oxconfirm'],
+            'oxconfirm' => ['oxreceiver_confirm', 'oxsubject_confirm', 'oxcontent_confirm'],
         ];
     }
 
@@ -86,6 +87,18 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
                 'type' => 'text',
             ],
             'oxcontent' => [
+                'type' => 'textarea',
+            ],
+            'oxconfirm' => [
+                'type' => 'text'
+            ],
+            'oxreceiver_confirm' => [
+                'type' => 'text'
+            ],
+            'oxsubject_confirm' => [
+                'type' => 'text'
+            ],
+            'oxcontent_confirm' => [
                 'type' => 'textarea',
             ],
             'oxactivefrom' => [

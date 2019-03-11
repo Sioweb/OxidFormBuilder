@@ -120,6 +120,9 @@ class Form extends FrontendController
             'receiver' => $Form->ci_form__oxreceiver->value,
             'subject' => $Form->ci_form__oxsubject->value,
             'content' => $Form->ci_form__oxcontent->value,
+            'confirm' => $Form->ci_form__oxconfirm->value,
+            'subject_confirm' => $Form->ci_form__oxsubject_confirm->value,
+            'content_confirm' => $Form->ci_form__oxcontent_confirm->value,
         ];
     }
 }

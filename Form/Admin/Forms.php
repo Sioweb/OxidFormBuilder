@@ -90,10 +90,7 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
                 'type' => 'textarea',
             ],
             'oxconfirm' => [
-                'type' => 'text'
-            ],
-            'oxreceiver_confirm' => [
-                'type' => 'text'
+                'type' => 'checkbox'
             ],
             'oxsubject_confirm' => [
                 'type' => 'text'

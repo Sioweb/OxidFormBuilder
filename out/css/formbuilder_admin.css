@@ -95,7 +95,8 @@
 .formbuilder-element.w50 {
     width: 50%;
 }
-.formbuilder-element + .formbuilder-element {
+.formbuilder-element + .formbuilder-element,
+.formbuilder-subpalette + .formbuilder-element {
     margin-top: 20px;
 }
 
@@ -286,6 +287,9 @@
     padding: 0;
     outline: 0 !important;
     box-sizing: border-box;
+}
+.manager-dialog * + .formbuilder-subpalette {
+    margin-top: 20px;
 }
 .manager-dialog-backend {
     z-index: 9999;

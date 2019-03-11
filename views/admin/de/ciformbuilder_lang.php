@@ -30,6 +30,8 @@ $aLang = [
 
     'FORMBUILDER_LABEL_OXTYPE'                          => 'Feldtyp',
     'FORMBUILDER_LABEL_OXTYPE_HELP'                     => 'Bitte wählen Sie den Typ des Formularfelds.',
+    'FORMBUILDER_LABEL_OXCONFIRMFIELD'                  => 'Bestätigungsfeld',
+    'FORMBUILDER_LABEL_OXCONFIRMFIELD_HELP'             => 'Dieses Feld als E-Mail-Adresse für Bestätigungs-E-Mails verwenden.',
     'FORMBUILDER_LABEL_OXALIAS'                         => 'Alias',
     'FORMBUILDER_LABEL_OXALIAS_HELP'                    => 'Alias mit dem dieser Eintrag identifiziert werden kann.',
     'FORMBUILDER_LABEL_OXHTMLTEMPLATE'                  => 'HTML-Template (Ohne .tpl)',
@@ -68,6 +70,14 @@ $aLang = [
     'FORMBUILDER_LABEL_OXPLACEHOLDER_HELP'              => 'Dieser Text wird angezeigt solange das Feld noch nicht ausgefüllt wurde (benötigt HTML5).',
     'FORMBUILDER_LABEL_OXOPTIONS'                       => 'Optionenliste',
     'FORMBUILDER_LABEL_OXOPTIONS_HELP'                  => 'Geben Sie hier Daten nach dem Muster key => value ein.',
+
+    'FORMBUILDER_LABEL_OXCONFIRM'                       => 'Bestätigungs-E-Mail senden',
+    'FORMBUILDER_LABEL_OXCONFIRM_HELP'                  => 'Soll eine Bestätigungs-E-Mail an den Absender gesendet werden?',
+    'FORMBUILDER_LABEL_OXSUBJECT_CONFIRM'               => 'Betreff Bestätigungs-E-Mail',
+    'FORMBUILDER_LABEL_OXSUBJECT_CONFIRM_HELP'          => 'Bitte geben Sie den Betreff der Bestätigungs-E-Mail an',
+    'FORMBUILDER_LABEL_OXCONTENT_CONFIRM'               => 'Inhalt der BEstätigungs-E-Mail',
+    'FORMBUILDER_LABEL_OXCONTENT_CONFIRM_HELP'          => 'Bitte geben Sie hier den Text der E-Mail ein. Es werden Smartyvariablen in unterstützt.',
+
 
     'FORMBUILDER_VALUE_OXTYPE_text'                     => 'Textfeld',
     'FORMBUILDER_VALUE_OXTYPE_default'                  => 'Textfeld',

@@ -132,6 +132,8 @@
 [{oxscript include="js/libs/jquery.min.js"}]
 [{oxscript include="js/libs/jquery-ui.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_options.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_subpalette.js"}]
 
 [{include file="bottomitem.tpl"}]
 
@@ -139,21 +141,10 @@
 jQuery.noConflict();
 (function($) {$(function() {
 
-	$('[data-subpalette]').each(function() {
-		var $el = $(this),
-			isVisible = function($el) {
-				if($el.is(':checked')) {
-					$('[data-subpalette-container="' + $el.data('subpalette') + '"]').addClass('visible');
-				} else {
-					$('[data-subpalette-container="' + $el.data('subpalette') + '"]').removeClass('visible');
-				}
-			};
 
-		$el.change(function() {
-			isVisible($el);
-		});
-		isVisible($el);
-	});
+    if($('[data-subpalette]').length) {
+        $('[data-subpalette]').formbuilder_subpalette();
+    }
 
 	if($('.formbuilder-fieldconfig').length) {
 		var $formBuilder = $('.formbuilder-fieldconfig').formbuilder({
@@ -163,6 +154,13 @@ jQuery.noConflict();
 			removeField: function($el, $formbuilderObj) {
 				var $element = $el.closest($formbuilderObj.handler.element).insertBefore('.formbuilder-unapplied-elements p');
 				$('.formbuilder-unapplied-elements').addClass('visible');
+			},
+			dialogOpen: function($handler, $formbuilderObj) {
+				
+
+				if($handler.find('[data-subpalette]').length) {
+					$handler.find('[data-subpalette]').formbuilder_subpalette();
+				}
 			}
 		})[0].formbuilder;
 

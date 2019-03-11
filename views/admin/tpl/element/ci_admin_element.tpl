@@ -33,6 +33,7 @@
 [{oxscript include="js/libs/jquery.min.js"}]
 [{oxscript include="js/libs/jquery-ui.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_options.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_subpalette.js"}]
 
 <!-- START new promotion button -->
 <div class="actions">
@@ -57,6 +58,10 @@
 <script>
 jQuery.noConflict();
 (function($) {$(function() {
+
+    if($('[data-subpalette]').length) {
+        $('[data-subpalette]').formbuilder_subpalette();
+    }
 
 	if($('.formbuilder-element-optionswidget').length) {
 		var $formbuilderOptions = $('.formbuilder-element-optionswidget').formbuilder_options({

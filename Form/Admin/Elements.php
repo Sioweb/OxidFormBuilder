@@ -2,7 +2,7 @@
 
 namespace Ci\Oxid\FormBuilder\Form\Admin;
 
-class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
+class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib\Formgenerator\Core\SubpaletteInterface
 {
     public function loadData()
     {
@@ -13,6 +13,15 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'fieldname' => 'editval[[{ $TABLE }]__[{ $FIELDNAME }]]',
                 'palettes' => $this->loadPalettes(),
                 'fields' => $this->loadFieldConfig(),
+            ],
+        ];
+    }
+
+    public function loadSubpalettes()
+    {
+        return [
+            'oxvalidation_email' => [
+                'oxconfirmfield'
             ],
         ];
     }
@@ -144,6 +153,10 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                     'number',
                     'email',
                 ],
+                'editable' => true,
+            ],
+            'oxconfirmfield' => [
+                'type' => 'checkbox',
                 'editable' => true,
             ],
             'oxplaceholder' => [

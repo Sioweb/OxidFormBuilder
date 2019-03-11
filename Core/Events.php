@@ -27,9 +27,12 @@ class Events
                 `OXACTIVETO` datetime NOT NULL default '0000-00-00 00:00:00' COMMENT 'Active to specified date',
                 `OXSORT` int( 5 ) NOT NULL DEFAULT '0' COMMENT 'Sorting',
                 `OXTIMESTAMP` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP COMMENT 'Timestamp',
-                `OXSENDFORM` varchar(255) NOT NULL default '',
-                `OXRECEIVER` varchar(255) NOT NULL default '',
-                `OXSUBJECT` varchar(255) NOT NULL default '',
+                `OXSENDFORM` varchar(255) NULL default '',
+                `OXRECEIVER` varchar(255) NULL default '',
+                `OXSUBJECT` varchar(255) NULL default '',
+                `OXCONFIRM` varchar(255) NULL default '',
+                `OXSUBJECT_CONFIRM` varchar(255) NULL default '',
+                `OXCONTENT_CONFIRM` varchar(255) NULL default '',
                 `OXCONTENT` text NULL,
                 PRIMARY KEY  (`OXID`),
                 index(`OXSORT`)
@@ -77,6 +80,9 @@ class Events
             ['ci_form', 'OXSUBJECT', "varchar(255) NOT NULL default ''"],
             ['ci_form', 'OXCONTENT', "text NULL"],
             ['ci_form', 'OXFIELDCONFIG', "text NULL"],
+            ['ci_form', 'OXCONFIRM', "varchar(255) NULL default ''"],
+            ['ci_form', 'OXSUBJECT_CONFIRM', "varchar(255) NULL default ''"],
+            ['ci_form', 'OXCONTENT_CONFIRM', "varchar(255) NULL default ''"],
 
             ['ci_form_element', 'OXID', "char(32) character set utf8 collate utf8_general_ci NOT NULL COMMENT 'Element id'"],
             ['ci_form_element', 'OXSHOPID', "int(11) NOT NULL default '1' COMMENT 'Shop id (oxshops)'"],
@@ -88,6 +94,7 @@ class Events
             ['ci_form_element', 'OXREQUIRED', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXVALIDATION', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXPLACEHOLDER', "varchar(255) NULL default ''"],
+            ['ci_form_element', 'OXCONFIRMFIELD', "varchar(255) NULL default ''"],
             ['ci_form_element', 'OXCSSCLASS', "varchar(255) NULL default '' COMMENT 'Frontend CSS Class'"],
             ['ci_form_element', 'OXOPTIONS', "text NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons'"],
 
@@ -104,6 +111,7 @@ class Events
             ['ci_form_element2form', '_OXREQUIRED', "varchar(255) NULL default ''"],
             ['ci_form_element2form', '_OXVALIDATION', "varchar(255) NULL default ''"],
             ['ci_form_element2form', '_OXPLACEHOLDER', "varchar(255) NULL default ''"],
+            ['ci_form_element2form', '_OXCONFIRMFIELD', "varchar(255) NULL default ''"],
             ['ci_form_element2form', '_OXOPTIONS', "text NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons'"],
         ];
 

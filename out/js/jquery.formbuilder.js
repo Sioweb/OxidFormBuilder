@@ -20,7 +20,8 @@
 			fieldEdit: '[data-fieldconfig-field-edit]',
 			fieldConfigForm: '.formbuilder-fieldconfig-form',
 		},
-		removeField: function ($el, formbuilderObj) { }
+		removeField: function ($el, $formbuilderObj) {},
+		dialogOpen: function($handler, $formbuilderObj) {}
 	};
 
 	PluginClass = function () {
@@ -237,6 +238,7 @@
 							$form[0].formDataConfig = fieldConfig;
 
 							selfObj.getHandler('fieldConfigForm').dialog('open');
+							selfObj.dialogOpen(selfObj.getHandler('fieldConfigForm'), selfObj);
 						}
 					});
 				});

@@ -94,6 +94,7 @@ class Form extends MultiLanguageModel
             'required' => $Data['OXREQUIRED'],
             'validation' => $Data['OXVALIDATION'],
             'placeholder' => $Data['OXPLACEHOLDER'],
+            'confirmfield' => $Data['OXOXCONFIRMFIELD'],
             'options' => $Data['OXOPTIONS'],
         ];
 

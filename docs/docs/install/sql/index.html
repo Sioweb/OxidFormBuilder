@@ -1,0 +1,206 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sql | FormBuilder</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
+
+<link rel="stylesheet" href="/OxidFormBuilder/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+<link rel="stylesheet" href="/OxidFormBuilder/start.min.e2a600d66acfa45da8fda5d30e2a75a40c57427d81ce8c0a2832cdd7087d7bb5.css">
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/OxidFormBuilder/">FormBuilder</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2finstall\2fsql\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/OxidFormBuilder/docs/frontend/">Frontend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/frontend/elements">Eingabefelder</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/forms">Formulare</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/fieldsets">Fieldsets</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/templates">E-Mail-Templates</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/backend/">Backend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/backend/define_form">Formulare Definieren</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/install/">Installation</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/install/sql">Demo-Daten</a></li>
+<li><a href="/OxidFormBuilder/docs/install/ssh">SSH-Konsole</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/OxidFormBuilder/svg/menu.svg" />
+  </label>
+  <strong>Sql</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="demo-daten">Demo-Daten</h1>
+
+<p>Fügen Sie diese SQL-Daten in Ihre Datenbank ein, um schnell zu testen.</p>
+
+<pre><code>CREATE TABLE IF NOT EXISTS `ci_form` (
+  `OXID` char(32) NOT NULL COMMENT 'Attachment id',
+  `OXSHOPID` int(11) NOT NULL DEFAULT 1 COMMENT 'Shop id (oxshops)',
+  `OXTITLE` varchar(255) NOT NULL DEFAULT '',
+  `OXCSSCLASS` varchar(255) NOT NULL DEFAULT '' COMMENT 'Frontend CSS Class',
+  `OXACTIVE` tinyint(1) NOT NULL DEFAULT 1 COMMENT 'Active',
+  `OXACTIVEFROM` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Active from specified date',
+  `OXACTIVETO` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Active to specified date',
+  `OXSORT` int(5) NOT NULL DEFAULT 0 COMMENT 'Sorting',
+  `OXTIMESTAMP` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Timestamp',
+  `OXACTION` varchar(255) NOT NULL DEFAULT '',
+  `OXFIELDCONFIG` text DEFAULT NULL,
+  `OXSENDFORM` varchar(255) NOT NULL DEFAULT '',
+  `OXRECEIVER` varchar(255) NOT NULL DEFAULT '',
+  `OXSUBJECT` varchar(255) NOT NULL DEFAULT '',
+  `OXCONTENT` text DEFAULT NULL,
+  `OXALIAS` varchar(255) NOT NULL DEFAULT '',
+  `OXHTMLTEMPLATE` varchar(255) NOT NULL DEFAULT '',
+  `OXCONFIRM` varchar(255) NOT NULL DEFAULT '',
+  `OXRECEIVER_CONFIRM` varchar(255) NOT NULL DEFAULT '',
+  `OXSUBJECT_CONFIRM` varchar(255) NOT NULL DEFAULT '',
+  `OXCONTENT_CONFIRM` varchar(255) NOT NULL DEFAULT '',
+  `APPLYFIELDS` varchar(255) NOT NULL DEFAULT '',
+  `SUBMIT` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`OXID`),
+  KEY `OXSORT` (`OXSORT`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `ci_form` (`OXID`, `OXSHOPID`, `OXTITLE`, `OXCSSCLASS`, `OXACTIVE`, `OXACTIVEFROM`, `OXACTIVETO`, `OXSORT`, `OXTIMESTAMP`, `OXACTION`, `OXFIELDCONFIG`, `OXSENDFORM`, `OXRECEIVER`, `OXSUBJECT`, `OXCONTENT`, `OXALIAS`, `OXHTMLTEMPLATE`, `OXCONFIRM`, `OXRECEIVER_CONFIRM`, `OXSUBJECT_CONFIRM`, `OXCONTENT_CONFIRM`, `APPLYFIELDS`, `SUBMIT`) VALUES
+('1283195e8e6ef2df8205b982478aa33f', 1, 'Artikel anfrage', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-11 11:40:41', 'Formular-erfolgreich-abgesendet/', '[{\&quot;legend\&quot;:\&quot;\&quot;,\&quot;fields\&quot;:[\&quot;f0fe484a825e33de0106875a6e7f05a3\&quot;,\&quot;d28c63a3cd7853bef5d1c57ef2587c29\&quot;,\&quot;815c89d152bc07829844acc7d8d9bc9f\&quot;,\&quot;cabc7909e5ba9a58b322d19ca5ab5626\&quot;]}]', '1', 's.weidner@seipp.com', 'Anfrage zu einem Artikel', 'Interessent: [{ $email }]\r\n\r\nNachricht\r\n\r\n[{ $message }]', 'artikel-anfrage', 'artikel-anfrage', '1', '', 'Dies ist eine Bestätigungs-E-Mail', 'Lorem Ipsum', '', ''),
+('7cdf18f9830a5a355ed432d74a36c552', 1, 'Artikel nicht gefunden', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-01 13:25:07', 'Formular-erfolgreich-abgesendet/', '[{\&quot;legend\&quot;:\&quot;Adresse\&quot;,\&quot;fields\&quot;:[\&quot;06a6dfb826b76bcc11519b4ba2941919\&quot;,\&quot;0cc960edb7b9095ae1dab7d3eac135bc\&quot;]},{\&quot;legend\&quot;:\&quot;Kontakt\&quot;,\&quot;fields\&quot;:[\&quot;f0fe484a825e33de0106875a6e7f05a3\&quot;,\&quot;cabc7909e5ba9a58b322d19ca5ab5626\&quot;]}]', '', 's.weidner@seipp.com', 'Artikel nicht gefunden', 'Name: [{ $firstname }] [{ $lastname }]\r\n\r\nE-Mail: [{ $email }]', 'artikel-nicht-gefunden', 'artikel-nicht-gefunden', '', '', '', '', '', '');
+
+CREATE TABLE IF NOT EXISTS `ci_form_element` (
+  `OXID` char(32) NOT NULL COMMENT 'Attachment id',
+  `OXSHOPID` int(11) NOT NULL DEFAULT 1 COMMENT 'Shop id (oxshops)',
+  `OXTYPE` varchar(255) NOT NULL DEFAULT '',
+  `OXTITLE` varchar(255) NOT NULL DEFAULT '',
+  `OXVALUE` varchar(255) DEFAULT '',
+  `OXCSSCLASS` varchar(255) DEFAULT '' COMMENT 'Frontend CSS Class',
+  `OXACTIVE` tinyint(1) NOT NULL DEFAULT 1 COMMENT 'Active',
+  `OXACTIVEFROM` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Active from specified date',
+  `OXACTIVETO` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Active to specified date',
+  `OXSORT` int(5) NOT NULL DEFAULT 0 COMMENT 'Sorting',
+  `OXTIMESTAMP` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Timestamp',
+  `OXFORMID` char(32) NOT NULL COMMENT 'Parent form id',
+  `OXLABEL` varchar(255) DEFAULT '',
+  `OXREQUIRED` varchar(255) DEFAULT '',
+  `OXVALIDATION` varchar(255) DEFAULT '',
+  `OXPLACEHOLDER` varchar(255) DEFAULT '',
+  `OXOPTIONS` text DEFAULT NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons',
+  `SUBMIT` varchar(255) NOT NULL DEFAULT '',
+  `OXCONFIRMFIELD` varchar(255) DEFAULT '',
+  PRIMARY KEY (`OXID`),
+  KEY `OXSORT` (`OXSORT`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `ci_form_element` (`OXID`, `OXSHOPID`, `OXTYPE`, `OXTITLE`, `OXVALUE`, `OXCSSCLASS`, `OXACTIVE`, `OXACTIVEFROM`, `OXACTIVETO`, `OXSORT`, `OXTIMESTAMP`, `OXFORMID`, `OXLABEL`, `OXREQUIRED`, `OXVALIDATION`, `OXPLACEHOLDER`, `OXOPTIONS`, `SUBMIT`, `OXCONFIRMFIELD`) VALUES
+('06a6dfb826b76bcc11519b4ba2941919', 1, 'default', 'lastname', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-04 07:23:34', '', 'Nachname', '', '', '', NULL, '', ''),
+('0cc960edb7b9095ae1dab7d3eac135bc', 1, 'default', 'firstname', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-04 07:23:38', '', 'Vorname', '', '', '', NULL, '', ''),
+('38ded75cfe0373d10986ebdcfc95e2c4', 1, 'checkbox', 'categories', NULL, NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-06 09:08:01', '', 'Art der Anfrage (Checkbox)', '0', '', '', '[{\&quot;key\&quot;:\&quot;one\&quot;,\&quot;value\&quot;:\&quot;Eins\&quot;},{\&quot;key\&quot;:\&quot;two\&quot;,\&quot;value\&quot;:\&quot;Zwei\&quot;},{\&quot;key\&quot;:\&quot;three\&quot;,\&quot;value\&quot;:\&quot;Drei\&quot;}]', '', ''),
+('815c89d152bc07829844acc7d8d9bc9f', 1, 'textarea', 'message', NULL, NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-01 14:11:43', '', 'Nachricht', '0', NULL, '', NULL, '', ''),
+('a19dedabe30280833b6fad288f6f0853', 1, 'default', 'street', NULL, NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-02-28 13:54:30', '', 'Straße', '0', '', '', NULL, '', ''),
+('cabc7909e5ba9a58b322d19ca5ab5626', 1, 'submit', 'submit', 'Absenden', 'btn btn-primary', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-05 09:07:33', '', '', '', '', '', NULL, '', ''),
+('d28c63a3cd7853bef5d1c57ef2587c29', 1, 'select', 'category', NULL, NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-05 13:17:44', '', 'Art der Anfrage', '1', '', '', '[{\&quot;key\&quot;:\&quot;interest\&quot;,\&quot;value\&quot;:\&quot;Ich m\\u00f6chte diesen Artikel kaufen\&quot;},{\&quot;key\&quot;:\&quot;information\&quot;,\&quot;value\&quot;:\&quot;Ich m\\u00f6chte mehr \\u00fcber diesen Artikel erfahren\&quot;},{\&quot;key\&quot;:\&quot;sonstiges\&quot;,\&quot;value\&quot;:\&quot;Sonstiges\&quot;}]', '', ''),
+('f0fe484a825e33de0106875a6e7f05a3', 1, 'default', 'email', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-12 11:42:01', '', 'E-Mail', '1', 'email', '', 'null', '', '1');
+
+
+CREATE TABLE IF NOT EXISTS `ci_form_element2form` (
+  `OXID` char(32) NOT NULL COMMENT 'Element id',
+  `OXELEMENTID` char(32) NOT NULL COMMENT 'Element id',
+  `OXFORMID` char(32) NOT NULL COMMENT 'Element id',
+  `OXTIMESTAMP` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Timestamp',
+  `_OXTYPE` varchar(255) DEFAULT '',
+  `_OXTITLE` varchar(255) DEFAULT '',
+  `_OXLABEL` varchar(255) DEFAULT '',
+  `_OXVALUE` varchar(255) DEFAULT '',
+  `_OXREQUIRED` varchar(255) DEFAULT '',
+  `_OXVALIDATION` varchar(255) DEFAULT '',
+  `_OXPLACEHOLDER` varchar(255) DEFAULT '',
+  `_OXOPTIONS` text DEFAULT NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons',
+  `_OXCONFIRMFIELD` varchar(255) DEFAULT '',
+  PRIMARY KEY (`OXID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `ci_form_element2form` (`OXID`, `OXELEMENTID`, `OXFORMID`, `OXTIMESTAMP`, `_OXTYPE`, `_OXTITLE`, `_OXLABEL`, `_OXVALUE`, `_OXREQUIRED`, `_OXVALIDATION`, `_OXPLACEHOLDER`, `_OXOPTIONS`, `_OXCONFIRMFIELD`) VALUES
+('472b7aa2bbc41ccc4bdd2b56bbc65bb6', 'a19dedabe30280833b6fad288f6f0853', '7cdf18f9830a5a355ed432d74a36c552', '2019-02-28 13:58:36', '', '', '', '', '', '', '', NULL, ''),
+('54a70d4223dc43b5ec2f59e3928ca259', 'cabc7909e5ba9a58b322d19ca5ab5626', '7cdf18f9830a5a355ed432d74a36c552', '2019-02-28 13:36:44', '', '', '', '', '', '', '', NULL, ''),
+('5698d1e9514e908af7089c36a6ac3b9c', 'd28c63a3cd7853bef5d1c57ef2587c29', '1283195e8e6ef2df8205b982478aa33f', '2019-03-05 13:17:55', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
+('6800a9add1d7daba2324c74ccbfa5917', 'f0fe484a825e33de0106875a6e7f05a3', '7cdf18f9830a5a355ed432d74a36c552', '2019-02-27 13:57:33', '', '', '', '', '', '', '', NULL, ''),
+('a50bd474c288791c7ae7e0779a6494aa', 'f0fe484a825e33de0106875a6e7f05a3', '1283195e8e6ef2df8205b982478aa33f', '2019-03-06 10:16:57', '', '', '', '', '0', '', '', NULL, ''),
+('aab4160aa601282c16e61feed41cf6ae', 'cabc7909e5ba9a58b322d19ca5ab5626', '1283195e8e6ef2df8205b982478aa33f', '2019-03-06 09:11:46', NULL, NULL, NULL, 'Anfrage senden', NULL, NULL, NULL, NULL, ''),
+('b744300cb9ff30c72b200c15343a029d', '0cc960edb7b9095ae1dab7d3eac135bc', '7cdf18f9830a5a355ed432d74a36c552', '2019-02-27 13:45:38', '', '', '', '', '', '', '', NULL, ''),
+('b74cba756587907539a15e9ebb4817ad', '815c89d152bc07829844acc7d8d9bc9f', '1283195e8e6ef2df8205b982478aa33f', '2019-03-01 14:11:57', '', '', '', '', '', '', '', NULL, ''),
+('ed9a08cf4f2193dff04db5330a9f0507', '06a6dfb826b76bcc11519b4ba2941919', '7cdf18f9830a5a355ed432d74a36c552', '2019-02-27 13:45:38', '', '', '', '', '', '', '', NULL, '');
+COMMIT;
+</code></pre>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#demo-daten">Demo-Daten</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

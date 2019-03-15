@@ -17,6 +17,8 @@ $aModule = [
     'email' => 'marketing@seipp.com',
     'author' => 'Sascha Weidner',
     'extend'      => [
+        \Ci\Oxid\MailAttachments\Controller\Admin\AttachmentsMain::class =>
+            \Ci\Oxid\FormBuilder\Controller\Admin\AttachmentsMain::class,
         \OxidEsales\Eshop\Core\UtilsView::class =>
             \Ci\Oxid\FormBuilder\Core\Utilsview::class,
         \OxidEsales\Eshop\Core\Email::class =>

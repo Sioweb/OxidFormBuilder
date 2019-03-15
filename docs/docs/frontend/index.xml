@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frontend on FormBuilder</title>
+    <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/</link>
+    <description>Recent content in Frontend on FormBuilder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    
+	<atom:link href="https://sioweb.github.io/OxidFormBuilder/docs/frontend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Elements</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/elements/</guid>
+      <description>Eingabefelder Eingabefelder werden wie eine Art Template mit Standardwerten angelegt. Ein Eingabefeld kann in verschiedenen Formularen wiederverwendet und dessen Standardwerte können dort dann überschrieben werden.
+Bevor Sie ein Formular erstellen können, müssen Sie mindestens ein Eingabefeld gespeichert haben. Sie finden die Formular Eingabefelder im Admin-Bereich von Oxid in der Navigation unter Shopeinstellungen.
+Legen Sie nun ein neues Feld an. Sobald Sie das Feld Typ ändert, wird das Formular neu geladen und es werden nur noch Felder angezeigt, welche für den ausgewählten Typen relevant sind.</description>
+    </item>
+    
+    <item>
+      <title>Fieldsets</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/fieldsets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/fieldsets/</guid>
+      <description>Fieldset Fieldsets sind Container, die eine Gruppe von Eingabefeldern definieren. Sobald Sie einige Felder einem Formular hinzugefügt haben, können Sie diese nach einem Neuladen auf der rechten Seite einer Gruppe zuweisen.
+Sortieren Klicken und halten Sie mit der linken Maustaste den kleinen Balken unterhalb einer Gruppe und ziehen Sie die Gruppe an die gewünschte Position.
+Warnung: Einige Elemente wurden nicht gefunden Diese Meldung erscheint, falls Eingabefelder gelöscht wurden, welche diesem Formular noch zugeordnet waren.</description>
+    </item>
+    
+    <item>
+      <title>Forms</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/forms/</guid>
+      <description>Formulare konfigurieren Formulare bestehen aus zwei Bereichen. Links wird das Formular selbst definiert und wie es reagieren soll, wenn es vollständig und erfolgreich abgeschickt wird.
+Auf der rechten Seite, kann ein Stück weit das Aussehen des Formulares definiert werden. Sobald Sie einige Eingabefelder hinzugefügt haben, können Sie hier die Eingabefelder via Drag&amp;amp;Drop sortieren und verschiedenen Gruppen zuordnen.
+Formular als E-Mail senden Wollen Sie das Formular per E-Mail senden, haken Sie die Option Formular senden an.</description>
+    </item>
+    
+    <item>
+      <title>Templates</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/templates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/templates/</guid>
+      <description>Frontend-Templates Neben den Plaintext-E-Mails werden auch HTML-E-Mails gesendet. Damit dies Funktionert, müssen im aktiven Template zunächst die Templates angelegt werden.
+In der Formularkonfiguration, können Sie unter der Einstellung HTML-Template (Ohne .tpl) den Namen eines Templates hinterlegen. Dieser Wert wird automatisch gesetzt, falls Sie diesen nicht angeben.
+Sollten Sie Beispielsweise Ihr Formular Artikel Anfrage nennen, wird automatisch der Template-Name artikel-anfrage erzeugt.
+Damit das Template gefunden wird, muss es unter source/Application/views/AKTIVES_THEME/tpl/email/formbuilder/artikel-anfrage.tpl. Für die Bestätigungs-E-Mail, muss noch ein Unterordner customer angelegt werden: source/Application/views/AKTIVES_THEME/tpl/email/formbuilder/customer/artikel-anfrage.</description>
+    </item>
+    
+  </channel>
+</rss>

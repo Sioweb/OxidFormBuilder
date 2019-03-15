@@ -1,0 +1,175 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    Installation | FormBuilder</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
+
+<link rel="stylesheet" href="/OxidFormBuilder/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+<link rel="stylesheet" href="/OxidFormBuilder/start.min.e2a600d66acfa45da8fda5d30e2a75a40c57427d81ce8c0a2832cdd7087d7bb5.css">
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/OxidFormBuilder/">FormBuilder</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2finstall\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/OxidFormBuilder/docs/install/">Installation</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/install/ssh">SSH-Konsole</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/frontend/">Frontend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/frontend/elements">Eingabefelder</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/forms">Formulare</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/fieldsets">Fieldsets</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/templates">E-Mail-Templates</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/backend/">Backend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/backend/define_form">Formulare Definieren</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/OxidFormBuilder/svg/menu.svg" />
+  </label>
+  <strong>
+    Installation</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="installation">Installation</h1>
+
+<p>Der FormBuilder, kann nicht ohne Composer installiert werden, da er von weiteren Programmen abhängt, die via Composer automatisch hinzugefügt werden.</p>
+
+<p>Es ist allerdings möglich,</p>
+
+<h2 id="composer">Composer</h2>
+
+<p>Öffnen Sie dazu die Konsole und wechseln Sie vie <code>cd /path/to/shop</code> in das Root-Verzeichnis Ihres Shops. Sollte Ihr Shop nicht lokal auf Ihrem Server liegen, verbinden Sie sich bitte mittels SSH auf Ihren Server.</p>
+
+<h3 id="composer-kann-nicht-installiert-werden">Composer kann nicht installiert werden</h3>
+
+<p>In diesem Fall beachten Sie den Punkt Gitlab weiter unten.</p>
+
+<h3 id="composer-ist-global-installiert">Composer ist global installiert</h3>
+
+<pre><code>composer req cihaeuser/formbuilder
+</code></pre>
+
+<h3 id="composer-ist-nicht-installiert">Composer ist nicht installiert</h3>
+
+<p>Installieren Sie zunächst Composer global, oder <a href="https://getcomposer.org/download/">laden Sie ihn wie hier beschrieben</a> auf Ihren Server, oder Entwicklungsumgebung. Achten Sie darauf, dass der Upload via FTP nur binär erfolgen darf. Sie sollten mindesten PHP v7.0 verwenden, um Composer auszuführen. Die Version von PHP lesen Sie mit <code>php -v</code> aus. Den Pfad zu Ihrer PHP Version erfahren Sie über <code>which php</code> oder bei Ihrem Hoster.</p>
+
+<h4 id="php-7-x-ist-nutzbar">PHP 7.x ist nutzbar</h4>
+
+<pre><code>php composer.phar req cihaeuser/formbuilder
+</code></pre>
+
+<h4 id="php-7-x-ist-vorhanden-wird-aber-nicht-verwendet">PHP 7.x ist vorhanden, wird aber nicht verwendet</h4>
+
+<pre><code>/pfad/zu/php7 composer.phar req cihaeuser/formbuilder
+</code></pre>
+
+<h2 id="gitlab">Gitlab</h2>
+
+<p>Alternativ können auch Dienste wie Gitlab verwendet werden. Gitlab ist kostenlos und ein guter Service, Ihren Shop ohne FTP, auf Live oder Stage, hochzuladen. Gitlab setzt Grundkenntnisse für folgende Technologien voraus:</p>
+
+<ul>
+<li>GIT</li>
+<li>YAML (.yaml)</li>
+<li>SSH</li>
+</ul>
+
+<p>Einarbeitungszeit beträgt ca. einen halben bis ganzen Arbeitstag.</p>
+
+<h3 id="deployment">Deployment</h3>
+
+<p>Gitlab bietet im Backend unter <code>Ci/Cd</code> soganennte Piplines an, diese können mit der Datei <code>.gilab-ci.yml</code> konfiguriert werden. Sie können Beispielsweise definieren, dass Ihr Shop automatisch bei einem Git Push auf den Master-Branch auf Live und bei einem Git-Push auf den Developer-Branch auf Stage geladen werden soll.</p>
+
+<p>Je nach dem wie Sie <code>.gilab-ci.yml</code> konfigurieren, wird der Shop auf Gitlab temporär mit allen Abhängigkeiten zusammengesetzt und anschließend auf Ihren Server transferiert.</p>
+
+<p>Der Vorteil dieser Technologie ist, dass Sie lokal Entwickeln, mit GIT eine Versionierung aufbauen und mit Ci/Cd Piplines kein Composer auf Ihrem Server benötigen.</p>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#composer">Composer</a>
+<ul>
+<li><a href="#composer-kann-nicht-installiert-werden">Composer kann nicht installiert werden</a></li>
+<li><a href="#composer-ist-global-installiert">Composer ist global installiert</a></li>
+<li><a href="#composer-ist-nicht-installiert">Composer ist nicht installiert</a>
+<ul>
+<li><a href="#php-7-x-ist-nutzbar">PHP 7.x ist nutzbar</a></li>
+<li><a href="#php-7-x-ist-vorhanden-wird-aber-nicht-verwendet">PHP 7.x ist vorhanden, wird aber nicht verwendet</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#gitlab">Gitlab</a>
+<ul>
+<li><a href="#deployment">Deployment</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elements | FormBuilder</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
+
+<link rel="stylesheet" href="/OxidFormBuilder/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+<link rel="stylesheet" href="/OxidFormBuilder/start.min.e2a600d66acfa45da8fda5d30e2a75a40c57427d81ce8c0a2832cdd7087d7bb5.css">
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/OxidFormBuilder/">FormBuilder</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2f frontend\2f elements\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/OxidFormBuilder/docs/install/">Installation</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/install/ssh">SSH-Konsole</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/frontend/">Frontend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/frontend/elements">Eingabefelder</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/forms">Formulare</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/fieldsets">Fieldsets</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/templates">E-Mail-Templates</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/backend/">Backend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/backend/define_form">Formulare Definieren</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/OxidFormBuilder/svg/menu.svg" />
+  </label>
+  <strong>Elements</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="eingabefelder">Eingabefelder</h1>
+
+<p>Eingabefelder werden wie eine Art Template mit Standardwerten angelegt. Ein Eingabefeld kann in verschiedenen Formularen wiederverwendet und dessen Standardwerte können dort dann überschrieben werden.</p>
+
+<p>Bevor Sie ein Formular erstellen können, müssen Sie mindestens ein Eingabefeld gespeichert haben. Sie finden die <code>Formular Eingabefelder</code> im Admin-Bereich von Oxid in der Navigation unter <code>Shopeinstellungen</code>.</p>
+
+<p>Legen Sie nun ein neues Feld an. Sobald Sie das Feld <code>Typ</code> ändert, wird das Formular neu geladen und es werden nur noch Felder angezeigt, welche für den ausgewählten Typen relevant sind. Dadurch soll verhindert werden, dass unnötige Angaben gemacht werden.</p>
+
+<h2 id="feldname">Feldname</h2>
+
+<p>Bitte verwenden Sie hier keine Umlaute oder Sonderzeichen. Dies kann zu unerwarteten Fehlern führen.</p>
+
+<h2 id="optionen">Optionen</h2>
+
+<p>Einige Felder benötigen Optionen, standardmäßig sind das die Typen <code>Auswahlmenü</code>, <code>Checkboxen</code> und <code>Radiobutton-Liste</code>. Die Optionen werden nach dem Muster <code>&quot;wert&quot; =&gt; &quot;Bezeichnung&quot;</code> angegeben. Wichtig ist, wenn ein Besucher eine Option wählt, wird die Bezeichnung in der E-Mail ausgegeben.</p>
+
+<p><img src="/img/backend/elements/options.png" alt="Elemente mit Optionen" /></p>
+
+<h2 id="validierung">Validierung</h2>
+
+<p>Der FormBuilder setzt auf blose HTML5-Validierung. Die wichtigste Option ist <code>E-Mail-Validierung</code>. Diese Option erzeugt im Frontend ein E-Mail-Eingabefeld, anstelle eines normalen Textfeldes. Vom Aussehen her, verhält sich dieses Feld - je nach Design - wie ein Textfeld, der Browser erwartet hier allerdings eine valide E-Mail-Adresse.</p>
+
+<p><img src="/img/backend/elements/text-email.png" alt="Textfeld mit E-Mail-Validierung" /></p>
+
+<h2 id="pflichtfeld">Pflichtfeld</h2>
+
+<p>Bitte markieren Sie gemäß DSGVO lediglich zur Anfrage benötigte Felder als Pflichtfelder. Das Formular kann nicht abgesendet werden, solange ein Pflichtfeld nicht aktiv oder ausgefüllt ist.</p>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#eingabefelder">Eingabefelder</a>
+<ul>
+<li><a href="#feldname">Feldname</a></li>
+<li><a href="#optionen">Optionen</a></li>
+<li><a href="#validierung">Validierung</a></li>
+<li><a href="#pflichtfeld">Pflichtfeld</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forms | FormBuilder</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
+
+<link rel="stylesheet" href="/OxidFormBuilder/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+<link rel="stylesheet" href="/OxidFormBuilder/start.min.e2a600d66acfa45da8fda5d30e2a75a40c57427d81ce8c0a2832cdd7087d7bb5.css">
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/OxidFormBuilder/">FormBuilder</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2f frontend\2f forms\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/OxidFormBuilder/docs/install/">Installation</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/install/ssh">SSH-Konsole</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/frontend/">Frontend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/frontend/elements">Eingabefelder</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/forms">Formulare</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/fieldsets">Fieldsets</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/templates">E-Mail-Templates</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/backend/">Backend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/backend/define_form">Formulare Definieren</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/OxidFormBuilder/svg/menu.svg" />
+  </label>
+  <strong>Forms</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="formulare-konfigurieren">Formulare konfigurieren</h1>
+
+<p>Formulare bestehen aus zwei Bereichen. Links wird das Formular selbst definiert und wie es reagieren soll, wenn es vollständig und erfolgreich abgeschickt wird.</p>
+
+<p>Auf der rechten Seite, kann ein Stück weit das Aussehen des Formulares definiert werden. Sobald Sie einige Eingabefelder hinzugefügt haben, können Sie hier die Eingabefelder via Drag&amp;Drop sortieren und verschiedenen Gruppen zuordnen.</p>
+
+<p><img src="/img/backend/form/formbuilder-single-fieldset.png" alt="Formular" /></p>
+
+<h2 id="formular-als-e-mail-senden">Formular als E-Mail senden</h2>
+
+<p>Wollen Sie das Formular per E-Mail senden, haken Sie die Option <code>Formular senden</code> an. Es werden nun weitere Eingabefelder erscheinen, die Sie konfigurieren müssen, damit die E-Mail gesendet werden kann.</p>
+
+<h2 id="e-mail-template">E-Mail Template</h2>
+
+<p>Eine E-Mail wird in der Regel als HTML und als Plaintext abgesendet, um möglichst alle E-Mail-Programme zu erreichen.</p>
+
+<p>Das Plaintext-Format kann direkt im Formular selbst definiert werden. Dazu können alle Eingabefelder die Sie auf der Rechten Seite hinterlegt haben, genutzt werden. Wenn Sie als Beispiel das Eingabefeld mit dem Feldnamen <code>street</code> angelegt haben, können Sie in das Plaintext-Feld folgendes hinterlegen:</p>
+
+<pre><code>street: [{ $STREET }]
+</code></pre>
+
+<p>Bitte verwenden Sie hier keine Umlaute oder Sonderzeichen.</p>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#formulare-konfigurieren">Formulare konfigurieren</a>
+<ul>
+<li><a href="#formular-als-e-mail-senden">Formular als E-Mail senden</a></li>
+<li><a href="#e-mail-template">E-Mail Template</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

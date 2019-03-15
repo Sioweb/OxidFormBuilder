@@ -1,0 +1,148 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSH | FormBuilder</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
+
+<link rel="stylesheet" href="/OxidFormBuilder/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+<link rel="stylesheet" href="/OxidFormBuilder/start.min.e2a600d66acfa45da8fda5d30e2a75a40c57427d81ce8c0a2832cdd7087d7bb5.css">
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/OxidFormBuilder/">FormBuilder</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2finstall\2fssh\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/OxidFormBuilder/docs/install/">Installation</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/install/ssh">SSH-Konsole</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/frontend/">Frontend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/frontend/elements">Eingabefelder</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/forms">Formulare</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/fieldsets">Fieldsets</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/templates">E-Mail-Templates</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/backend/">Backend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/backend/define_form">Formulare Definieren</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/OxidFormBuilder/svg/menu.svg" />
+  </label>
+  <strong>SSH</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="mit-ssh-auf-einen-server-verbinden">Mit SSH auf einen Server verbinden</h1>
+
+<p>Auf dieser Seite erfahren Sie rudementär, wie sie per SSH auf einen Server zugreifen können. Es werden keine Umfangreichen Kenntnisse vorausgesetzt, allerdings sollten Sie sich mit den gängigen Konsolenbefehlen vertraut machen: <code>ls -la, cd, mv, cp, rm</code>. Bitte beachten Sie, dass wir keinen Support für Verbindungen zu Hostern leisten, bitte fragen Sie bei Bedarf Ihren Hoster, oder ziehen Sie das Forum zu rate.</p>
+
+<p>Damit Sie sich mit Ihrem Server verbinden können, benötigen Sie einen SSH-Zugang zu Ihrem Server. Diesen erfahren Sie im Kundenbereich Ihres Servers, oder von Ihrem Serveranbieter/Hoster.</p>
+
+<p><em>Hinweis:</em> Bitte beachten Sie, dass es nicht empfehlenswert ist, direkt an einer Live-Version Ihres Shops zu arbeiten.</p>
+
+<h2 id="windows">Windows</h2>
+
+<p>Unter Windows gibt es zwei empfohlene Möglichkeiten.</p>
+
+<ul>
+<li><a href="https://www.putty.org/">Putty</a></li>
+<li><a href="https://gitforwindows.org/">Git for Windows</a></li>
+</ul>
+
+<h3 id="putty">Putty</h3>
+
+<p>Putty ist eine SSH fähige Clientanwendung. Sie können hier Ihren Daten für Ihren Server hinterlegen und sich per Knopfdruck und eingabe des SSH-Passwortes verbinden</p>
+
+<h3 id="git-for-windows">Git for Windows</h3>
+
+<p>Dieses Tool liefert das Programm <code>Git Bash</code> bei der Installation. Über diese Konsole können Sie sich per <code>ssh username@ihr-shop.de</code> auf Ihren Server verbinden. Nach absenden des Befehls ist die Eingabe des Passwortes nötig.</p>
+
+<p>Die Konsole wird Sie beim ersten Verbinden auffordern den SSH Fingerprint zu speichern. Akzeptieren Sie diese aufforderung.</p>
+
+<h2 id="linux-max-osx">Linux/Max OSx</h2>
+
+<p>Über die Konsole können Sie sich per <code>ssh username@ihr-shop.de</code> auf Ihren Server verbinden. Nach absenden des Befehls ist die Eingabe des Passwortes nötig.</p>
+
+<h2 id="ssh-ohne-passwort">SSH ohne Passwort</h2>
+
+<p>Sie können es sich leicht machen, und ein Schlüsselpaar erzeugen. Dieses erlaubt Ihnen sich per SSH ohne Passworteingabe zu verbinden. Plattformen wie <a href="https://gitlab.com">Gitlab</a> bieten umfangreiche Informationen zur Erstellung von Schlüsselpaaren.</p>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#mit-ssh-auf-einen-server-verbinden">Mit SSH auf einen Server verbinden</a>
+<ul>
+<li><a href="#windows">Windows</a>
+<ul>
+<li><a href="#putty">Putty</a></li>
+<li><a href="#git-for-windows">Git for Windows</a></li>
+</ul></li>
+<li><a href="#linux-max-osx">Linux/Max OSx</a></li>
+<li><a href="#ssh-ohne-passwort">SSH ohne Passwort</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

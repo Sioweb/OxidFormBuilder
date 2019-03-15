@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backend on FormBuilder</title>
+    <link>https://sioweb.github.io/OxidFormBuilder/docs/backend/</link>
+    <description>Recent content in Backend on FormBuilder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Fri, 08 Mar 2019 12:13:45 +0100</lastBuildDate>
+    
+	<atom:link href="https://sioweb.github.io/OxidFormBuilder/docs/backend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>define_form</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/backend/define_form/</link>
+      <pubDate>Fri, 08 Mar 2019 12:13:45 +0100</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/backend/define_form/</guid>
+      <description>Formulare definieren Damit ein Formular erzeugt werden kann, benötigt es eine Klasse, die im Modul unter /form angelegt wird. Die Ordnerstruktur wird hier durch die Namespaces definiert, es wird empfohlen Formulare für den Adminbereich unter /form/admin abzulegen. Formulare für das Frontend sollten unter /form/frontend abgespeichert werden. Die Namespaces lauten dann z.B. Firmenkürzel\Oxid\Formularname\Form\Admin\Formularname. Dabei entspricht der Part Firmenkürzel\Oxid\Formularname dem Prefix, welches in der composer.json angegeben wird und Form\Admin\Formularname gibt den Pfad zur Datei Formularname.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,146 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Templates | FormBuilder</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
+
+<link rel="stylesheet" href="/OxidFormBuilder/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+<link rel="stylesheet" href="/OxidFormBuilder/start.min.e2a600d66acfa45da8fda5d30e2a75a40c57427d81ce8c0a2832cdd7087d7bb5.css">
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/OxidFormBuilder/">FormBuilder</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2f frontend\2ftemplates\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/OxidFormBuilder/docs/install/">Installation</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/install/ssh">SSH-Konsole</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/frontend/">Frontend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/frontend/elements">Eingabefelder</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/forms">Formulare</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/fieldsets">Fieldsets</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/templates">E-Mail-Templates</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/backend/">Backend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/backend/define_form">Formulare Definieren</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/OxidFormBuilder/svg/menu.svg" />
+  </label>
+  <strong>Templates</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="frontend-templates">Frontend-Templates</h1>
+
+<p>Neben den Plaintext-E-Mails werden auch HTML-E-Mails gesendet. Damit dies Funktionert, müssen im aktiven Template zunächst die Templates angelegt werden.</p>
+
+<p>In der Formularkonfiguration, können Sie unter der Einstellung <code>HTML-Template (Ohne .tpl)</code> den Namen eines Templates hinterlegen. Dieser Wert wird automatisch gesetzt, falls Sie diesen nicht angeben.</p>
+
+<p>Sollten Sie Beispielsweise Ihr Formular <code>Artikel Anfrage</code> nennen, wird automatisch der Template-Name <code>artikel-anfrage</code> erzeugt.</p>
+
+<p>Damit das Template gefunden wird, muss es unter <code>source/Application/views/AKTIVES_THEME/tpl/email/formbuilder/artikel-anfrage.tpl</code>. Für die <code>Bestätigungs-E-Mail</code>, muss noch ein Unterordner <code>customer</code> angelegt werden: <code>source/Application/views/AKTIVES_THEME/tpl/email/formbuilder/customer/artikel-anfrage.tpl</code>.</p>
+
+<p><em>Hinweis:</em> Es ist möglich CMS-Inhalte in den Templates zu hinterlegen.</p>
+
+<p><img src="/img/templates/template.png" alt="Template-Beispiel" /></p>
+
+<pre><code>[{block name=&quot;formbuilder_email_headline&quot;}]&lt;h1&gt;Artikel anfrage&lt;/h1&gt;[{/block}]
+
+[{block name=&quot;formbuilder_email_before&quot;}][{/block}]
+&lt;table border=0 cellspacing=0 cellpadding=5&gt;
+    [{block name=&quot;formbuilder_email_start&quot;}][{/block}]
+    &lt;tr&gt;
+        &lt;td&gt;Interessent:&lt;/td&gt;
+        &lt;td&gt;[{$email}]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anliegen&lt;/td&gt;
+        &lt;td&gt;[{$category}]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Zum Artikel&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;[{$product_link}]&quot; title=&quot;[{$product_title}]&quot;&gt;[{$product_title}]&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td colspan=&quot;2&quot;&gt;Nachricht&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td colspan=&quot;2&quot;&gt;[{ $message|nl2br }]&lt;/td&gt;
+    &lt;/tr&gt;
+    [{block name=&quot;formbuilder_email_end&quot;}][{/block}]
+&lt;/table&gt;
+[{block name=&quot;formbuilder_email_after&quot;}][{/block}]
+</code></pre>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#frontend-templates">Frontend-Templates</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

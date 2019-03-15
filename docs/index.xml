@@ -21,6 +21,17 @@
     </item>
     
     <item>
+      <title>Autoupdate Databse</title>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/backend/autoupdate_databse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/backend/autoupdate_databse/</guid>
+      <description>Datenbank automatisch aktualisieren Nutzt ein Modul den FormBuilder, kann der Generator die konfigurierte Tabelle inkl. Tabellenfelder erzeugen. Diese Technologie ist noch in der Beta-Phase.
+Wie? Ähnlich, wie in Oxid 6 Controller definiert werden, kann ein Modul nun auch Formulare hinterlegen. Dazu muss in der Datei metadata.php folgender Eintrag hinterlegt sein:
+&#39;formbuilder&#39; =&amp;gt; [ &#39;uniquer_form_key&#39; =&amp;gt; \Name\Space\Zur\Form\Klasse\Formularname::class, ]  Der FormBuilder lädt die Klasse und durchsucht sie nach mindestkriterien. Sind Felder und Tabellenname hinterlegt, werden diese angelegt, sobald das Modul aktiviert wird.</description>
+    </item>
+    
+    <item>
       <title>Elements</title>
       <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/elements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

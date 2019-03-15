@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fieldsets | FormBuilder</title>
+<title>Autoupdate Databse | FormBuilder</title>
 
 <link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
 <link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
@@ -35,7 +35,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   <style>
-  nav ul a[href$="\2fOxidFormBuilder\2f docs\2f frontend\2f fieldsets\2f "] {
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2f backend\2f autoupdate_databse\2f "] {
       color: #004ed0;
   }
   </style><ul>
@@ -73,25 +73,26 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/OxidFormBuilder/svg/menu.svg" />
   </label>
-  <strong>Fieldsets</strong>
+  <strong>Autoupdate Databse</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="fieldset">Fieldset</h1>
+<h1 id="datenbank-automatisch-aktualisieren">Datenbank automatisch aktualisieren</h1>
 
-<p>Fieldsets sind Container, die eine Gruppe von Eingabefeldern definieren. Sobald Sie einige Felder einem Formular hinzugefügt haben, können Sie diese nach einem Neuladen auf der rechten Seite einer Gruppe zuweisen.</p>
+<p>Nutzt ein Modul den FormBuilder, kann der Generator die konfigurierte Tabelle inkl. Tabellenfelder erzeugen. Diese Technologie ist noch in der Beta-Phase.</p>
 
-<p><img src="/OxidFormBuilder/img/backend/form/formbuilder-multiple-fieldsets.png" alt="Formular" /></p>
+<h2 id="wie">Wie?</h2>
 
-<h2 id="sortieren">Sortieren</h2>
+<p>Ähnlich, wie in Oxid 6 Controller definiert werden, kann ein Modul nun auch Formulare hinterlegen. Dazu muss in der Datei <code>metadata.php</code> folgender Eintrag hinterlegt sein:</p>
 
-<p>Klicken und halten Sie mit der linken Maustaste den kleinen Balken unterhalb einer Gruppe und ziehen Sie die Gruppe an die gewünschte Position.</p>
+<pre><code>'formbuilder' =&gt; [
+    'uniquer_form_key' =&gt; \Name\Space\Zur\Form\Klasse\Formularname::class,
+]
+</code></pre>
 
-<h2 id="warnung-einige-elemente-wurden-nicht-gefunden">Warnung: Einige Elemente wurden nicht gefunden</h2>
-
-<p>Diese Meldung erscheint, falls Eingabefelder gelöscht wurden, welche diesem Formular noch zugeordnet waren. Dieser Felder können nicht widerhergestellt noch analysiert werden. Es kann lediglich darüber Informiert werden, wie viele Felder nicht mehr vorhanden sind.</p>
+<p>Der FormBuilder lädt die Klasse und durchsucht sie nach mindestkriterien. Sind Felder und Tabellenname hinterlegt, werden diese angelegt, sobald das Modul aktiviert wird. Es werden mindestens die Felder <code>OXID</code>,<code>OXSHOPID</code>,<code>OXSORT</code> und <code>OXTIMESTAMP</code> angelegt. Alle weiteren Felder, werden als VARCHAR(255) angelegt, bis eine Regel zur automatischen Typisierung eingerichtet wird.</p>
 </article>
 
       
@@ -104,10 +105,9 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#fieldset">Fieldset</a>
+<li><a href="#datenbank-automatisch-aktualisieren">Datenbank automatisch aktualisieren</a>
 <ul>
-<li><a href="#sortieren">Sortieren</a></li>
-<li><a href="#warnung-einige-elemente-wurden-nicht-gefunden">Warnung: Einige Elemente wurden nicht gefunden</a></li>
+<li><a href="#wie">Wie?</a></li>
 </ul></li>
 </ul>
 </nav>

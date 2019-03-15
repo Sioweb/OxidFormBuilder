@@ -63,6 +63,8 @@ class ModuleMain extends ModuleMain_parent
         ];
 
         $Database = DatabaseProvider::getDb();
+        
+        $Database->execute($this->createTable($FormConfig));
         $dbMetaDataHandler = oxNew(DbMetaDataHandler::class);
         foreach ($FieldConfig as $columnName => $Field) {
             if(!empty($Field['sql'])) {
@@ -77,6 +79,17 @@ class ModuleMain extends ModuleMain_parent
                 );
             }
         }
+    }
+
+    protected function createTable($FormConfig)
+    {
+        return "CREATE TABLE IF NOT EXISTS `{$FormConfig['table']}` (
+            `OXID` char(32) character set utf8 collate utf8_general_ci NOT NULL COMMENT 'Element id',
+            `OXSHOPID` int(11) NOT NULL default '1' COMMENT 'Shop id (oxshops)',
+            `OXSORT` int( 5 ) NOT NULL DEFAULT '0' COMMENT 'Sorting',
+            `OXTIMESTAMP` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP COMMENT 'Timestamp',
+            PRIMARY KEY  (`OXID`)
+        ) ENGINE=InnoDB;";
     }
 
     /**

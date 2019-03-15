@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Installation on FormBuilder</title>
-    <link>https://sioweb.github.io/docs/install/</link>
+    <link>https://sioweb.github.io/OxidFormBuilder/docs/install/</link>
     <description>Recent content in Installation on FormBuilder</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
     
-	<atom:link href="https://sioweb.github.io/docs/install/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sioweb.github.io/OxidFormBuilder/docs/install/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SSH</title>
-      <link>https://sioweb.github.io/docs/install/ssh/</link>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/install/ssh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sioweb.github.io/docs/install/ssh/</guid>
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/install/ssh/</guid>
       <description>Mit SSH auf einen Server verbinden Auf dieser Seite erfahren Sie rudementär, wie sie per SSH auf einen Server zugreifen können. Es werden keine Umfangreichen Kenntnisse vorausgesetzt, allerdings sollten Sie sich mit den gängigen Konsolenbefehlen vertraut machen: ls -la, cd, mv, cp, rm. Bitte beachten Sie, dass wir keinen Support für Verbindungen zu Hostern leisten, bitte fragen Sie bei Bedarf Ihren Hoster, oder ziehen Sie das Forum zu rate.</description>
     </item>
     

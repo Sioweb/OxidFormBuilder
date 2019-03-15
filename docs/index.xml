@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on FormBuilder</title>
-    <link>https://sioweb.github.io/</link>
+    <link>https://sioweb.github.io/OxidFormBuilder/</link>
     <description>Recent content in Introduction on FormBuilder</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
     <lastBuildDate>Fri, 08 Mar 2019 12:13:45 +0100</lastBuildDate>
     
-	<atom:link href="https://sioweb.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sioweb.github.io/OxidFormBuilder/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>define_form</title>
-      <link>https://sioweb.github.io/docs/backend/define_form/</link>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/backend/define_form/</link>
       <pubDate>Fri, 08 Mar 2019 12:13:45 +0100</pubDate>
       
-      <guid>https://sioweb.github.io/docs/backend/define_form/</guid>
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/backend/define_form/</guid>
       <description>Formulare definieren Damit ein Formular erzeugt werden kann, benötigt es eine Klasse, die im Modul unter /form angelegt wird. Die Ordnerstruktur wird hier durch die Namespaces definiert, es wird empfohlen Formulare für den Adminbereich unter /form/admin abzulegen. Formulare für das Frontend sollten unter /form/frontend abgespeichert werden. Die Namespaces lauten dann z.B. Firmenkürzel\Oxid\Formularname\Form\Admin\Formularname. Dabei entspricht der Part Firmenkürzel\Oxid\Formularname dem Prefix, welches in der composer.json angegeben wird und Form\Admin\Formularname gibt den Pfad zur Datei Formularname.</description>
     </item>
     
     <item>
       <title>Elements</title>
-      <link>https://sioweb.github.io/docs/frontend/elements/</link>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/elements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sioweb.github.io/docs/frontend/elements/</guid>
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/elements/</guid>
       <description>Eingabefelder Eingabefelder werden wie eine Art Template mit Standardwerten angelegt. Ein Eingabefeld kann in verschiedenen Formularen wiederverwendet und dessen Standardwerte können dort dann überschrieben werden.
 Bevor Sie ein Formular erstellen können, müssen Sie mindestens ein Eingabefeld gespeichert haben. Sie finden die Formular Eingabefelder im Admin-Bereich von Oxid in der Navigation unter Shopeinstellungen.
 Legen Sie nun ein neues Feld an. Sobald Sie das Feld Typ ändert, wird das Formular neu geladen und es werden nur noch Felder angezeigt, welche für den ausgewählten Typen relevant sind.</description>
@@ -33,10 +33,10 @@ Legen Sie nun ein neues Feld an. Sobald Sie das Feld Typ ändert, wird das Formu
     
     <item>
       <title>Fieldsets</title>
-      <link>https://sioweb.github.io/docs/frontend/fieldsets/</link>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/fieldsets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sioweb.github.io/docs/frontend/fieldsets/</guid>
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/fieldsets/</guid>
       <description>Fieldset Fieldsets sind Container, die eine Gruppe von Eingabefeldern definieren. Sobald Sie einige Felder einem Formular hinzugefügt haben, können Sie diese nach einem Neuladen auf der rechten Seite einer Gruppe zuweisen.
 Sortieren Klicken und halten Sie mit der linken Maustaste den kleinen Balken unterhalb einer Gruppe und ziehen Sie die Gruppe an die gewünschte Position.
 Warnung: Einige Elemente wurden nicht gefunden Diese Meldung erscheint, falls Eingabefelder gelöscht wurden, welche diesem Formular noch zugeordnet waren.</description>
@@ -44,10 +44,10 @@ Warnung: Einige Elemente wurden nicht gefunden Diese Meldung erscheint, falls Ei
     
     <item>
       <title>Forms</title>
-      <link>https://sioweb.github.io/docs/frontend/forms/</link>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/forms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sioweb.github.io/docs/frontend/forms/</guid>
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/forms/</guid>
       <description>Formulare konfigurieren Formulare bestehen aus zwei Bereichen. Links wird das Formular selbst definiert und wie es reagieren soll, wenn es vollständig und erfolgreich abgeschickt wird.
 Auf der rechten Seite, kann ein Stück weit das Aussehen des Formulares definiert werden. Sobald Sie einige Eingabefelder hinzugefügt haben, können Sie hier die Eingabefelder via Drag&amp;amp;Drop sortieren und verschiedenen Gruppen zuordnen.
 Formular als E-Mail senden Wollen Sie das Formular per E-Mail senden, haken Sie die Option Formular senden an.</description>
@@ -55,19 +55,19 @@ Formular als E-Mail senden Wollen Sie das Formular per E-Mail senden, haken Sie 
     
     <item>
       <title>SSH</title>
-      <link>https://sioweb.github.io/docs/install/ssh/</link>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/install/ssh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sioweb.github.io/docs/install/ssh/</guid>
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/install/ssh/</guid>
       <description>Mit SSH auf einen Server verbinden Auf dieser Seite erfahren Sie rudementär, wie sie per SSH auf einen Server zugreifen können. Es werden keine Umfangreichen Kenntnisse vorausgesetzt, allerdings sollten Sie sich mit den gängigen Konsolenbefehlen vertraut machen: ls -la, cd, mv, cp, rm. Bitte beachten Sie, dass wir keinen Support für Verbindungen zu Hostern leisten, bitte fragen Sie bei Bedarf Ihren Hoster, oder ziehen Sie das Forum zu rate.</description>
     </item>
     
     <item>
       <title>Templates</title>
-      <link>https://sioweb.github.io/docs/frontend/templates/</link>
+      <link>https://sioweb.github.io/OxidFormBuilder/docs/frontend/templates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sioweb.github.io/docs/frontend/templates/</guid>
+      <guid>https://sioweb.github.io/OxidFormBuilder/docs/frontend/templates/</guid>
       <description>Frontend-Templates Neben den Plaintext-E-Mails werden auch HTML-E-Mails gesendet. Damit dies Funktionert, müssen im aktiven Template zunächst die Templates angelegt werden.
 In der Formularkonfiguration, können Sie unter der Einstellung HTML-Template (Ohne .tpl) den Namen eines Templates hinterlegen. Dieser Wert wird automatisch gesetzt, falls Sie diesen nicht angeben.
 Sollten Sie Beispielsweise Ihr Formular Artikel Anfrage nennen, wird automatisch der Template-Name artikel-anfrage erzeugt.

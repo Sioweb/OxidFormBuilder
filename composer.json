@@ -20,7 +20,8 @@
   },
   "require": {
     "php": ">=7.0",
-    "sioweb/formgenerator": "*"
+    "sioweb/formgenerator": "*",
+    "oxidprojects/dependency-injection": "*"
   },
   "autoload": {
     "psr-4": {

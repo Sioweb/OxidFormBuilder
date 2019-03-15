@@ -22,6 +22,7 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
         return [
             'oxsendform' => ['oxreceiver', 'oxsubject', 'oxcontent', 'oxconfirm'],
             'oxconfirm' => ['oxreceiver_confirm', 'oxsubject_confirm', 'oxcontent_confirm'],
+            'oxaddattachments' => ['oxattachments'],
         ];
     }
 
@@ -41,6 +42,10 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
                 'config' => [
                     'class' => 'long',
                     'fields' => ['oxcssclass'],
+                ],
+                'attachments' => [
+                    'class' => 'long',
+                    'fields' => ['oxaddattachments'],
                 ],
                 'publish' => [
                     'class' => 'long',
@@ -122,6 +127,13 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
                 'attributes' => [
                     'onclick="JavaScript:showDialog(\'&cl=[{ $controller }]&aoc=1&oxid=[{ $oxid }]\');"',
                 ],
+            ],
+            'oxaddattachments' => [
+                'type' => 'checkbox',
+            ],
+            'oxattachments' => [
+                'type' => 'select',
+                'options' => []
             ],
             'submit' => [
                 'name' => 'save',

@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on FormBuilder</title>
-    <link>https://sioweb.github.io/OxidFormBuilder/docs/</link>
+    <link>https://sioweb.github.io/docs/</link>
     <description>Recent content in Docs on FormBuilder</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
     
-	<atom:link href="https://sioweb.github.io/OxidFormBuilder/docs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sioweb.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

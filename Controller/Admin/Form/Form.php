@@ -20,7 +20,7 @@ class Form extends AdminDetailsController
     {
         $FormGenerator = new FormGenerator(
             new FormRender,
-            new \Ci\Oxid\FormBuilder\Form\Admin\Forms
+            oxNew(\Ci\Oxid\FormBuilder\Form\Admin\Forms::class)
         );
 
         parent::render();

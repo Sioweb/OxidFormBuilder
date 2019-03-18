@@ -87,7 +87,7 @@ class Element extends AdminDetailsController
     {
         $Form = new Form(
             new FormRender,
-            new \Ci\Oxid\FormBuilder\Form\Admin\Elements
+            oxNew(\Ci\Oxid\FormBuilder\Form\Admin\Elements::class)
         );
 
         parent::render();

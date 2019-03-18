@@ -72,7 +72,11 @@ class ModuleMain extends ModuleMain_parent
             } else {
                 $ColumnDefinition = "varchar(255) NOT NULL default ''";
             }
+
             $columnName = strtoupper($columnName);
+            if(!empty($Field['ignoreInvalidColumnNames']) && !preg_match('|^[a-zA-Z_][a-zA-Z0-9_]*$|', $columnName)) {
+                throw new \Exception( 'Column name ' . $columnName . ' is not valid!' );
+            }
             if (!$dbMetaDataHandler->fieldExists($columnName, $FormConfig['table'])) {
                 $Database->execute(
                     "ALTER TABLE `{$FormConfig['table']}` ADD `{$columnName}` {$ColumnDefinition};"

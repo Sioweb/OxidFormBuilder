@@ -1,5 +1,5 @@
 <div class="formbuilder-element formbuilder-element-optionswidget[{if isset($outerclass)}] [{$outerclass}][{/if}]">[{if isset($label)}]
-    <label for="[{$form.id}]_[{$id}]_0_key">[{$label}][{if $required}]<sup>*</sup>[{/if}]</label>[{/if}]
+    <label for="[{$form.id}]_[{$id}]_0_key">[{$label}][{if $required}]<sup>*</sup>[{/if}]</label>[{else}]<span class="nolabel">&nbsp;</span>[{/if}]
     
     [{foreach from=$value item=option key=optionIndex}]
     <div class="formbuilder-element-optionswidget-input">

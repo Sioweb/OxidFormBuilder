@@ -1,6 +1,6 @@
 <div class="formbuilder-element formbuilder-element-radio[{if isset($outerclass)}] [{$outerclass}][{/if}]">
     <input type="hidden" name="[{$name}]" value="0">
-    [{if isset($label)}]<label for="[{$form.id}]_[{$id}]_0">[{$label}]</label>[{/if}]
+    [{if isset($label)}]<label for="[{$form.id}]_[{$id}]_0">[{$label}]</label>[{else}]<span class="nolabel">&nbsp;</span>[{/if}]
     <div class="formbuilder-element-radio-container">
         [{foreach from=$value item=optionSet key=optionIndex}]
         <div class="formbuilder-element-radio-element">

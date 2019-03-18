@@ -1,6 +1,6 @@
 <div class="formbuilder-element formbuilder-element-checkbox[{if isset($outerclass)}] [{$outerclass}][{/if}]">
     [{ if $value|is_array}]
-    [{if isset($label)}]<label for="[{$form.id}]_[{$id}]_0">[{$label}]</label>[{/if}]
+    [{if isset($label)}]<label for="[{$form.id}]_[{$id}]_0">[{$label}]</label>[{else}]<span class="nolabel">&nbsp;</span>[{/if}]
     <div class="formbuilder-element-checkbox-container">
         [{foreach from=$value item=optionSet key=optionIndex}]
         <div class="formbuilder-element-checkbox-element">

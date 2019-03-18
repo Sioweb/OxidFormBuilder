@@ -85,7 +85,7 @@
 .formbuilder-element-raw {
     width: 100%;
     font-size: 13px;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     vertical-align: top;
     display: inline-block;
 }
@@ -95,6 +95,14 @@
 .formbuilder-element.w50 {
     width: 50%;
 }
+.formbuilder-element.w33 {
+    width: 33%;
+    margin-right: 1%;
+}
+.formbuilder-element.w66 {
+    width: 66%;
+}
+
 .formbuilder-element + .formbuilder-element,
 .formbuilder-subpalette + .formbuilder-element {
     margin-top: 20px;
@@ -111,7 +119,8 @@
     margin: 3px 0 0;
     font-size: 11px;
 }
-.formbuilder-element label {
+.formbuilder-element label,
+.formbuilder-element .nolabel {
     width: 150px;
     width: 100%;
     margin-left: 8px;

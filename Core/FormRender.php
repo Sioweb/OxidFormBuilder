@@ -118,15 +118,33 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
         };
         // set field config.forceLabel === true to load label
         $Language = oxNew(Language::class);
+        // echo "<pre>" . print_r($FieldData, true) . "</pre>";
+        
         if ($FieldData->label !== false && empty($FieldData->label)) {
             $FieldData->label = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId));
-            if($FieldData->help === 'FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId)) {
-                unset($FieldData->help);
+            if($FieldData->label === 'FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId)) {
+                unset($FieldData->label);
             }
         } elseif (!empty($FieldData->label)) {
-            $translation = $Language->translateString($FieldData->label, 0);
-            if($translation !== $FieldData->label) {
-                $FieldData->label = $translation;
+            if(!is_array($FieldData->label)) {
+                $translation = $Language->translateString($FieldData->label);
+                if($translation !== $FieldData->label) {
+                    $FieldData->label = $translation;
+                } else {
+                    unset($FieldData->label);
+                }
+            } else {
+                foreach($FieldData->label as &$translateString) {
+                    $translation = $Language->translateString($translateString);
+                    if($translation !== $translateString) {
+                        $translateString = $translation;
+                    } else {
+                        $translateString = '';
+                    }
+                }
+                unset($translateString);
+                $FieldData->label = array_filter($FieldData->label);
+                $FieldData->label = implode("\n", $FieldData->label);
             }
         }
         
@@ -136,9 +154,25 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
                 unset($FieldData->help);
             }
         } elseif (!empty($FieldData->help)) {
-            $translation = $Language->translateString($FieldData->help);
-            if($translation !== $FieldData->help) {
-                $FieldData->help = $translation;
+            if(!is_array($FieldData->help)) {
+                $translation = $Language->translateString($FieldData->help);
+                if($translation !== $FieldData->help) {
+                    $FieldData->help = $translation;
+                } else {
+                    unset($FieldData->help);
+                }
+            } else {
+                foreach($FieldData->help as &$translateString) {
+                    $translation = $Language->translateString($translateString);
+                    if($translation !== $translateString) {
+                        $translateString = $translation;
+                    } else {
+                        $translateString = '';
+                    }
+                }
+                unset($translateString);
+                $FieldData->help = array_filter($FieldData->help);
+                $FieldData->help = implode("\n", $FieldData->help);
             }
         }
 

@@ -6,12 +6,14 @@ class Email extends Email_parent
 {
 
     public function onFormbuilderMailSend($FormData)
-    { }
+    {
+
+    }
 
     public function sendFormbuilderMail($FormData, $FieldData)
     {
         $this->sendFormbuilder2Owner($FormData, $FieldData);
-        if (!empty($FormData['confirm'])) {
+        if(!empty($FormData['confirm'])) {
             $this->sendFormbuilder2Customer($FormData, $FieldData);
         }
     }
@@ -82,13 +84,13 @@ class Email extends Email_parent
         $config = $this->getConfig();
 
         $Receiver = null;
-        foreach ($FieldData as $fieldName => $fieldData) {
-            if (!empty($fieldData['OXCONFIRMFIELD'])) {
+        foreach($FieldData as $fieldName => $fieldData) {
+            if(!empty($fieldData['OXCONFIRMFIELD'])) {
                 $Receiver = $fieldData['value'];
             }
         }
 
-        if (empty($Receiver)) {
+        if(empty($Receiver)) {
             return;
         }
 

@@ -91,6 +91,7 @@ class Element extends AdminDetailsController
         );
 
         parent::render();
+        $config = $this->getConfig();
 
         // check if we right now saved a new entry
         $soxId = $this->_aViewData["oxid"] = $this->getEditObjectId();
@@ -124,14 +125,9 @@ class Element extends AdminDetailsController
             }
 
             $FormData = ['editval' => []];
-            $EditVal = $this->getConfig()->getRequestParameter("editval");
             foreach ($ElementModel->getFieldNames() as $name) {
                 if (!empty($ElementModel->{'ci_form_element__' . $name}->value)) {
                     $FormData['editval']['ci_form_element__' . $name] = $ElementModel->{'ci_form_element__' . $name}->value;
-                }
-
-                if(!empty($EditVal['ci_form_element__' . $name])) {
-                    $FormData['editval']['ci_form_element__' . $name] = $EditVal['ci_form_element__' . $name];
                 }
             }
 

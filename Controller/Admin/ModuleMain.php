@@ -6,10 +6,10 @@
 
 namespace Ci\Oxid\FormBuilder\Controller\Admin;
 
-use OxidEsales\Eshop\Core\DatabaseProvider;
-use OxidEsales\Eshop\Core\DbMetaDataHandler;
 use Ci\Oxid\FormBuilder\Core\Routing\FormbuilderClassNameResolver;
 use Ci\Oxid\FormBuilder\Core\Routing\Module\FormbuilderClassProviderStorage;
+use OxidEsales\Eshop\Core\DatabaseProvider;
+use OxidEsales\Eshop\Core\DbMetaDataHandler;
 use OxidEsales\Eshop\Core\Registry;
 
 /**
@@ -43,13 +43,13 @@ class ModuleMain extends ModuleMain_parent
 
     protected function updateDatabase($FormConfig)
     {
-        if(empty($FormConfig['fields'])) {
+        if (empty($FormConfig['fields'])) {
             return;
         }
         $FieldConfig = $FormConfig['fields'];
         $FormConfig = array_diff_key($FormConfig, array_flip(['fields', 'palettes', 'subpalettes']));
 
-        if(empty($FormConfig['table'])) {
+        if (empty($FormConfig['table'])) {
             return;
         }
 
@@ -59,23 +59,27 @@ class ModuleMain extends ModuleMain_parent
             "int(11) NOT NULL default '1'",
             "tinyint(1) NOT NULL default '0'",
             "datetime NOT NULL default '0000-00-00 00:00:00'",
-            "timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            "timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP",
         ];
 
         $Database = DatabaseProvider::getDb();
-        
+
         $Database->execute($this->createTable($FormConfig));
         $dbMetaDataHandler = oxNew(DbMetaDataHandler::class);
         foreach ($FieldConfig as $columnName => $Field) {
-            if(!empty($Field['sql'])) {
+
+            if (!empty($Field['static'])) {
+                continue;
+            }
+            if (!empty($Field['sql'])) {
                 $ColumnDefinition = $Field['sql'];
             } else {
                 $ColumnDefinition = "varchar(255) NOT NULL default ''";
             }
 
             $columnName = strtoupper($columnName);
-            if(!empty($Field['ignoreInvalidColumnNames']) && !preg_match('|^[a-zA-Z_][a-zA-Z0-9_]*$|', $columnName)) {
-                throw new \Exception( 'Column name ' . $columnName . ' is not valid!' );
+            if (!empty($Field['ignoreInvalidColumnNames']) && !preg_match('|^[a-zA-Z_][a-zA-Z0-9_]*$|', $columnName)) {
+                throw new \Exception('Column name ' . $columnName . ' is not valid!');
             }
             if (!$dbMetaDataHandler->fieldExists($columnName, $FormConfig['table'])) {
                 $Database->execute(

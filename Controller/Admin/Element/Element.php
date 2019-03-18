@@ -113,8 +113,6 @@ class Element extends AdminDetailsController
                 }
             }
 
-            // $ElementModel->ci_form_element__oxoptions->rawValue = json_decode($ElementModel->ci_form_element__oxoptions->rawValue, true);
-
             $this->_aViewData["edit"] = $ElementModel;
 
             // remove already created languages
@@ -176,7 +174,6 @@ class Element extends AdminDetailsController
         $oFormElement->setLanguage(0);
         $oFormElement->assign($aParams);
         $oFormElement->setLanguage($this->_iEditLang);
-        // $oFormElement = Registry::get(UtilsFile::class)->processFiles($oFormElement);
         $oFormElement->save();
 
         // set oxid if inserted

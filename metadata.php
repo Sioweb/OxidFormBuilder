@@ -10,7 +10,7 @@ $sMetadataVersion = '2.0';
  */
 $aModule = [
     'id'           => 'CiFormBuilder',
-    'title'        => '<b style="color: #76787A">Creative Inneneinrichter</b> | Forms',
+    'title'        => '<b style="color: #76787A">Creative Inneneinrichter</b> | Formulargenerator',
     'description'  => 'Tool to builod oxid forms',
     'version' => '2.0',
     'url' => 'https://www.seipp.com',

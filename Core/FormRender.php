@@ -117,10 +117,23 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
             }
         };
         // set field config.forceLabel === true to load label
+        $Language = oxNew(Language::class);
         if ($FieldData->label !== false && empty($FieldData->label)) {
-            $Language = oxNew(Language::class);
             $FieldData->label = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId));
+        } elseif (!empty($FieldData->label)) {
+            $translation = $Language->translateString($FieldData->label, 0);
+            if($translation !== $FieldData->label) {
+                $FieldData->label = $translation;
+            }
+        }
+        
+        if ($FieldData->help !== false && empty($FieldData->help)) {
             $FieldData->help = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId) . '_HELP');
+        } elseif (!empty($FieldData->help)) {
+            $translation = $Language->translateString($FieldData->help);
+            if($translation !== $FieldData->help) {
+                $FieldData->help = $translation;
+            }
         }
 
         $view->setViewData((array) $FieldData);

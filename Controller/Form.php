@@ -102,27 +102,14 @@ class Form extends FrontendController
     
     protected function loadFormData($Form = null)
     {
-        return [
-            'oxid' => $Form->ci_form__oxid->value,
-            'oxshopid' => $Form->ci_form__oxshopid->value,
-            'title' => $Form->ci_form__oxtitle->value,
-            'alias' => $Form->ci_form__oxalias->value,
-            'htmltemplate' => $Form->ci_form__oxhtmltemplate->value,
-            'cssclass' => $Form->ci_form__oxcssclass->value,
-            'active' => $Form->ci_form__oxactive->value,
-            'activefrom' => $Form->ci_form__oxactivefrom->value,
-            'activeto' => $Form->ci_form__oxactiveto->value,
-            'sort' => $Form->ci_form__oxsort->value,
-            'timestamp' => $Form->ci_form__oxtimestamp->value,
-            'action' => $Form->ci_form__oxaction->value,
-            'fieldconfig' => $Form->ci_form__oxfieldconfig->value,
-            'sendform' => $Form->ci_form__oxsendform->value,
-            'receiver' => $Form->ci_form__oxreceiver->value,
-            'subject' => $Form->ci_form__oxsubject->value,
-            'content' => $Form->ci_form__oxcontent->value,
-            'confirm' => $Form->ci_form__oxconfirm->value,
-            'subject_confirm' => $Form->ci_form__oxsubject_confirm->value,
-            'content_confirm' => $Form->ci_form__oxcontent_confirm->value,
-        ];
+        $FormFieldData = oxNew(\Ci\Oxid\FormBuilder\Form\Admin\Forms::class)->loadFieldConfig();
+        $FormData = [];
+        foreach($FormFieldData as $key => $elementConf) {
+            $FormData[$key] = $Form->{'ci_form__' . $key}->value;
+            // deprecated
+            $FormData[str_replace('ox', '', $key)] = $Form->{'ci_form__' . $key}->value;
+        }
+
+        return $FormData;
     }
 }

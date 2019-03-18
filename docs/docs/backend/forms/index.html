@@ -1,0 +1,304 @@
+<!DOCTYPE html><html>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulare | FormBuilder</title>
+
+<link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="/OxidFormBuilder/normalize.min.css">
+
+<link rel="stylesheet" href="/OxidFormBuilder/book.min.29d743ffb6d61ecbfc9bb21b7eab17d63b577d4bd547c3f095addb1c793ab1b1.css">
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+<link rel="stylesheet" href="/OxidFormBuilder/start.min.e2a600d66acfa45da8fda5d30e2a75a40c57427d81ce8c0a2832cdd7087d7bb5.css">
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<h2 class="book-brand">
+  <a href="https://sioweb.github.io/OxidFormBuilder/">FormBuilder</a>
+</h2>
+
+
+
+    
+  
+  
+
+  <style>
+  nav ul a[href$="\2fOxidFormBuilder\2f docs\2f backend\2f forms\2f "] {
+      color: #004ed0;
+  }
+  </style><ul>
+<li><a href="/OxidFormBuilder/docs/frontend/">Frontend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/frontend/elements">Eingabefelder</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/forms">Formulare</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/fieldsets">Fieldsets</a></li>
+<li><a href="/OxidFormBuilder/docs/frontend/templates">E-Mail-Templates</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/backend/">Backend</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/backend/forms">Formulare Definieren</a></li>
+<li><a href="/OxidFormBuilder/docs/backend/autoupdate_databse">Datenbank automatisch erweitern</a></li>
+</ul></li>
+<li><a href="/OxidFormBuilder/docs/install/">Installation</a>
+
+<ul>
+<li><a href="/OxidFormBuilder/docs/install/sql">Demo-Daten</a></li>
+<li><a href="/OxidFormBuilder/docs/install/ssh">SSH-Konsole</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/OxidFormBuilder/svg/menu.svg" />
+  </label>
+  <strong>Formulare</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="formulare-definieren">Formulare definieren</h1>
+
+<p>Damit ein Formular erzeugt werden kann, benötigt es eine Klasse, die im Modul unter <code>/form</code> angelegt wird. Die Ordnerstruktur wird hier durch die Namespaces definiert, es wird empfohlen Formulare für den Adminbereich unter <code>/form/admin</code> abzulegen. Formulare für das Frontend sollten unter <code>/form/frontend</code> abgespeichert werden. Die Namespaces lauten dann z.B. <code>Firmenkürzel\Oxid\Formularname\Form\Admin\Formularname</code>. Dabei entspricht der Part <code>Firmenkürzel\Oxid\Formularname</code> dem Prefix, welches in der composer.json angegeben wird und <code>Form\Admin\Formularname</code> gibt den Pfad zur Datei Formularname.php an.</p>
+
+<p>Die Klasse muss zwingend das Interface <code>Sioweb\Lib\Formgenerator\Core\FormInterface</code> implementieren, da die Formularbibliothek diese Klasse ansonsten nicht akzeptiert. Sollte die Klasse sogenannte <code>Subpaletten</code> enthalten, muss die Klasse zusätzlich das Interface <code>Sioweb\Lib\Formgenerator\Core\SubpaletteInterface</code> implementieren.</p>
+
+<h2 id="formular-optionen">Formular optionen</h2>
+
+<table>
+<thead>
+<tr>
+<th>FormKey</th>
+<th>Typ</th>
+<th>Beispiel-Wert</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>formname</td>
+<td>string</td>
+<td>&lsquo;myform&rsquo;</td>
+</tr>
+
+<tr>
+<td>table</td>
+<td>string</td>
+<td>&lsquo;oxtablename&rsquo;</td>
+</tr>
+
+<tr>
+<td>fieldname</td>
+<td>string</td>
+<td>&lsquo;editval[[{ $TABLE }]__[{ $FIELDNAME }]]&rsquo;</td>
+</tr>
+
+<tr>
+<td>palettes</td>
+<td>array</td>
+<td>[]</td>
+</tr>
+
+<tr>
+<td>fields</td>
+<td>array</td>
+<td>[]</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="table-fieldname">$TABLE &amp; $FIELDNAME</h2>
+
+<p>Das Framework unter dem FormBuilder, akzeptiert einfache Variablen. Alle oben genannten Optionen, können in allen Elementen verwendet werden.</p>
+
+<h2 id="subpaletten">Subpaletten</h2>
+
+<p>Diese Bezeichnung, kommt aus der Contao-Welt. Die Backendformulare werden alle via DCA (Data Container Array) generiert. Einige Eingabefelder, meist einzelne Checkboxen, können bei aktivierung sogenannte <code>Subpaletten</code> laden. Diese definieren weiter Felder, die zum Wohle der Benutzbarkeit und Übersichtlichkeit erst angezeigt werden, wenn dies erforderlich ist.</p>
+
+<p>Beispielsweise werden Eingabefelder wie <code>Empfänger</code> und <code>Betreff</code> erst benötigt, wenn unten die Checkbox <code>oxsendform</code> angehakt wird.</p>
+
+<p>Subpaletten, werden als DIV-Container unter dem Kontrollfeld dargestellt. Ein Javascript fügt dem HTML-Container dann eine CSS-Klasse hinzu, welche den Container einblendet.</p>
+
+<h3 id="beispiel-checkbox">Beispiel (Checkbox)</h3>
+
+<pre><code>[
+    'oxsendform' =&gt; ['oxreceiver', 'oxsubject', 'oxcontent', 'oxconfirm'],
+    'oxconfirm' =&gt; ['oxreceiver_confirm', 'oxsubject_confirm', 'oxcontent_confirm'],
+]
+</code></pre>
+
+<h3 id="beispiel-select">Beispiel (Select)</h3>
+
+<p>Select-Felder können nicht einfach nur nach &ldquo;Ist gesetzt&rdquo; geprüft werden, da jede Option einen eigenen Wert besitzt. Daher werden die Subpaletten-Namen aus Feldname und den möglichen Werten aus dem Select-Feld zusammengesetzt. Als Beispiel wird das Feld <code>oxvalidation</code> mit den Werten <code>email</code> und <code>nummeric</code> verwendet:</p>
+
+<pre><code>[
+    'oxvalidation_email' =&gt; ['oxconfirmfield']
+]
+</code></pre>
+
+<p>Der Wert <code>numeric</code> benötigt zur Zeit keine weiteren Subpaletten-Felder, daher wird dieser nicht angegeben. Der Wert <code>email</code> hingegen kann verwendet werden, um dieses Feld als <code>Absender-E-Mail-Adresse</code> zu verwenden. Ist also <code>oxconfirmfield</code> aktiviert und der Besucher tippt eine Valide E-Mail-Adresse in dieses Feld, wird diese Adresse für die Bestätigungs-E-Mail verwendet.</p>
+
+<h2 id="paletten">Paletten</h2>
+
+<p>Paletten definieren welche Eingabefelder ausgegeben werden sollen. Die Eingabefelder werden anhand der Reihenfolge in den Paletten sortiert.</p>
+
+<p>Ein Beispiel könnte wie folgt aussehen:</p>
+
+<pre><code>[
+    'default' =&gt; [
+        'action' =&gt; [
+            'fields' =&gt; ['oxsendform'],
+        ],
+        'default' =&gt; [
+            'class' =&gt; 'long',
+            'fields' =&gt; ['applyFields', 'oxtitle', 'oxhtmltemplate', 'oxaction'],
+        ],
+        'config' =&gt; [
+            'class' =&gt; 'long',
+            'fields' =&gt; ['oxcssclass'],
+        ],
+        'publish' =&gt; [
+            'class' =&gt; 'long',
+            'fields' =&gt; ['oxactive', 'oxactivefrom', 'oxactiveto'],
+        ],
+        'submit' =&gt; [
+            'fields' =&gt; ['submit'],
+        ],
+    ],
+]
+</code></pre>
+
+<p>Dieses Beispiel erzeugt eine Palette, welche den Namen <code>default</code> haben muss. Es werden fünf Fieldsets generiert.</p>
+
+<h2 id="eingabefelder-definieren">Eingabefelder definieren</h2>
+
+<p>Jedes Eingabefeld benötigt zwingend die Angabe, welchen Typ es entspricht. Als Eingabetypen wird eine der folgenden Optionen erwartet:</p>
+
+<ul>
+<li>text</li>
+<li>select</li>
+<li>checkbox</li>
+<li>radio</li>
+<li>textarea</li>
+<li>submit</li>
+<li>button</li>
+</ul>
+
+<p>Jeder Typ besitzt eine Reihe Attribute die zwingend erforderlich sind. Einige davon, werden durch die Formgenerator-Bibliothek automatisch ergänzt. Wird z.B. ein Feld mit dem Typ <code>text</code> und der Validierung <code>email</code> konfiguriert, erzeugt die Bibliothek den Code wie folgt:</p>
+
+<pre><code>&lt;input type=&quot;email&quot; name=&quot;editval[oxtablename__fieldname&quot;&gt;
+</code></pre>
+
+<h3 id="attribute">Attribute</h3>
+
+<p>Jedes Attribute, welches ein HTML-Eingabefeld haben kann, kann per Array angegeben werden.</p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Beispiel-Wert</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>type</td>
+<td>&lsquo;text&rsquo;</td>
+<td>Definiert, wie das Feld gerendert werden soll und wie Standardattribute automatisch behandelt werden sollen.</td>
+</tr>
+
+<tr>
+<td>required</td>
+<td>true</td>
+<td>Dieses Feld wird ein Pflichtfeld und das Label bekommt ein Asterisk-Zeichen angehängt.</td>
+</tr>
+
+<tr>
+<td>submitOnChange</td>
+<td>true</td>
+<td>Sobald <code>onchange</code> ausgelöst wird, sendet sich das Formular selbst ab</td>
+</tr>
+
+<tr>
+<td>valueColumn</td>
+<td>oxtype</td>
+<td>Gibt den Namen in der Tabelle an, welche anstelle des &ldquo;value&rdquo; Attributes verwendet werden soll.</td>
+</tr>
+
+<tr>
+<td>options</td>
+<td>[eins, zwei, drei]</td>
+<td>Optionen für Checkboxes, Selects und Radiobuttons</td>
+</tr>
+
+<tr>
+<td>attributes</td>
+<td>[]</td>
+<td>Feld für Data-Attribute und Javascripte</td>
+</tr>
+</tbody>
+</table>
+</article>
+
+      
+
+    </div>
+
+    
+  
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#formulare-definieren">Formulare definieren</a>
+<ul>
+<li><a href="#formular-optionen">Formular optionen</a></li>
+<li><a href="#table-fieldname">$TABLE &amp; $FIELDNAME</a></li>
+<li><a href="#subpaletten">Subpaletten</a>
+<ul>
+<li><a href="#beispiel-checkbox">Beispiel (Checkbox)</a></li>
+<li><a href="#beispiel-select">Beispiel (Select)</a></li>
+</ul></li>
+<li><a href="#paletten">Paletten</a></li>
+<li><a href="#eingabefelder-definieren">Eingabefelder definieren</a>
+<ul>
+<li><a href="#attribute">Attribute</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+</body>
+
+</html>

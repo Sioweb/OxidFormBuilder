@@ -28,7 +28,12 @@ class Form extends MultiLanguageModel
     {
         $this->load($oxid);
 
-        $this->ci_form__oxfieldconfig->rawValue = json_decode($this->ci_form__oxfieldconfig->rawValue, 1);
+        $FormFieldData = oxNew(\Ci\Oxid\FormBuilder\Form\Admin\Forms::class)->loadFieldConfig();
+        foreach($FormFieldData as $key => $fieldConfig) {
+            if(!empty($fieldConfig['json'])) {
+                $this->{'ci_form__' . $key}->rawValue = json_decode($this->{'ci_form__' . $key}->rawValue, 1);
+            }
+        }
 
         $FieldConfig = oxNew(ElementsModel::class);
         $FieldConfig = $FieldConfig->findByParent($oxid);

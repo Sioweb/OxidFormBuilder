@@ -106,7 +106,14 @@ class Element extends AdminDetailsController
                 $ElementModel->loadInLang(key($oOtherLang), $soxId);
             }
 
-            $ElementModel->ci_form_element__oxoptions->rawValue = json_decode($ElementModel->ci_form_element__oxoptions->rawValue, true);
+            $FormFieldData = oxNew(\Ci\Oxid\FormBuilder\Form\Admin\Elements::class)->loadFieldConfig();
+            foreach($FormFieldData as $key => $fieldConfig) {
+                if(!empty($fieldConfig['json'])) {
+                    $ElementModel->{'ci_form_element__' . $key}->rawValue = json_decode($ElementModel->{'ci_form_element__' . $key}->rawValue, 1);
+                }
+            }
+
+            // $ElementModel->ci_form_element__oxoptions->rawValue = json_decode($ElementModel->ci_form_element__oxoptions->rawValue, true);
 
             $this->_aViewData["edit"] = $ElementModel;
 

@@ -56,6 +56,10 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
     public function loadFieldConfig()
     {
         return [
+            'oxfieldconfig' => [
+                'type' => 'textarea',
+                'json' => true,
+            ],
             'oxtitle' => [
                 'type' => 'text',
                 'required' => true,

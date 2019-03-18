@@ -13,7 +13,7 @@ class Email extends Email_parent
     public function sendFormbuilderMail($FormData, $FieldData)
     {
         $this->sendFormbuilder2Owner($FormData, $FieldData);
-        if(!empty($FormData['confirm'])) {
+        if(!empty($FormData['oxconfirm'])) {
             $this->sendFormbuilder2Customer($FormData, $FieldData);
         }
     }
@@ -24,7 +24,7 @@ class Email extends Email_parent
 
         // create messages
         $evalSmartyContent = $this->_getSmarty();
-        $evalSmartyContent->assign('template', $FormData['content']);
+        $evalSmartyContent->assign('template', $FormData['oxcontent']);
         foreach ($FieldData as $field => $fieldData) {
             $evalSmartyContent->assign($field, $fieldData['value']);
         }
@@ -61,10 +61,10 @@ class Email extends Email_parent
         // Process view data array through oxoutput processor
         $this->_processViewArray();
 
-        $this->setBody($smarty->fetch($config->getTemplatePath('email/formbuilder/' . $FormData['htmltemplate'] . '.tpl', false)));
+        $this->setBody($smarty->fetch($config->getTemplatePath('email/formbuilder/' . $FormData['oxhtmltemplate'] . '.tpl', false)));
         $this->setAltBody($evalSmartyContent);
 
-        $this->setSubject($FormData['subject']);
+        $this->setSubject($FormData['oxsubject']);
 
         $this->setRecipient($shop->oxshops__oxowneremail->value, $language->translateString("order"));
 
@@ -96,7 +96,7 @@ class Email extends Email_parent
 
         // create messages
         $evalSmartyContent = $this->_getSmarty();
-        $evalSmartyContent->assign('template', $FormData['content_confirm']);
+        $evalSmartyContent->assign('template', $FormData['oxcontent_confirm']);
         foreach ($FieldData as $field => $fieldData) {
             $evalSmartyContent->assign($field, $fieldData['value']);
         }
@@ -133,14 +133,14 @@ class Email extends Email_parent
         // Process view data array through oxoutput processor
         $this->_processViewArray();
 
-        $this->setBody($smarty->fetch($config->getTemplatePath('email/formbuilder/customer/' . $FormData['htmltemplate'] . '.tpl', false)));
+        $this->setBody($smarty->fetch($config->getTemplatePath('email/formbuilder/customer/' . $FormData['oxhtmltemplate'] . '.tpl', false)));
         $this->setAltBody($evalSmartyContent);
 
-        $this->setSubject($FormData['subject_confirm']);
+        $this->setSubject($FormData['oxsubject_confirm']);
 
         $this->setRecipient($Receiver, $language->translateString("order"));
-        if (method_exists($this, 'addAttachmentFor')) {
-            $this->addAttachmentFor('sendFormbuilder2Customer');
+        if (method_exists($this, 'addAttachments')) {
+            $this->addAttachments($FormData['oxattachments']);
         }
 
         $result = $this->send();

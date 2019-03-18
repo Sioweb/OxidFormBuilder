@@ -40,8 +40,15 @@ class Form extends AdminDetailsController
             }
 
             $FormModel->ci_form__oxroutes->rawValue = json_decode($FormModel->ci_form__oxroutes->rawValue, true);
-            $FormModel->ci_form__oxfieldconfig->rawValue = json_decode($FormModel->ci_form__oxfieldconfig->rawValue, true);
-            $FormModel->ci_form__oxattachments->rawValue = json_decode($FormModel->ci_form__oxattachments->rawValue, true);
+            // $FormModel->ci_form__oxfieldconfig->rawValue = json_decode($FormModel->ci_form__oxfieldconfig->rawValue, true);
+            // $FormModel->ci_form__oxattachments->rawValue = json_decode($FormModel->ci_form__oxattachments->rawValue, true);
+
+            $FormFieldData = oxNew(\Ci\Oxid\FormBuilder\Form\Admin\Forms::class)->loadFieldConfig();
+            foreach($FormFieldData as $key => $fieldConfig) {
+                if(!empty($fieldConfig['json'])) {
+                    $FormModel->{'ci_form__' . $key}->rawValue = json_decode($FormModel->{'ci_form__' . $key}->rawValue, 1);
+                }
+            }
 
             if (empty($FormModel->ci_form__oxfieldconfig->rawValue)) {
                 $FormModel->ci_form__oxfieldconfig->rawValue = [

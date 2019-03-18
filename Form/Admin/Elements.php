@@ -168,7 +168,8 @@ class Elements implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\
                 'editable' => true,
             ],
             'oxoptions' => [
-                'type' => 'optionsWidget'
+                'type' => 'optionsWidget',
+                'json' => true
             ],
             'submit' => [
                 'name' => 'save',

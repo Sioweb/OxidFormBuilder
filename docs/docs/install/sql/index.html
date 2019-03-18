@@ -81,7 +81,7 @@ https://github.com/alex-shpak/hugo-book
 
 <h1 id="demo-daten">Demo-Daten</h1>
 
-<p>Fügen Sie diese SQL-Daten in Ihre Datenbank ein, um schnell zu testen.</p>
+<p>Diese Demo-Daten können verwendet werden, um Frontend-Formulare zu testen. <strong>Hinweis:</strong> Bitte ersetzen Sie die E-Mail-Adresse <code>example@example.tld</code> vorher durch ihre eigene E-Mail-Adresse. Die E-Mail-Adresse, kann hinterher auch im Backend geändert werden.</p>
 
 <pre><code>CREATE TABLE IF NOT EXISTS `ci_form` (
   `OXID` char(32) NOT NULL COMMENT 'Attachment id',
@@ -112,8 +112,8 @@ https://github.com/alex-shpak/hugo-book
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `ci_form` (`OXID`, `OXSHOPID`, `OXTITLE`, `OXCSSCLASS`, `OXACTIVE`, `OXACTIVEFROM`, `OXACTIVETO`, `OXSORT`, `OXTIMESTAMP`, `OXACTION`, `OXFIELDCONFIG`, `OXSENDFORM`, `OXRECEIVER`, `OXSUBJECT`, `OXCONTENT`, `OXALIAS`, `OXHTMLTEMPLATE`, `OXCONFIRM`, `OXRECEIVER_CONFIRM`, `OXSUBJECT_CONFIRM`, `OXCONTENT_CONFIRM`, `APPLYFIELDS`, `SUBMIT`) VALUES
-('1283195e8e6ef2df8205b982478aa33f', 1, 'Artikel anfrage', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-11 11:40:41', 'Formular-erfolgreich-abgesendet/', '[{\&quot;legend\&quot;:\&quot;\&quot;,\&quot;fields\&quot;:[\&quot;f0fe484a825e33de0106875a6e7f05a3\&quot;,\&quot;d28c63a3cd7853bef5d1c57ef2587c29\&quot;,\&quot;815c89d152bc07829844acc7d8d9bc9f\&quot;,\&quot;cabc7909e5ba9a58b322d19ca5ab5626\&quot;]}]', '1', 's.weidner@seipp.com', 'Anfrage zu einem Artikel', 'Interessent: [{ $email }]\r\n\r\nNachricht\r\n\r\n[{ $message }]', 'artikel-anfrage', 'artikel-anfrage', '1', '', 'Dies ist eine Bestätigungs-E-Mail', 'Lorem Ipsum', '', ''),
-('7cdf18f9830a5a355ed432d74a36c552', 1, 'Artikel nicht gefunden', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-01 13:25:07', 'Formular-erfolgreich-abgesendet/', '[{\&quot;legend\&quot;:\&quot;Adresse\&quot;,\&quot;fields\&quot;:[\&quot;06a6dfb826b76bcc11519b4ba2941919\&quot;,\&quot;0cc960edb7b9095ae1dab7d3eac135bc\&quot;]},{\&quot;legend\&quot;:\&quot;Kontakt\&quot;,\&quot;fields\&quot;:[\&quot;f0fe484a825e33de0106875a6e7f05a3\&quot;,\&quot;cabc7909e5ba9a58b322d19ca5ab5626\&quot;]}]', '', 's.weidner@seipp.com', 'Artikel nicht gefunden', 'Name: [{ $firstname }] [{ $lastname }]\r\n\r\nE-Mail: [{ $email }]', 'artikel-nicht-gefunden', 'artikel-nicht-gefunden', '', '', '', '', '', '');
+('1283195e8e6ef2df8205b982478aa33f', 1, 'Artikel anfrage', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-11 11:40:41', 'Formular-erfolgreich-abgesendet/', '[{\&quot;legend\&quot;:\&quot;\&quot;,\&quot;fields\&quot;:[\&quot;f0fe484a825e33de0106875a6e7f05a3\&quot;,\&quot;d28c63a3cd7853bef5d1c57ef2587c29\&quot;,\&quot;815c89d152bc07829844acc7d8d9bc9f\&quot;,\&quot;cabc7909e5ba9a58b322d19ca5ab5626\&quot;]}]', '1', 'example@example.tld', 'Anfrage zu einem Artikel', 'Interessent: [{ $email }]\r\n\r\nNachricht\r\n\r\n[{ $message }]', 'artikel-anfrage', 'artikel-anfrage', '1', '', 'Dies ist eine Bestätigungs-E-Mail', 'Lorem Ipsum', '', ''),
+('7cdf18f9830a5a355ed432d74a36c552', 1, 'Artikel nicht gefunden', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2019-03-01 13:25:07', 'Formular-erfolgreich-abgesendet/', '[{\&quot;legend\&quot;:\&quot;Adresse\&quot;,\&quot;fields\&quot;:[\&quot;06a6dfb826b76bcc11519b4ba2941919\&quot;,\&quot;0cc960edb7b9095ae1dab7d3eac135bc\&quot;]},{\&quot;legend\&quot;:\&quot;Kontakt\&quot;,\&quot;fields\&quot;:[\&quot;f0fe484a825e33de0106875a6e7f05a3\&quot;,\&quot;cabc7909e5ba9a58b322d19ca5ab5626\&quot;]}]', '', 'example@example.tld', 'Artikel nicht gefunden', 'Name: [{ $firstname }] [{ $lastname }]\r\n\r\nE-Mail: [{ $email }]', 'artikel-nicht-gefunden', 'artikel-nicht-gefunden', '', '', '', '', '', '');
 
 CREATE TABLE IF NOT EXISTS `ci_form_element` (
   `OXID` char(32) NOT NULL COMMENT 'Attachment id',

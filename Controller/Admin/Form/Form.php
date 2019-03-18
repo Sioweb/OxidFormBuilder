@@ -41,6 +41,7 @@ class Form extends AdminDetailsController
 
             $FormModel->ci_form__oxroutes->rawValue = json_decode($FormModel->ci_form__oxroutes->rawValue, true);
             $FormModel->ci_form__oxfieldconfig->rawValue = json_decode($FormModel->ci_form__oxfieldconfig->rawValue, true);
+            $FormModel->ci_form__oxattachments->rawValue = json_decode($FormModel->ci_form__oxattachments->rawValue, true);
 
             if (empty($FormModel->ci_form__oxfieldconfig->rawValue)) {
                 $FormModel->ci_form__oxfieldconfig->rawValue = [
@@ -162,6 +163,7 @@ class Form extends AdminDetailsController
             $Form->load($this->getEditObjectId());
         }
 
+
         if ($this->checkAccessToEditForm($Form) === true) {
             $Form->assign($this->getFormFormData());
             $Form->setLanguage($this->_iEditLang);
@@ -208,6 +210,13 @@ class Form extends AdminDetailsController
         if (empty($formData['ci_form__oxhtmltemplate'])) {
             $formData['ci_form__alias'] = $StringUtil->standardize($formData['ci_form__oxtitle']);
         }
+
+        foreach($formData as $key => &$value) {
+            if(is_array($value)) {
+                $value = json_encode($value);
+            }
+        }
+        unset($value);
 
         return $formData;
     }

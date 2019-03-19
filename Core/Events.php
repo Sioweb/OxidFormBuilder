@@ -85,7 +85,7 @@ class Events
             ['ci_form', 'OXCONFIRM', "varchar(255) NULL default ''"],
             ['ci_form', 'OXSUBJECT_CONFIRM', "varchar(255) NULL default ''"],
             ['ci_form', 'OXCONTENT_CONFIRM', "varchar(255) NULL default ''"],
-            ['ci_form', 'OXADDATTACHMENTS,', "varchar(255) NULL default ''"],
+            ['ci_form', 'OXADDATTACHMENTS', "varchar(255) NULL default ''"],
             ['ci_form', 'OXATTACHMENTS', "text NULL"],
 
             ['ci_form_element', 'OXID', "char(32) character set utf8 collate utf8_general_ci NOT NULL COMMENT 'Element id'"],

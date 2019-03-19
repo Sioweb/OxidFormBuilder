@@ -139,7 +139,7 @@ class Email extends Email_parent
         $this->setSubject($FormData['oxsubject_confirm']);
 
         $this->setRecipient($Receiver, $language->translateString("order"));
-        if (method_exists($this, 'addAttachments')) {
+        if (method_exists($this, 'addAttachments') && !empty($FormData['oxattachments'])) {
             $this->addAttachments($FormData['oxattachments']);
         }
 

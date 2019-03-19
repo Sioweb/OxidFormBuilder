@@ -1,5 +1,6 @@
 <div class="formbuilder-element formbuilder-element-checkbox[{if isset($outerclass)}] [{$outerclass}][{/if}]">
     [{ if $value|is_array}]
+    <input type="hidden" name="[{$nameRaw}]" value="0">
     [{if isset($label)}]<label for="[{$form.id}]_[{$id}]_0">[{$label}]</label>[{else}]<span class="nolabel">&nbsp;</span>[{/if}]
     <div class="formbuilder-element-checkbox-container">
         [{foreach from=$value item=optionSet key=optionIndex}]

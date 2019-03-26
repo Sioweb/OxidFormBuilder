@@ -18,19 +18,19 @@ $aModule = [
     'author' => 'Sascha Weidner',
     'extend'      => [
         \Ci\Oxid\MailAttachments\Controller\Admin\AttachmentsMain::class =>
-            \Ci\Oxid\FormBuilder\Controller\Admin\AttachmentsMain::class,
+            Ci\Oxid\FormBuilder\Controller\Admin\AttachmentsMain::class,
         \OxidEsales\Eshop\Core\UtilsView::class =>
-            \Ci\Oxid\FormBuilder\Core\Utilsview::class,
+            Ci\Oxid\FormBuilder\Core\Utilsview::class,
         \OxidEsales\Eshop\Core\Email::class =>
-            \Ci\Oxid\FormBuilder\Core\Email::class,
+            Ci\Oxid\FormBuilder\Core\Email::class,
         \OxidEsales\Eshop\Core\Module\Module::class =>
-            \Ci\Oxid\FormBuilder\Core\Module\Module::class,
+            Ci\Oxid\FormBuilder\Core\Module\Module::class,
         \OxidEsales\Eshop\Core\Module\ModuleInstaller::class =>
-            \Ci\Oxid\FormBuilder\Core\Module\ModuleInstaller::class,
+            Ci\Oxid\FormBuilder\Core\Module\ModuleInstaller::class,
         \OxidEsales\Eshop\Application\Controller\Admin\ModuleMain::class =>
-            \Ci\Oxid\FormBuilder\Controller\Admin\ModuleMain::class,
+            Ci\Oxid\FormBuilder\Controller\Admin\ModuleMain::class,
         \OxidEsales\Eshop\Core\Registry::class =>
-            \Ci\Oxid\FormBuilder\Core\Registry::class,
+            Ci\Oxid\FormBuilder\Core\Registry::class,
     ],
     'controllers' => [
         'formbuilder' => \Ci\Oxid\FormBuilder\Controller\Form::class,

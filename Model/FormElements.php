@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of FormBuilder for oxid.
+ *
+ * (c) Seipp Wohnen GmbH
+ */
+
 namespace Ci\Oxid\FormBuilder\Model;
 
 use Ci\Oxid\FormBuilder\Model\FormElement;

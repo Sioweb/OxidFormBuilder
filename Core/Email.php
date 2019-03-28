@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of FormBuilder for oxid.
+ *
+ * (c) Seipp Wohnen GmbH
+ */
+
 namespace Ci\Oxid\FormBuilder\Core;
 
 class Email extends Email_parent

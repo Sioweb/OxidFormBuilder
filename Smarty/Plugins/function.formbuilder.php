@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of FormBuilder for oxid.
+ *
+ * (c) Seipp Wohnen GmbH
+ */
+
 function smarty_function_formbuilder($params, &$smarty)
 {
     if (empty($params['oxid'])) {

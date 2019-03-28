@@ -1,8 +1,11 @@
 <?php
-/**
- * Copyright © OXID eSales AG. All rights reserved.
- * See LICENSE file for license details.
+
+/*
+ * This file is part of FormBuilder for oxid.
+ *
+ * (c) Seipp Wohnen GmbH
  */
+
 namespace Ci\Oxid\FormBuilder\Core\Routing\Module;
 
 use OxidEsales\Eshop\Core\Contract\ClassProviderStorageInterface;

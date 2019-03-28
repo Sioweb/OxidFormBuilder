@@ -1,4 +1,10 @@
 <?php
+
+/*
+ * This file is part of FormBuilder for oxid.
+ *
+ * (c) Seipp Wohnen GmbH
+ */
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.

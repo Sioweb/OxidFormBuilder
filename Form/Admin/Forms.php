@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of FormBuilder for oxid.
+ *
+ * (c) Seipp Wohnen GmbH
+ */
+
 namespace Ci\Oxid\FormBuilder\Form\Admin;
 
 class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib\Formgenerator\Core\SubpaletteInterface

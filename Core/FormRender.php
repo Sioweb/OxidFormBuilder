@@ -120,6 +120,7 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
         $Language = oxNew(Language::class);
         // echo "<pre>" . print_r($FieldData, true) . "</pre>";
         
+        
         if ($FieldData->label !== false && empty($FieldData->label)) {
             $FieldData->label = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId));
             if($FieldData->label === 'FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId)) {
@@ -128,11 +129,11 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
         } elseif (!empty($FieldData->label)) {
             if(!is_array($FieldData->label)) {
                 $translation = $Language->translateString($FieldData->label);
-                if($translation !== $FieldData->label) {
+                // if($translation !== $FieldData->label) {
                     $FieldData->label = $translation;
-                } else {
-                    unset($FieldData->label);
-                }
+                // } else {
+                //     unset($FieldData->label);
+                // }
             } else {
                 foreach($FieldData->label as &$translateString) {
                     $translation = $Language->translateString($translateString);

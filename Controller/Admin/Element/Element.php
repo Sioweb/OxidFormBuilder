@@ -140,6 +140,9 @@ class Element extends AdminDetailsController
                 if (!empty($ElementModel->{'ci_form_element__' . $name}->value)) {
                     $FormData['editval']['ci_form_element__' . $name] = $ElementModel->{'ci_form_element__' . $name}->value;
                 }
+                if(!empty($_POST['editval']['ci_form_element__' . $name])) {
+                    $FormData['editval']['ci_form_element__' . $name] = $_POST['editval']['ci_form_element__' . $name];
+                }
             }
 
             $Form->setFieldValues($FormData);

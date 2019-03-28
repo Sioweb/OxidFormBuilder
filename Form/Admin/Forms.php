@@ -35,14 +35,19 @@ class Forms implements \Sioweb\Lib\Formgenerator\Core\FormInterface, \Sioweb\Lib
     {
         return [
             'default' => [
+                'applyFields' => [
+                    'fields' => [
+                        'applyFields'
+                    ]
+                ],
+                'default' => [
+                    'class' => 'long',
+                    'fields' => ['oxtitle', 'oxhtmltemplate', 'oxaction'],
+                ],
                 'action' => [
                     'fields' => [
                         'oxsendform',
                     ],
-                ],
-                'default' => [
-                    'class' => 'long',
-                    'fields' => ['applyFields', 'oxtitle', 'oxhtmltemplate', 'oxaction'],
                 ],
                 'config' => [
                     'class' => 'long',

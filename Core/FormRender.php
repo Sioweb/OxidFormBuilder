@@ -124,8 +124,34 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
         };
         // set field config.forceLabel === true to load label
         $Language = oxNew(Language::class);
-        // echo "<pre>" . print_r($FieldData, true) . "</pre>";
         
+        if ($FieldData->legend !== false && empty($FieldData->legend)) {
+            $FieldData->legend = $Language->translateString('FORMBUILDER_LEGEND_' . strtoupper($FieldData->fieldId));
+            if($FieldData->legend === 'FORMBUILDER_LEGEND_' . strtoupper($FieldData->fieldId)) {
+                unset($FieldData->legend);
+            }
+        } elseif (!empty($FieldData->legend)) {
+            if(!is_array($FieldData->legend)) {
+                $translation = $Language->translateString($FieldData->legend);
+                // if($translation !== $FieldData->legend) {
+                    $FieldData->legend = $translation;
+                // } else {
+                //     unset($FieldData->legend);
+                // }
+            } else {
+                foreach($FieldData->legend as &$translateString) {
+                    $translation = $Language->translateString($translateString);
+                    if($translation !== $translateString) {
+                        $translateString = $translation;
+                    } else {
+                        $translateString = '';
+                    }
+                }
+                unset($translateString);
+                $FieldData->legend = array_filter($FieldData->legend);
+                $FieldData->legend = implode("\n", $FieldData->legend);
+            }
+        }
         
         if ($FieldData->label !== false && empty($FieldData->label)) {
             $FieldData->label = $Language->translateString('FORMBUILDER_LABEL_' . strtoupper($FieldData->fieldId));

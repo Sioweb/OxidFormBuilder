@@ -11,6 +11,27 @@
     margin-left: 2%;
 }
 
+.formbuilder-fieldset {
+    overflow: hidden;
+    transition: max-height .3s;
+}
+.formbuilder-fieldset[data-toggle="false"] {
+    max-height: 0;
+}
+
+.formbuilder-fieldset[data-toggle="true"] {
+    max-height: 4000px;
+}
+.formbuilder-fieldset[data-toggle] legend {
+    cursor: pointer;
+}
+
+.formbuilder-fieldset legend {
+    padding: 0 8px;
+    font-size: 16px;
+    user-select: none;
+}
+
 .formbuilder-fieldset,
 .formbuilder-fieldset * {
     box-sizing: border-box;

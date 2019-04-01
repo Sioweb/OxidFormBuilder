@@ -3,7 +3,7 @@
 
 	"use strict";
 
-	var pluginName = 'formbuilder_subpalette',
+	var pluginName = 'formbuilder_fieldset',
 		PluginClass;
 
 
@@ -11,10 +11,9 @@
 	$[pluginName + 'Default'] = {
 		container: window,
 		handler: {
-			checkable: '[type="checkbox"],[type="radio"]',
-			selectable: 'select'
-		},
-		toggleField: function(name, $formbuilderSubpaletteObject, defaultField) {}
+			element: '.formbuilder-fieldset',
+			legend: '.formbuilder-fieldset legend',
+		}
 	};
 
 	PluginClass = function () {
@@ -63,27 +62,6 @@
 		};
 
 		this.loaded = function () {
-			selfObj.item.change(function() {
-				selfObj.isVisible($(this));
-			});
-			selfObj.isVisible(selfObj.item);
-		};
-
-		this.isVisible = function($el) {
-			if($el.is(selfObj.handler.checkable)) {
-				selfObj.toggleField($el.is(':checked'), selfObj);
-				if($el.is(':checked')) {
-					$('[data-subpalette-container="' + $el.data('subpalette') + '"]').addClass('visible');
-				} else {
-					$('[data-subpalette-container="' + $el.data('subpalette') + '"]').removeClass('visible');
-				}
-			} else if ($el.is(selfObj.handler.selectable)) {
-				selfObj.toggleField($el.data('subpalette') + '_' + $el.val(), selfObj);
-				$('[data-subpalette-container="' + $el.data('subpalette') + '_' + $el.val() + '"]').addClass('visible');
-			} else {
-				selfObj.toggleField($el.data('subpalette') + '_' + $el.val(), selfObj, true);
-				$('[data-subpalette-container="' + $el.data('subpalette') + '_' + $el.val() + '"]').addClass('visible');
-			}
 		};
 	};
 

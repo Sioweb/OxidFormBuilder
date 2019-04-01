@@ -129,8 +129,6 @@
 </div>
 
 <!-- END new promotion button -->
-[{oxscript include="js/libs/jquery.min.js"}]
-[{oxscript include="js/libs/jquery-ui.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_options.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_subpalette.js"}]
@@ -143,7 +141,9 @@ jQuery.noConflict();
 
 
     if($('[data-subpalette]').length) {
-        $('[data-subpalette]').formbuilder_subpalette();
+		$('[data-subpalette]').each(function() {
+			$(this).formbuilder_subpalette();
+		});
     }
 
 	if($('.formbuilder-fieldconfig').length) {
@@ -156,8 +156,6 @@ jQuery.noConflict();
 				$('.formbuilder-unapplied-elements').addClass('visible');
 			},
 			dialogOpen: function($handler, $formbuilderObj) {
-				
-
 				if($handler.find('[data-subpalette]').length) {
 					$handler.find('[data-subpalette]').formbuilder_subpalette();
 				}

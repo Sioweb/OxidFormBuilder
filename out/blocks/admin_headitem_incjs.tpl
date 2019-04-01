@@ -1,2 +1,4 @@
 [{$smarty.block.parent}]
-[{*<script src="../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder.js"></script>*}]
+[{oxscript include="js/libs/jquery.min.js"}]
+[{oxscript include="js/libs/jquery-ui.min.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/formbuilder.js"}]

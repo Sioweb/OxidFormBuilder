@@ -8,4 +8,4 @@ Hier entwickel ich parallel ein experimentelles Beispielmodul, welches die Formu
 
 ## Lizenz & Kosten
 
-Dieses Projekt darf nicht kostenfrei weitergegeben werden. Wir behalten uns vor, bis zur Finanzierung der Eigenleistung eine Spende von 100€ zu verlangen. Sollten Sie Interesse an diesem Modul besitzen, wenden Sie sich bitte an support@sioweb.de
+Dieses Projekt darf nicht kostenfrei weitergegeben werden. Wir behalten uns vor, bis zur Finanzierung der Eigenleistung einen Betrag von 100€ + 19€ MwSt. zu verlangen. Sollten Sie Interesse an diesem Modul besitzen, wenden Sie sich bitte an support@sioweb.de

@@ -110,10 +110,25 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
                 $Language = oxNew(Language::class);
                 $options = [];
                 foreach ($this->data['value'] as $key => $optionSet) {
-                    $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']) . '_' . $optionSet['value'];
-                    $_translation = $Language->translateString($translationString);
-                    if (!empty($_translation) && $_translation !== $translationString) {
-                        $optionSet['value'] = $_translation;
+                    if (!is_array($optionSet['value'])) {
+                        $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']) . '_' . $optionSet['value'];
+                        $_translation = $Language->translateString($translationString);
+                        if($Language->isTranslated()) {
+                            $optionSet['value'] = $_translation;
+                        }
+                    } else {
+                        foreach ($optionSet['value'] as $type => &$value) {
+                            $_translation = $Language->translateString($value);
+                            if(!$Language->isTranslated()) {
+                                $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']) . '_' . $optionSet['value'];
+                                $_translation = $Language->translateString($translationString);
+                                if(!$Language->isTranslated()) {
+                                    $_translation = $value;
+                                }
+                            }
+
+                            $value = $_translation;
+                        }
                     }
 
                     array_push($options, $optionSet);

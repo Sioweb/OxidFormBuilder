@@ -38,6 +38,7 @@
 		FormBuilder.extend({
 			handler: {
 				fieldset: '.formbuilder-fieldset',
+				helpLabels: '.formbuilder-arrlabel-help',
 				toggleFieldset: '.formbuilder-fieldset[data-toggle] legend',
 			},
 			getHandler: function (handler) {
@@ -68,8 +69,6 @@
 
 		FormBuilder.init = function () {
 			$(function () {
-					
-				
 				if ($('form.formbuilder') === null) {
 					return;
 				}
@@ -85,6 +84,13 @@
 
 						$fieldset.attr('data-toggle', !$fieldset.data('toggle')).data('toggle', !$fieldset.data('toggle'));
 					});
+				}
+
+				if(FormBuilder.getHandler('helpLabels')) {
+					FormBuilder.getHandler('helpLabels').each(function() {
+						var $el = $(this);
+						$el.tooltip();
+					})
 				}
 			})
 		};

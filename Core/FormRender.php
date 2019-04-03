@@ -113,9 +113,13 @@ class FormRender extends \OxidEsales\Eshop\Core\Base implements \Sioweb\Lib\Form
                     if (!is_array($optionSet['value'])) {
                         $translationString = 'FORMBUILDER_VALUE_' . strtoupper($this->data['fieldId']) . '_' . $optionSet['value'];
                         $_translation = $Language->translateString($translationString);
-                        if($Language->isTranslated()) {
-                            $optionSet['value'] = $_translation;
+                        if(!$Language->isTranslated()) {
+                            $_translation = $Language->translateString($optionSet['value']);
+                            if(!$Language->isTranslated()) {
+                                $_translation = $optionSet['value'];
+                            }
                         }
+                        $optionSet['value'] = $_translation;
                     } else {
                         foreach ($optionSet['value'] as $type => &$value) {
                             $_translation = $Language->translateString($value);

@@ -1,6 +1,6 @@
 {
   "name": "cihaeuser/formbuilder",
-  "description": "Module bereinigen",
+  "description": "Formulargenerator for oxid 6 front- and backend.",
   "type": "oxideshop-module",
   "keywords": [
     "oxid",

@@ -57,9 +57,7 @@ class Email extends Email_parent
         // create messages
         $smarty = $this->_getSmarty();
 
-        foreach ($FormData as $key => $value) {
-            $this->setViewData($key, $value);
-        }
+        $this->setViewData('form', $FormData);
         foreach ($FieldData as $field => $element) {
             $this->setViewData($field, $element['value']);
         }
@@ -72,7 +70,13 @@ class Email extends Email_parent
 
         $this->setSubject($FormData['oxsubject']);
 
-        $this->setRecipient($shop->oxshops__oxowneremail->value, $language->translateString("order"));
+        $Receiver = $shop->oxshops__oxowneremail->value;
+
+        if (!empty($FormData['oxreceiver'])) {
+            $Receiver = $FormData['oxreceiver'];
+        }
+
+        $this->setRecipient($Receiver, $language->translateString("order"));
 
         $result = $this->send();
 

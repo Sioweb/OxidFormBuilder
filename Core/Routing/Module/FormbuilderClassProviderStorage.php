@@ -96,6 +96,10 @@ class FormbuilderClassProviderStorage implements ClassProviderStorageInterface
     private function formbuilderKeysToLowercase($formbuilders)
     {
         $result = [];
+        
+        if (empty($formbuilders)) {
+            return $result;
+        }
 
         foreach ($formbuilders as $formbuilderKey => $formbuilderClass) {
             $result[strtolower($formbuilderKey)] = $formbuilderClass;

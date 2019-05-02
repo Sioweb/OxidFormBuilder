@@ -18,6 +18,7 @@ class Events
     public static function onActivate()
     {
         $Database = DatabaseProvider::getDb();
+        $dbMetaDataHandler = oxNew(DbMetaDataHandler::class);
         $Database->execute("
             CREATE TABLE IF NOT EXISTS `ci_form` (
                 `OXID` char(32) character set utf8 collate utf8_general_ci NOT NULL COMMENT 'Form id',
@@ -125,13 +126,15 @@ class Events
             ['ci_form_element2form', '_OXOPTIONS', "text NULL COMMENT 'Options for select boxes, checkboxes and radiobuttons'"],
         ];
 
-        $dbMetaDataHandler = oxNew(DbMetaDataHandler::class);
+        $Export = [];
         foreach ($tableFields as $fieldData) {
             if (!$dbMetaDataHandler->fieldExists($fieldData[1], $fieldData[0])) {
-                $Database->execute(
-                    "ALTER TABLE `{$fieldData[0]}` ADD `{$fieldData[1]}` {$fieldData[2]};"
-                );
+                $Export[] = "ALTER TABLE `{$fieldData[0]}` ADD `{$fieldData[1]}` {$fieldData[2]};";
             }
+        }
+
+        if(!empty($Export)) {
+            $Database->execute(implode("\n", $Export));
         }
     }
 

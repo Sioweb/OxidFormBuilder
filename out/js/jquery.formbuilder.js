@@ -112,7 +112,7 @@
 				$item.each(function (index, input) {
 					var $input = $(input);
 					$input.attr('name', $input.attr('name').replace(/fieldset\[[0-9x]+\](.*)/, function (match, p1) {
-						return 'fieldset[' + key + ']' + p1;
+						return 'fieldset[' + key + ']' + p1.replace('[unapplied]', '[fields]');
 					}));
 				});
 			});
@@ -156,6 +156,7 @@
 					selfObj.resetForm();
 				});
 
+			
 			selfObj.getHandler('fieldConfigForm').dialog({
 				autoOpen: false,
 				minWidth: 500,

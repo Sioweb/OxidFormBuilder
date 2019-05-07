@@ -218,6 +218,7 @@ class Form extends AdminDetailsController
         $formData = $this->normalizeFormFormData($formData);
         $Fieldset = $request->getRequestEscapedParameter('fieldset');
         unset($Fieldset['x']);
+        // die('<pre>' . print_r($Fieldset, true));
         $formData['ci_form__oxfieldconfig'] = json_encode($Fieldset);
         $StringUtil = oxNew(StringUtil::class);
         if (empty($formData['ci_form__oxhtmltemplate'])) {

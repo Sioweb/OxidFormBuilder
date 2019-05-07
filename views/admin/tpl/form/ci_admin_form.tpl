@@ -129,6 +129,8 @@
 </div>
 
 <!-- END new promotion button -->
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery-ui.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_options.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_subpalette.js"}]
@@ -139,12 +141,11 @@
 jQuery.noConflict();
 (function($) {$(function() {
 
-
-    if($('[data-subpalette]').length) {
+	if($('[data-subpalette]').length) {
 		$('[data-subpalette]').each(function() {
 			$(this).formbuilder_subpalette();
 		});
-    }
+	}
 
 	if($('.formbuilder-fieldconfig').length) {
 		var $formBuilder = $('.formbuilder-fieldconfig').formbuilder({
@@ -152,7 +153,9 @@ jQuery.noConflict();
 			editFieldController: 'index.php?cl=ciadminformelementmain&fnc=elementEdit&force_admin_sid=' + $('[name="force_admin_sid"]').val() + '&stoken=' + $('[name="stoken"]').val(),
 			saveFieldController: 'index.php?cl=ciadminformelementmain&fnc=elementSave&oxformid=[{$oxid}]&force_admin_sid=' + $('[name="force_admin_sid"]').val() + '&stoken=' + $('[name="stoken"]').val(),
 			removeField: function($el, $formbuilderObj) {
-				var $element = $el.closest($formbuilderObj.handler.element).insertBefore('.formbuilder-unapplied-elements p');
+				var $element = $el.closest($formbuilderObj.handler.element).insertBefore('.formbuilder-unapplied-elements p'),
+					$input = $element.find('input');
+				$input.attr('name', $input.attr('name').replace('[fields]', '[unapplied]'));
 				$('.formbuilder-unapplied-elements').addClass('visible');
 			},
 			dialogOpen: function($handler, $formbuilderObj) {
@@ -161,9 +164,11 @@ jQuery.noConflict();
 				}
 			}
 		})[0].formbuilder;
+		/**/
 
 		[{include file="formbuilder_jquery_ui.tpl"}]
 
+		/**/
 		$('.formbuilder-unapplied-elements').sortable({
 			items: '.formbuilder-fieldconfig-element',
 			connectWith: '.formbuilder-fieldconfig .formbuilder-fieldconfig-elements',
@@ -184,6 +189,7 @@ jQuery.noConflict();
 				$formBuilder.resetForm();
 			}
 		});
+		/**/
 	}
 });})(jQuery);
 </script>

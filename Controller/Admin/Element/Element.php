@@ -21,7 +21,6 @@ class Element extends AdminDetailsController
 
     public function elementEdit()
     {
-
         $ElementConfig = new class() extends \Ci\Oxid\FormBuilder\Form\Admin\Elements
         {
             public function loadData()
@@ -146,8 +145,13 @@ class Element extends AdminDetailsController
             }
 
             $Form->setFieldValues($FormData);
+        } elseif (!empty($_POST['editval'])) {
+            foreach($_POST['editval'] as $name => $value) {
+                $FormData['editval'][$name] = $value;
+            }
+            $Form->setFieldValues($FormData);
         }
-
+        
         $Form->setFormData();
 
         $this->_aViewData["form"] = implode("\n", $Form->generate());

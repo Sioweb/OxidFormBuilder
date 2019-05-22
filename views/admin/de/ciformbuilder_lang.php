@@ -7,14 +7,15 @@ $aLang = [
     'ciadminform'                                       => 'Formulare',
     'ciadminformelements'                               => 'Formular Eingabefelder',
     'CI_FORM_ALL'                                       => 'Alle',
-    'TOOLTIPS_NEW_ATTACHMENT'                           => 'Neues Formular',
+    'TOOLTIPS_NEW_FORMBUILDER_FORM'                     => 'Neues Formular',
+    'TOOLTIPS_NEW_FORMBUILDER_ELEMENT'                  => 'Neues Eingabefeld',
     'tbclciadminformmain'                               => 'Stamm',
     'tbclciadminformelementmain'                        => 'Stamm',
     'tbclciadminformelement'                            => 'Eingabeelemente',
     'GENERAL_IMAGE'                                     => 'Bild',
     'GENERAL_ROUTE'                                     => 'Route wählen (Mehrfachauswahl)',
     'HELP_FORMS_STATICURLS'                             => 'Auf den ausgewählten Seiten, wird der Slider ausgegeben. Mehrfachauswahl mit STRG+Klick möglich',
-    'EDIT_FORM'                                         => 'Hotspots bearbeiten',
+    'EDIT_FORM'                                         => 'Formular bearbeiten',
 
     'CI_FORM_CODE'                                      => 'Template-Code',
     'CI_FORM_BANNER_CODE'                               => 'Slider-Code',
@@ -75,7 +76,7 @@ $aLang = [
     'FORMBUILDER_LABEL_OXCONFIRM_HELP'                  => 'Soll eine Bestätigungs-E-Mail an den Absender gesendet werden?',
     'FORMBUILDER_LABEL_OXSUBJECT_CONFIRM'               => 'Betreff Bestätigungs-E-Mail',
     'FORMBUILDER_LABEL_OXSUBJECT_CONFIRM_HELP'          => 'Bitte geben Sie den Betreff der Bestätigungs-E-Mail an',
-    'FORMBUILDER_LABEL_OXCONTENT_CONFIRM'               => 'Inhalt der BEstätigungs-E-Mail',
+    'FORMBUILDER_LABEL_OXCONTENT_CONFIRM'               => 'Inhalt der Bestätigungs-E-Mail',
     'FORMBUILDER_LABEL_OXCONTENT_CONFIRM_HELP'          => 'Bitte geben Sie hier den Text der E-Mail ein. Es werden Smartyvariablen in unterstützt.',
 
 

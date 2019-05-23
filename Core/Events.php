@@ -42,6 +42,7 @@ class Events
                 `OXCONFIRM` varchar(255) NULL default '',
                 `OXSUBJECT_CONFIRM` varchar(255) NULL default '',
                 `OXCONTENT_CONFIRM` varchar(255) NULL default '',
+                `OXRECEIVER_CONFIRM` varchar(255) NULL default '',
                 `OXCONTENT` text NULL,
                 PRIMARY KEY  (`OXID`),
                 index(`OXSORT`)

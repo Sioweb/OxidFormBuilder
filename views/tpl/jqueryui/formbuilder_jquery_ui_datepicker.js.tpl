@@ -3,7 +3,11 @@ $('[data-datepicker]').each(function() {
         datepicker = $el.data('datepicker');
     
     if(datepicker == '') {
-        datepicker = {};
+        datepicker = {
+            dateFormat: 'yy-mm-dd ',
+            timeFormat: 'HH:mm:ss',
+        };
     }
-    $el.datepicker(datepicker);
+    $el.datetimepicker(datepicker);
+    $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
 });

@@ -1,5 +1,8 @@
 [{$smarty.block.parent}]
 [{oxscript include="js/libs/jquery.min.js"}]
 [{oxscript include="js/libs/jquery-ui.min.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.polyfill.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery-ui-sliderAccess.js"}]
+[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery-ui-timepicker-addon.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery-ui.custom.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/formbuilder.js"}]

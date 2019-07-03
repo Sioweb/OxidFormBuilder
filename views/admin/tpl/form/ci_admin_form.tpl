@@ -129,8 +129,6 @@
 </div>
 
 <!-- END new promotion button -->
-[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.js"}]
-[{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery-ui.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_options.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_subpalette.js"}]

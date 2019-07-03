@@ -30,8 +30,6 @@
 </form>
 </div>
 
-[{oxscript include="js/libs/jquery.min.js"}]
-[{oxscript include="js/libs/jquery-ui.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_options.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.formbuilder_subpalette.js"}]
 

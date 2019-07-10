@@ -1,4 +1,5 @@
 [{$smarty.block.parent}]
+[{if isset($loadjquery) && $loadjquery}]
 [{oxscript include="js/libs/jquery.min.js"}]
 [{oxscript include="js/libs/jquery-ui.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery.polyfill.js"}]
@@ -6,3 +7,4 @@
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery-ui-timepicker-addon.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/jquery-ui.custom.min.js"}]
 [{oxscript include="../../../modules/ci-haeuser/FormBuilder/out/js/formbuilder.js"}]
+[{/if}]

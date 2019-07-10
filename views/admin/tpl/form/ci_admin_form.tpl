@@ -1,3 +1,4 @@
+[{assign var="loadjquery" value=true}]
 [{include file="headitem.tpl" title="GENERAL_ADMIN_TITLE"|oxmultilangassign}]
 
 [{ if $readonly }]

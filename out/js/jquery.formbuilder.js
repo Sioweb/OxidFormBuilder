@@ -1,4 +1,4 @@
-
+if(window['jQuery']) {
 (function ($) {
 
 	"use strict";
@@ -302,4 +302,4 @@
 
 		return returnElement[0];
 	};
-})(jQuery);
+})(jQuery);}

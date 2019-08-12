@@ -9,7 +9,7 @@
 /**
  * Metadata version
  */
-$sMetadataVersion = '2.0';
+$sMetadataVersion = '2.1';
 
 /**
  * Module information
@@ -25,8 +25,8 @@ $aModule = [
     'extend'      => [
         \Ci\Oxid\MailAttachments\Controller\Admin\AttachmentsMain::class =>
             Ci\Oxid\FormBuilder\Controller\Admin\AttachmentsMain::class,
-        \OxidEsales\Eshop\Core\UtilsView::class =>
-            Ci\Oxid\FormBuilder\Core\Utilsview::class,
+        // \OxidEsales\Eshop\Core\UtilsView::class =>
+        //     Ci\Oxid\FormBuilder\Core\Utilsview::class,
         \OxidEsales\Eshop\Core\Email::class =>
             Ci\Oxid\FormBuilder\Core\Email::class,
         \OxidEsales\Eshop\Core\Module\Module::class =>
@@ -37,6 +37,9 @@ $aModule = [
             Ci\Oxid\FormBuilder\Controller\Admin\ModuleMain::class,
         \OxidEsales\Eshop\Core\Registry::class =>
             Ci\Oxid\FormBuilder\Core\Registry::class,
+    ],
+    'smartyPluginDirectories' => [
+        'Smarty'
     ],
     'controllers' => [
         'formbuilder' => \Ci\Oxid\FormBuilder\Controller\Form::class,
@@ -67,6 +70,7 @@ $aModule = [
         'ci_admin_elements.tpl' => 'ci-haeuser/FormBuilder/views/admin/tpl/element/ci_admin_elements.tpl',
 
         'ci_formbuilder_form.tpl' => 'ci-haeuser/FormBuilder/views/tpl/smarty/ci_formbuilder_form.tpl',
+        'ci_formbuilder_form_buttons.tpl' => 'ci-haeuser/FormBuilder/views/tpl/smarty/ci_formbuilder_form_buttons.tpl',
         'ci_formbuilder_eval.tpl' => 'ci-haeuser/FormBuilder/views/tpl/smarty/ci_formbuilder_eval.tpl',
 
         'ci_forumbuilder_element_text.tpl' => 'ci-haeuser/FormBuilder/views/tpl/element/ci_forumbuilder_element_text.tpl',

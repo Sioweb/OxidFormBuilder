@@ -1,12 +1,10 @@
 {
   "name": "cihaeuser/formbuilder",
   "description": "Formulargenerator for oxid 6 front- and backend.",
-  "type": "oxideshop-module",
-  "keywords": [
-    "oxid",
-    "modules"
-  ],
-  "homepage": "https://www.seipp.com",
+  "type": "oxidkernel-module",
+  "version": "6.0.0",
+  "keywords": ["oxid","modules"],
+  "homepage": "https://gitlab.seidemann-web.com/ci-haeuser-module/formbuilder",
   "license": [
     "GPL-3.0-only"
   ],
@@ -15,17 +13,26 @@
       "blacklist-filter": [
         "documentation/**/*.*"
       ],
+      "source-directory": "./src/Resources/oxid",
       "target-directory": "ci-haeuser/FormBuilder"
     }
   },
   "require": {
-    "php": ">=7.0",
+    "php": "^7.0",
     "sioweb/formgenerator": "*",
-    "oxidprojects/dependency-injection": "*"
+    "oxidprojects/dependency-injection": "*",
+    "sioweb/ccevent-git": "*",
+    "oxid-community/symfony-kernel": "*"
   },
   "autoload": {
     "psr-4": {
-      "Ci\\Oxid\\FormBuilder\\": "../../../source/modules/ci-haeuser/FormBuilder/"
+      "Ci\\Oxid\\FormBuilder\\": "src/"
     }
+  },
+  "scripts": {
+    "package-scripts": [
+      "@config.localhost==1",
+      "Sioweb\\CCEvent\\Git\\Composer\\Git::init --repository=git@gitlab.seidemann-web.com:ci-haeuser-module/FormBuilder.git"
+    ]
   }
 }

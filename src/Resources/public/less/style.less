@@ -1,0 +1,105 @@
+[data-formbuilder] {
+    display: none;
+    &.visible {
+        display: block;
+    }
+}
+
+.ci-modal {
+    width: 100%;
+    position: fixed;
+    max-width: 592px;
+    &.loading .ui-modal-inner {
+        opacity: .4;
+    }
+    h2 {
+        margin: 0 0 10px;
+    }
+    .ui-modal-header {
+        margin-bottom: 30px;
+    }
+
+    .ui-modal-result {
+        padding: 10px;
+        background: #f5f5f5;
+
+        p {
+            margin: 0;
+            + p {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+.formbuilder {
+    .formbuilder-element {
+        font-size: 0;
+        > * {
+            font-size: 14px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        
+        + .formbuilder-element {
+            margin-top: 20px;
+        }
+        &.formbuilder-element-submit {
+            // padding-left: 150px;
+            float: right;
+        }
+    }
+
+    label {
+        width: 150px;
+        cursor: pointer;
+    }
+
+    select,
+    textarea,
+    input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]) {
+        width: 400px;
+        max-width: 100%;
+        padding: 7px 10px;
+        border: 1px solid #e7e7e7;
+    }
+    
+    input {
+        &[type="radio"],
+        &[type="checkbox"] {
+            margin: 0;
+            vertical-align: middle;
+            + label {
+                width: auto;
+                white-space: normal;
+                vertical-align: top;
+                max-width: calc(~"100% - 20px");
+            }
+        }
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+
+    sup {
+        color: red;
+        padding-left: 2px;
+    }
+
+    .formbuilder-element-radio-container,
+    .formbuilder-element-checkbox-container {
+        width: 400px;
+        max-width: 100%;
+    }
+
+    .formbuilder-element-radio-element,
+    .formbuilder-element-checkbox-element {
+        white-space: nowrap;
+    }
+    [name*="product_title"][readonly] {
+        padding: 0 !important;
+        border: 0 none !important;
+        pointer-events: none !important;
+    }
+}

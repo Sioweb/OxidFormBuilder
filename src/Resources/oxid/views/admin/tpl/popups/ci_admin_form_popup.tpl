@@ -46,7 +46,6 @@
             var aSelRows= YAHOO.oxid.container2.getSelectedRows();
             if ( aSelRows.length ) {
                 oParam = YAHOO.oxid.container2.getRecord(aSelRows[0]);
-                console.log(oParam._oData);
                 $('_attrname').innerHTML = oParam._oData._1;
                 $('form_element_1').value    = oParam._oData._0;
                 $('form_element_2').value    = oParam._oData._2;

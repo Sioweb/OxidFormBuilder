@@ -30,6 +30,26 @@
 				<h3>Formular in einem Template einbinden</h3>
 				[{literal}][{ formbuilder oxid="[{/literal}][{$oxid}][{literal}]" }][{/literal}]
 			</div>
+			<div style="margin-top:20px;" class="formbuilder-element-raw">
+				<h3>Formular CMS Title-ID</h3>
+				[{assign var="cmsID" value="Formbuilder::$oxid::title"}]
+				<p>
+					<div style="width: 410px;display:inline-block">MD5(Formbuilder::[{$oxid}]::title)</div>
+					<div style="width: 30px;display:inline-block">=</div>
+					<strong>[{$cmsID|md5}]</strong>
+				</p>
+				<p style="color: #999;display: block;margin: 3px 0 0;font-size: 11px;">Füge diese ID als INDENT als CMS-Text ein, damit dessen CMS-Text als Titel des Formulars ausgegeben wird.</p>
+			</div>
+			<div style="margin-top:20px;" class="formbuilder-element-raw">
+				<h3>Formular CMS Absatz-ID</h3>
+				[{assign var="cmsID" value="Formbuilder::$oxid::content"}]
+				<p>
+					<div style="width: 410px;display:inline-block">MD5(Formbuilder::[{$oxid}]::content)</div>
+					<div style="width: 30px;display:inline-block">=</div>
+					<strong>[{$cmsID|md5}]</strong>
+				</p>
+				<p style="color: #999;display: block;margin: 3px 0 0;font-size: 11px;">Füge diese ID als INDENT als CMS-Text ein, damit dessen CMS-Text als Absatz, unter der Überschrift des Formulars, ausgegeben wird.</p>
+			</div>
 		</div>
 		[{/if}]
 		[{$form}]
